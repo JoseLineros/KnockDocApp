@@ -16,6 +16,7 @@ app.use(morgan('dev'));
 app.use(cors());
 
 app.use('/users', require('./routes/user.routes'));
+app.use('/ips', require('./routes/ips.routes'));
 app.use('/auth', require('./routes/auth.routes'));
 
 app.listen(port, () => {

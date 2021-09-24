@@ -45,11 +45,12 @@ usersControllers.createUser = async (req, res) => {
         const userExists = await User.findOne({ email });
         if (userExists) {
             res.status(400).json({ message: 'email ya existe' });
+            return;
         }
-
         const userDNI = await User.findOne({ identificacion });
         if (userDNI) {
             res.status(400).json({ message: 'identificacion ya existe' });
+            return;
         }
 
         const newUser = new User({ identificacion, nombre, apellidos, fechaNacimiento, ciudad, direccion, celular, email, password, role });
