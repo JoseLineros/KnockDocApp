@@ -9,7 +9,7 @@ const Validator = require('../middlewares/verifyToken');
 
 // ROUTES
 router.post('/createIps', Validator.verifyToken, ipsControllers.createIps);
-router.get('/getAllIps', Validator.verifyToken, ipsControllers.getAllIps);
+router.get('/getAllIps', ipsControllers.getAllIps);
 router.get('/getIpsById/:id', Validator.verifyToken, ipsControllers.getIpsById);
 router.put('/updateIps/:id', Validator.verifyToken, ipsControllers.updateIps);
 router.delete('/deleteIps/:id', Validator.verifyToken, ipsControllers.deleteIps);
