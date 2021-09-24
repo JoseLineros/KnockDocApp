@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const userSchema = new Schema(
+const DoctorSchema = new Schema(
     {
         identificacion: { type: String, required: true },
         nombre: { type: String, required: true },
@@ -9,13 +9,14 @@ const userSchema = new Schema(
         ciudad: { type: String, required: true },
         direccion: { type: String, required: true },
         celular: { type: String, required: true },
+        ipsAsociado: {type: String, required: true},
         email: { type: String, required: true },
         password: { type: String, required: true },
-        role: { type: String, required: true },
+        role: { type: Number, required: true },
     },
     {
         timestamps: true,
         versionKey: false,
     }
 );
-module.exports = model('users', userSchema);
+module.exports = model('doctors', DoctorSchema);

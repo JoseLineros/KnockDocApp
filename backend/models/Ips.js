@@ -2,8 +2,8 @@ const { Schema, model } = require('mongoose');
 
 const ipsSchema = new Schema(
     {
-        identificacion: { type: String, require: true },
-        razonSocial: { type: String, require: true },
+        identificacion: { type: String, required: true },
+        razonSocial: { type: String, required: true },
     },
     {
         timestamps: true,
