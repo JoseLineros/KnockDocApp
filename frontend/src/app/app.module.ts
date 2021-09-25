@@ -16,6 +16,9 @@ import { AdminComponent } from './components/admin/admin.component';
 import { Error404Component } from './components/error404/error404.component';
 import { RegisterPatientComponent } from './components/register-patient/register-patient.component';
 import { RegisterDoctorComponent } from './components/register-doctor/register-doctor.component';
+import { ContainerComponent } from './components/container/container.component';
+import { ContainerNavbarComponent } from './components/container/container-navbar/container-navbar.component';
+import { ContainerSidebarComponent } from './components/container/container-sidebar/container-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { RegisterDoctorComponent } from './components/register-doctor/register-d
     Error404Component,
     RegisterPatientComponent,
     RegisterDoctorComponent,
+    ContainerComponent,
+    ContainerNavbarComponent,
+    ContainerSidebarComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [

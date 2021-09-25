@@ -8,6 +8,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { Error404Component } from './components/error404/error404.component';
 import { RegisterPatientComponent } from './components/register-patient/register-patient.component';
 import { RegisterDoctorComponent } from './components/register-doctor/register-doctor.component';
+import { ContainerComponent } from './components/container/container.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'registerPatient', component: RegisterPatientComponent },
   { path: 'registerDoctor', component: RegisterDoctorComponent },
+  { path: 'container', component: ContainerComponent },
   { path: '**', component: Error404Component },
 ];
 
