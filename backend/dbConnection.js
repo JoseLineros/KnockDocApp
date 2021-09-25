@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // const URL = 'mongodb://localhost:27017/knockDoc';
-const URL = 'mongodb+srv://admin:Admin123@cluster0.pyeql.mongodb.net/empresaDB?retryWrites=true&w=majority';
+const URL = 'mongodb+srv://admin:knockdoc123@cluster0.hiq8w.mongodb.net/knockDoc?retryWrites=true&w=majority';
 
 mongoose
     .connect(URL, { useNewUrlParser: true, useUnifiedTopology: true })
