@@ -118,9 +118,11 @@
               id="ips"
               name="ips"
               class="form-control"
-              *ngFor="let ips of this.ipsService.ips"
             >
-              <option value="{{ ips.identificacion }}">
+              <option
+                *ngFor="let ips of this.ipsService.ips"
+                value="{{ ips.identificacion }}"
+              >
                 {{ ips.razonSocial }}
               </option>
             </select>
