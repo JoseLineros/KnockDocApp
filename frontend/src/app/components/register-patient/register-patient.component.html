@@ -35,6 +35,10 @@
                   class="form-control"
                   id="identificacion"
                   name="identificacion"
+                  aria-describedby="identificacion"
+                  placeholder="Ingrese su identificacion"
+                  required
+                  autofocus
                 />
               </div>
 
@@ -47,6 +51,9 @@
                   class="form-control"
                   id="nombre"
                   name="nombre"
+                  aria-describedby="nombre"
+                  placeholder="nombre"
+                  required
                 />
               </div>
 
@@ -59,6 +66,9 @@
                   class="form-control"
                   id="apellidos"
                   name="apellidos"
+                  aria-describedby="apellidos"
+                  placeholder="Ingrese sus apellidos"
+                  required
                 />
               </div>
 
@@ -71,6 +81,9 @@
                   class="form-control"
                   id="fechaNacimiento"
                   name="fechaNacimiento"
+                  aria-describedby="fechaNacimiento"
+                  placeholder="Seleccione Fecha de nacimiento"
+                  required
                 />
               </div>
 
@@ -83,6 +96,9 @@
                   class="form-control"
                   id="ciudad"
                   name="ciudad"
+                  aria-describedby="ciudad"
+                  placeholder="Ciudad"
+                  required
                 />
               </div>
 
@@ -95,6 +111,9 @@
                   class="form-control"
                   id="direccion"
                   name="direccion"
+                  aria-describedby="direccion"
+                  placeholder="Direccion"
+                  required
                 />
               </div>
 
@@ -107,6 +126,9 @@
                   class="form-control"
                   id="celular"
                   name="celular"
+                  aria-describedby="celular"
+                  placeholder="Celular"
+                  required
                 />
               </div>
 
@@ -119,6 +141,9 @@
                   class="form-control"
                   id="email"
                   name="email"
+                  aria-describedby="email"
+                  placeholder="Escriba su email"
+                  required
                 />
               </div>
               <div class="form-group">
@@ -130,12 +155,16 @@
                   class="form-control"
                   id="password"
                   name="password"
+                  aria-describedby="password"
+                  placeholder="Escriba su contraseña"
+                  required
                 />
               </div>
+
               <div class="form-group">
                 <label for="password">Repetir Contraseña</label>
                 <input
-                  type="password"
+                  type="text"
                   class="form-control bg-light"
                   id="password2"
                   aria-describedby="password2"
@@ -143,16 +172,18 @@
                   required
                 />
               </div>
+
               <div class="form-group">
                 <label for="role">Rol del usuario</label>
                 <input
                   #name="ngModel"
                   [(ngModel)]="userService.selectedUser.role"
-                  type="number"
+                  type="hidden"
                   class="form-control"
                   id="role"
                   name="role"
                   min="1"
+                  value="2"
                 />
               </div>
 

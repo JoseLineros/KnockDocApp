@@ -15,7 +15,6 @@ export class DoctorService {
     this.selectedDoctor = new Doctor();
   }
 
-
   // Signin
   signin(doctor: Doctor) {
     console.log(`${this.URL_API}/doctors/signin`);
@@ -23,7 +22,7 @@ export class DoctorService {
   }
 
   // Create doctor
-  createUser(doctor: Doctor) {
+  createDoctor(doctor: Doctor) {
     console.log(`${this.URL_API}/doctors/createDoctor`);
     return this.http.post(`${this.URL_API}/doctors/createDoctor`, doctor);
   }

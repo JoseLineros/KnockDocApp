@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/User';
+import { Auth } from 'src/app/models/Auth';
 import { UserService } from 'src/app/services/user/user.service';
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -11,12 +13,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
-  constructor(public userService: UserService, public router: Router) {}
+  constructor(public userService: UserService, public authService:AuthService, public router: Router) {}
 
   ngOnInit(): void {}
 
   signin(userLogged: NgForm) {
-    this.userService.signin(userLogged.value).subscribe(
+    this.authService.signin(userLogged.value).subscribe(
       (res) => {
         console.log(res);
         //! LocalStorage
