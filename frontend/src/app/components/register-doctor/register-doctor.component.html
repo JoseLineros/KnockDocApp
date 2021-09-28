@@ -3,7 +3,7 @@
     <div class="col-12 col-lg-6 py-5">
       <div class="d-flex align-items-center justify-content-center">
         <img
-          src="./assets/img/docForm.svg"
+          src="/assets/img/docForm.svg"
           width="500"
           height="1200"
           alt=""
@@ -19,7 +19,10 @@
       </h2>
 
       <div id="scroll">
-        <form action="login.php" method="POST">
+        <form
+          #createForm="ngForm"
+          (ngSubmit)="createForm.form.valid && createDoctor(createForm)"
+        >
           <div class="form-group">
             <label for="identificacion">Identificacion</label>
             <input
@@ -43,6 +46,7 @@
               type="text"
               class="form-control bg-light"
               id="nombre"
+              name="nombre"
               aria-describedby="nombre"
               placeholder="Ingrese su nombre"
               required
@@ -60,6 +64,21 @@
               name="apellidos"
               aria-describedby="apellidos"
               placeholder="Ingrese sus apellidos"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="fechaNacimiento">Fecha Nacimiento</label>
+            <input
+              #name="ngModel"
+              [(ngModel)]="doctorService.selectedDoctor.fechaNacimiento"
+              type="date"
+              class="form-control bg-light"
+              id="fechaNacimiento"
+              name="fechaNacimiento"
+              aria-describedby="fechaNacimiento"
+              placeholder="Ingrese su fecha de Nacimiento"
               required
             />
           </div>
@@ -119,6 +138,7 @@
               name="ips"
               class="form-control"
             >
+              <option value="">Seleccione</option>
               <option
                 *ngFor="let ips of this.ipsService.ips"
                 value="{{ ips.identificacion }}"
@@ -133,7 +153,7 @@
             <input
               #name="ngModel"
               [(ngModel)]="doctorService.selectedDoctor.email"
-              type="text"
+              type="email"
               class="form-control bg-light"
               id="email"
               name="email"
@@ -148,7 +168,7 @@
             <input
               #name="ngModel"
               [(ngModel)]="doctorService.selectedDoctor.password"
-              type="text"
+              type="password"
               class="form-control bg-light"
               id="password"
               name="password"
