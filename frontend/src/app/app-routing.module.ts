@@ -11,9 +11,9 @@ import { RegisterDoctorComponent } from './components/register-doctor/register-d
 import { ContainerComponent } from './components/container/container.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/signin', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'signin', component: SigninComponent },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
   { path: 'signup', component: SignupComponent },
   { path: 'registerPatient', component: RegisterPatientComponent },
