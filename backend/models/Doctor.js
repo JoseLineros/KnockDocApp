@@ -11,6 +11,7 @@ const DoctorSchema = new Schema(
         celular: { type: String, required: true },
         ipsAsociado: {type: String, required: true},
         especialidad: {type: String, required: true},
+        tp: {type: String, required: true},
         email: { type: String, required: true },
         password: { type: String, required: true },
         role: { type: Number, required: true },
