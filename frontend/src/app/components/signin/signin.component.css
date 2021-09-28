@@ -1,0 +1,31 @@
+.size-title {
+  font-size: 2.2rem;
+}
+
+.card-header {
+  border-bottom: none !important;
+}
+
+.content-login {
+  margin: 0 auto;
+  width: 80%!important;
+  height: 90vh;
+}
+
+.content-right {
+  background: rgba(240, 240, 240, 0.8);
+}
+
+.img-login {
+  width: 320px;
+}
+
+.height-all {
+  height: 100vh;
+}
+
+.align-vertical {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,36 +1,63 @@
-<div class="container mt-5 d-flex justify-content-center">
-  <div class="card w-50 border-0 mt-5">
-    <div class="card-header bg-primary text-white border-0">
-      Iniciar Sesi&oacute;n
+<div class="container-fluid">
+  <div class="row height-all">
+    <div class="col-12 col-lg-8 d-flex justify-content-center align-items-center">
+      <!-- <app-navbar></app-navbar> -->
+      <div class="card border-0 w-50">
+        <div class="card-header size-title bg-white font-weight-bold">
+          Ingresa sesión
+        </div>
+        <p class="font-italic my-3 ml-3">
+          Ingrese sus credenciales para acceder al sitio
+        </p>
+        <div class="card-body border-1">
+          <form
+            #loginForm="ngForm"
+            (ngSubmit)="loginForm.form.valid && signin(loginForm)"
+          >
+            <div class="form-group">
+              <label for="email" class="font-weight-bold">Email</label>
+              <input
+                #name="ngModel"
+                [(ngModel)]="userService.selectedUser.email"
+                type="text"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="Ingrese su email"
+                required
+                autofocus
+              />
+            </div>
+            <div class="form-group">
+              <label for="password" class="font-weight-bold">Contraseña</label>
+              <input
+                #name="ngModel"
+                [(ngModel)]="userService.selectedUser.password"
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                placeholder="Ingrese su contraseña"
+                required
+              />
+              <small id="emailHelp" class="form-text text-muted"
+                >La contraseña debe contener minimo 8 caracteres</small
+              >
+            </div>
+            <button class="btn btn-primary w-100 mt-3">
+              Iniciar Sesi&oacute;n
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
-    <div class="card-body border-0 shadow">
-      <form #loginForm="ngForm">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            #name="ngModel"
-            [(ngModel)]="userService.selectedUser.email"
-            type="text"
-            class="form-control"
-            id="email"
-            name="email"
-          />
+
+    <div class="col-12 col-lg-4 content-right">
+      <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+        <div class="content-img">
+          <img src="assets/img/medicLogin.png" alt="" class="img-login" />
         </div>
-        <div class="form-group">
-          <label for="password">Contraseña</label>
-          <input
-            #name="ngModel"
-            [(ngModel)]="userService.selectedUser.password"
-            type="password"
-            class="form-control"
-            id="password"
-            name="password"
-          />
-        </div>
-        <button class="btn btn-success" (click)="signin(loginForm)">
-          Iniciar Sesi&oacute;n
-        </button>
-      </form>
+      </div>
     </div>
   </div>
 </div>
