@@ -140,10 +140,11 @@
               name="ips"
               class="form-control"
             >
-              <option value="">Seleccione</option>
+              <option value="" class="form-control bg-light">Seleccione</option>
               <option
                 *ngFor="let ips of this.ipsService.ips"
                 value="{{ ips.identificacion }}"
+                class="form-control bg-light"
               >
                 {{ ips.razonSocial }}
               </option>

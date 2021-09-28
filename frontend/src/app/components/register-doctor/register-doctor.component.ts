@@ -3,6 +3,7 @@ import { Doctor } from 'src/app/models/Doctor';
 import { DoctorService } from 'src/app/services/doctor/doctor.service';
 import { IpsService } from 'src/app/services/ips/ips.service';
 import { NgForm } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register-doctor',
@@ -26,5 +27,17 @@ export class RegisterDoctorComponent implements OnInit {
     });
   }
 
-  createDoctor(doctor:NgForm) {}
+  createDoctor(doctor: NgForm) {
+    this.doctorService.createUser(doctor.value).subscribe((res) => {
+      // alert('Apartamento Creado');
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Doctor Guardado',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      console.log(res);
+    });
+  }
 }
