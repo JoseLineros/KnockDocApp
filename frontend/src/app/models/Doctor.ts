@@ -9,6 +9,7 @@ export class Doctor {
     public direccion: string = '',
     public celular: string = '',
     public ipsAsociado: string = '',
+    public tp: string = '',
     public email: string = '',
     public password: string = '',
     public role: number = 0
