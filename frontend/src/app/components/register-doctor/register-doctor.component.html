@@ -117,8 +117,8 @@
             <label for="tp">Tarjeta Profesional</label>
             <input
               #name="ngModel"
-              [(ngModel)]="doctorService.selectedDoctor.celular"
-              type="text"
+              [(ngModel)]="doctorService.selectedDoctor.tp"
+              type="number"
               class="form-control bg-light"
               id="tp"
               name="tp"
@@ -133,6 +133,8 @@
             <select
               #name="ngModel"
               [(ngModel)]="doctorService.selectedDoctor.ipsAsociado"
+              type="number"
+              class="form-control bg-light"
               name="ips"
               id="ips"
               name="ips"
