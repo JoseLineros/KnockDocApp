@@ -137,21 +137,6 @@
           </div>
 
           <div class="form-group">
-            <label for="fechaNacimiento">Fecha Nacimiento</label>
-            <input
-              #name="ngModel"
-              [(ngModel)]="doctorService.selectedDoctor.fechaNacimiento"
-              type="date"
-              class="form-control bg-light"
-              id="fechaNacimiento"
-              name="fechaNacimiento"
-              aria-describedby="fechaNacimiento"
-              placeholder="Ingrese su fecha de Nacimiento"
-              required
-            />
-          </div>
-
-          <div class="form-group">
             <label for="direccion">Dirección</label>
             <input
               formControlName="direccion"
@@ -332,6 +317,6 @@
 <div class="SignIn">
   <h6 class="text-dark"> ¿Ya tienes una cuenta? </h6>
   <a routerLink="/signin">
-  <h6 style="margin-left: 15px;"> Inicia Sesión aquí </h6> 
+  <h6 style="margin-left: 15px;"> Inicia Sesión aquí </h6>
   </a>
 </div>
