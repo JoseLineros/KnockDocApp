@@ -4,3 +4,22 @@
     display: flex;
     align-items: center;
 }
+
+.SignIn{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: -140px;
+    margin-bottom: 105px;
+}
+
+a{
+    color: #458ff6;
+    transition: 0.3s;
+}
+
+a:hover{
+    color: #e869b8;
+    text-decoration: none;
+
+}

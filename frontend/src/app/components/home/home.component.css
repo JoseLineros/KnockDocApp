@@ -1,2 +1,27 @@
 
+.saberMas {
+	background-color: var(--primary);
+	color: white;
+	font-weight: 600;
+	border-radius: 50px;
+	border: 1px solid var(--primary);
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	-ms-border-radius: 50px;
+	-o-border-radius: 50px;
+	font-size: 12px;
+}
+.saberMas:hover {
+	background-color: white;
+	border: 1px solid var(--primary);
+	color: var(--primary);
+	font-weight: 700;
+}
 
+a{
+    color: white;
+}
+
+a:hover{
+    color: var(--primary);
+}

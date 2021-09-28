@@ -14,8 +14,9 @@
     </div>
 
     <div class="col-12 col-lg-6 py-5">
-      <h2 class="text-primary">
-        Formulario de Registro <small>(Usuario)</small>
+      <h2>
+        Bienvenido <br>
+        <small class="font-italic">Por favor ingrese todos los datos</small>
       </h2>
 
       <div id="scroll">
@@ -26,7 +27,7 @@
               (ngSubmit)="registerForm.form.valid && signup(registerForm)"
             >
               <div class="form-group">
-                <label for="identificacion">Identificacion</label>
+                <label for="identificacion">Numero de Identificacion</label>
                 <input
                   #name="ngModel"
                   [(ngModel)]="userService.selectedUser.identificacion"
@@ -66,7 +67,7 @@
                 <input
                   #name="ngModel"
                   [(ngModel)]="userService.selectedUser.fechaNacimiento"
-                  type="text"
+                  type="date"
                   class="form-control"
                   id="fechaNacimiento"
                   name="fechaNacimiento"
@@ -132,6 +133,17 @@
                 />
               </div>
               <div class="form-group">
+                <label for="password">Repetir Contraseña</label>
+                <input
+                  type="password"
+                  class="form-control bg-light"
+                  id="password2"
+                  aria-describedby="password2"
+                  placeholder="Ingrese su contraseña nuevamente"
+                  required
+                />
+              </div>
+              <div class="form-group">
                 <label for="role">Rol del usuario</label>
                 <input
                   #name="ngModel"
@@ -143,30 +155,13 @@
                   min="1"
                 />
               </div>
-              <div class="form-group">
-                <label for="password">Repetir Contraseña</label>
-                <input
-                  type="text"
-                  class="form-control bg-light"
-                  id="password2"
-                  aria-describedby="password2"
-                  placeholder="Ingrese su contraseña nuevamente"
-                  required
-                />
-              </div>
 
               <div class="mt-2">
                 <button
                   type="submit"
                   class="btn btn-primary w-100 mb-2 rounded-pill"
                 >
-                  <!-- (click)="signup(registerForm)" -->
-                  Registrarse!
-                </button>
-                <a routerLink="/signin">
-                  <span class="text-dark"> ¿Ya tienes una cuenta? </span>
-                  <span class="text-primary">Inicia Sesion Aquí</span>
-                </a>
+              </button>
               </div>
             </form>
           </div>
@@ -174,4 +169,11 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="SignIn">
+  <h6 class="text-dark"> ¿Ya tienes una cuenta? </h6>
+  <a routerLink="/signin">
+  <h6 style="margin-left: 15px;"> Inicia Sesión aquí </h6> 
+  </a>
 </div>

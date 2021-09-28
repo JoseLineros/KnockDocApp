@@ -3,7 +3,7 @@
     <div class="col-12 col-lg-6 py-5">
       <div class="d-flex align-items-center justify-content-center">
         <img
-          src="./assets/img/docForm.svg"
+          src="/assets/img/docForm.svg"
           width="500"
           height="1200"
           alt=""
@@ -14,12 +14,16 @@
     </div>
 
     <div class="col-12 col-lg-6 py-5">
-      <h2 class="text-primary">
-        Formulario de Registro <small>(Especialista)</small>
+      <h2 style="margin-bottom: 20px; margin-top: -50px;">
+        Bienvenido <br>
+        <small class="font-italic">Por favor ingrese todos los datos</small>
       </h2>
 
       <div id="scroll">
-        <form action="login.php" method="POST">
+        <form
+          #createForm="ngForm"
+          (ngSubmit)="createForm.form.valid && createDoctor(createForm)"
+        >
           <div class="form-group">
             <label for="identificacion">Identificacion</label>
             <input
@@ -43,6 +47,7 @@
               type="text"
               class="form-control bg-light"
               id="nombre"
+              name="nombre"
               aria-describedby="nombre"
               placeholder="Ingrese su nombre"
               required
@@ -60,6 +65,21 @@
               name="apellidos"
               aria-describedby="apellidos"
               placeholder="Ingrese sus apellidos"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="fechaNacimiento">Fecha Nacimiento</label>
+            <input
+              #name="ngModel"
+              [(ngModel)]="doctorService.selectedDoctor.fechaNacimiento"
+              type="date"
+              class="form-control bg-light"
+              id="fechaNacimiento"
+              name="fechaNacimiento"
+              aria-describedby="fechaNacimiento"
+              placeholder="Ingrese su fecha de Nacimiento"
               required
             />
           </div>
@@ -98,8 +118,8 @@
             <label for="tp">Tarjeta Profesional</label>
             <input
               #name="ngModel"
-              [(ngModel)]="doctorService.selectedDoctor.celular"
-              type="text"
+              [(ngModel)]="doctorService.selectedDoctor.tp"
+              type="number"
               class="form-control bg-light"
               id="tp"
               name="tp"
@@ -114,14 +134,18 @@
             <select
               #name="ngModel"
               [(ngModel)]="doctorService.selectedDoctor.ipsAsociado"
+              type="number"
+              class="form-control bg-light"
               name="ips"
               id="ips"
               name="ips"
               class="form-control"
             >
+              <option value="" class="form-control bg-light">Seleccione</option>
               <option
                 *ngFor="let ips of this.ipsService.ips"
                 value="{{ ips.identificacion }}"
+                class="form-control bg-light"
               >
                 {{ ips.razonSocial }}
               </option>
@@ -133,7 +157,7 @@
             <input
               #name="ngModel"
               [(ngModel)]="doctorService.selectedDoctor.email"
-              type="text"
+              type="email"
               class="form-control bg-light"
               id="email"
               name="email"
@@ -148,7 +172,7 @@
             <input
               #name="ngModel"
               [(ngModel)]="doctorService.selectedDoctor.password"
-              type="text"
+              type="password"
               class="form-control bg-light"
               id="password"
               name="password"
@@ -169,18 +193,20 @@
               required
             />
           </div>
-
           <div class="mt-2">
             <button class="btn btn-primary w-100 mb-2 rounded-pill">
               Registrarse
             </button>
-            <a routerLink="/signin">
-              <span class="text-dark"> ¿Ya tienes una cuenta? </span>
-              <span class="text-primary">Inicia Sesión aquí </span>
-            </a>
           </div>
         </form>
       </div>
     </div>
   </div>
+</div>
+
+<div class="SignIn">
+  <h6 class="text-dark"> ¿Ya tienes una cuenta? </h6>
+  <a routerLink="/signin">
+  <h6 style="margin-left: 15px;"> Inicia Sesión aquí </h6> 
+  </a>
 </div>
