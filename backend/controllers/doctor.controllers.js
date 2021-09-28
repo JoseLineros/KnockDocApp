@@ -27,11 +27,9 @@ doctorsControllers.signin = async (req, res) => {
 };
 
 
-
-
 doctorsControllers.createDoctor = async (req, res) => {
     try {
-        const { identificacion, nombre, apellidos, fechaNacimiento, ciudad, direccion, celular, ipsAsociado, email, password, role } = req.body;
+        const { identificacion, nombre, apellidos, fechaNacimiento, ciudad, direccion, celular, ipsAsociado, especialidad, email, password, role } = req.body;
         //! Validadcion de email
         const doctorExists = await Doctor.findOne({ email });
         if (doctorExists) {
@@ -44,7 +42,7 @@ doctorsControllers.createDoctor = async (req, res) => {
             return;
         }
 
-        const newDoctor = new Doctor({ identificacion, nombre, apellidos, fechaNacimiento, ciudad, direccion, celular, ipsAsociado, email, password, role });
+        const newDoctor = new Doctor({ identificacion, nombre, apellidos, fechaNacimiento, ciudad, direccion, celular, ipsAsociado, especialidad, email, password, role });
         const doctor = await newDoctor.save();
         if (doctor) {
             //! JSON WEB TOKEN

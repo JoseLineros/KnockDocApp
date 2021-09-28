@@ -147,6 +147,26 @@
               </option>
             </select>
           </div>
+          
+          <div class="form-group">
+            <label for="especialidad">Especialidad</label>
+            <select
+              #name="ngModel"
+              [(ngModel)]="doctorService.selectedDoctor.especialidad"
+              name="ips"
+              id="ips"
+              name="ips"
+              class="form-control"
+            >
+              <option value="">Seleccione</option>
+              <option
+                *ngFor="let ips of this.ipsService.ips"
+                value="{{ ips.identificacion }}"
+              >
+                {{ ips.razonSocial }}
+              </option>
+            </select>
+          </div>
 
           <div class="form-group">
             <label for="email">Correo Electrónico</label>
