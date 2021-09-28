@@ -1,5 +1,6 @@
-#scroll {
-	height: 50vh;
-	width: 100%;
-	overflow-y: scroll;
+
+.container{
+    height: 947px;
+    display: flex;
+    align-items: center;
 }

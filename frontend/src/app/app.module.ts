@@ -19,6 +19,7 @@ import { RegisterDoctorComponent } from './components/register-doctor/register-d
 import { ContainerComponent } from './components/container/container.component';
 import { ContainerNavbarComponent } from './components/container/container-navbar/container-navbar.component';
 import { ContainerSidebarComponent } from './components/container/container-sidebar/container-sidebar.component';
+import { FooterComponent } from './tools/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ContainerSidebarComponent } from './components/container/container-side
     ContainerComponent,
     ContainerNavbarComponent,
     ContainerSidebarComponent,
+    FooterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [
