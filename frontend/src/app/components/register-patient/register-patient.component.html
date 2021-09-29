@@ -1,21 +1,21 @@
 <app-navbar></app-navbar>
 
-<div class="container mt-5">
+<div class="container">
   <div class="row">
-    <div class="col-12 col-lg-6 py-5">
+    <div class="col-12 col-lg-6 d-flex  justify-content-center">
       <div
-        class="d-flex align-items-center justify-content-center user-form-img"
+        
       >
         <img
           src="./assets/img/userForm.svg"
           alt=""
-          class="img-fluid mr-5"
-          style="margin-left: 0"
+          class="img-fluid mr-5 mt-2"
+         
         />
       </div>
     </div>
 
-    <div class="col-12 col-lg-6 py-5">
+    <div class="col-12 col-lg-6 mt-3">
       <h2>
         Bienvenido <br>
         <small class="font-italic">Por favor ingrese todos los datos</small>
@@ -193,8 +193,12 @@
                 <button
                   type="submit"
                   class="btn btn-primary w-100 mb-2 rounded-pill"
-                >
+                >Registrate
               </button>
+              <a routerLink="/signin">
+                <span class="text-dark"> ¿Ya tienes una cuenta? </span>
+                <span class="text-primary">Inicia Sesión aquí </span>
+              </a>
               </div>
             </form>
           </div>
@@ -204,11 +208,6 @@
   </div>
 </div>
 
-<div class="SignIn">
-  <h6 class="text-dark"> ¿Ya tienes una cuenta? </h6>
-  <a routerLink="/signin">
-  <h6 style="margin-left: 15px;"> Inicia Sesión aquí </h6> 
-  </a>
-</div>
+
 
 <app-footer></app-footer>
