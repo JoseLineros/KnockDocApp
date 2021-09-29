@@ -1,0 +1,44 @@
+a{
+    text-decoration: none;
+    color: #458ff6;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.contenedor2{
+    text-align: center;
+    margin-top: 100px;
+    justify-content: center;
+}
+
+.contenedor3{
+    height: 600px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.doc{
+    border: none;
+    box-shadow: -2px 15px 23px -4px rgba(0,0,0,0.20);
+    transition: 0.2s;
+}
+.doc:hover{
+    opacity: 0.6;
+    color: #e869b8;
+    transform: scale(1.1);
+}
+
+.pat{
+    border: none;
+    box-shadow: -2px 15px 23px -4px rgba(0,0,0,0.20);
+    transition: 0.2s;
+
+}
+.pat:hover{
+    opacity: 0.6;
+    color: #e869b8;
+    transform: scale(1.1);
+}

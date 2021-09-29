@@ -1,0 +1,11 @@
+.contenedor1{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    height: 950px;
+    align-items: center;
+}
+
+.form{
+    border: 1px solid black;
+}

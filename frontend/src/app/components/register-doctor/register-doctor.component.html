@@ -137,6 +137,21 @@
           </div>
 
           <div class="form-group">
+            <label for="fechaNacimiento">Fecha Nacimiento</label>
+            <input
+              #name="ngModel"
+              [(ngModel)]="doctorService.selectedDoctor.fechaNacimiento"
+              type="date"
+              class="form-control bg-light"
+              id="fechaNacimiento"
+              name="fechaNacimiento"
+              aria-describedby="fechaNacimiento"
+              placeholder="Ingrese su fecha de Nacimiento"
+              required
+            />
+          </div>
+
+          <div class="form-group">
             <label for="direccion">Dirección</label>
             <input
               formControlName="direccion"
@@ -215,6 +230,7 @@
               <option
                 *ngFor="let ips of this.ipsService.ips"
                 value="{{ ips.identificacion }}"
+                class="form-control bg-light"
               >
                 {{ ips.razonSocial }}
               </option>
@@ -230,7 +246,7 @@
             </span>
           </div>
           
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="especialidad">Especialidad</label>
             <select
               #name="ngModel"
@@ -248,7 +264,7 @@
                 {{ ips.razonSocial }}
               </option>
             </select>
-          </div>
+          </div> -->
 
           <div class="form-group">
             <label for="email">Correo Electrónico</label>
@@ -323,10 +339,6 @@
             >
               Registrarse
             </button>
-            <a routerLink="/signin">
-              <span class="text-dark"> ¿Ya tienes una cuenta? </span>
-              <span class="text-primary">Inicia Sesión aquí </span>
-            </a>
           </div>
         </form>
 
@@ -334,4 +346,11 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="SignIn">
+  <h6 class="text-dark"> ¿Ya tienes una cuenta? </h6>
+  <a routerLink="/signin">
+  <h6 style="margin-left: 15px;"> Inicia Sesión aquí </h6>
+  </a>
 </div>

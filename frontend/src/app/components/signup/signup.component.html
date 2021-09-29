@@ -1,62 +1,59 @@
-<div class="container mt-4 mx-center" style="width: 300px">
-  <h3 class="text-muted">
-    <b>Selecciona tu <br />tipo de servicio<br /></b>
-  </h3>
-</div>
-<br />
-<br />
-<p class="d-flex justify-content-center text-muted mb-4">
-  Con KnockDoc podrás encontrar a profesionales en distintas áreas de la
-  medicina. Una experiencia única de servicio...
-</p>
+<div class="contenedor1">
 
-<!-- Seccion Register -->
-<div class="d-flex justify-content-center row">
-  <div class="doc-Con mr-2 rounded">
-    <div class="docButtom py-2">
-      <a routerLink="/registerDoctor">
-        <button
-          style="margin-left: 115px; margin-top: 30px"
-          class="btn-primary py-2 px-3 rounded-pill"
-        >
-          Registrarme como especialista
-        </button>
-      </a>
+  <div class="contenedor2">
+    <div class="container mt-2 mx-center" style="width: 400px;">
+      <h3 class="text-muted">
+        <b>Selecciona una opcion para registrarte</b>
+      </h3>
     </div>
-    <a routerLink="/registerDoctor">
-      <img
-        src="./assets/img/doctor.svg"
-        style="
-          height: 500px;
-          width: 480px;
-          transform: scaleX(-1);
-          margin-top: 40px;
-          margin-bottom: 2rem;
-        "
-        class="imagen-register"
-      />
-    </a>
-  </div>
-
-  <div class="pat-Con rounded">
-    <div class="patButtom py-2">
-      <a routerLink="/registerPatient">
-        <button
-          style="margin-left: 115px; margin-top: 30px"
-          class="btn-secondary py-2 px-3 rounded-pill"
-        >
-          Registrarme como usuario
-        </button>
-      </a>
-    </div>
-    <div>
-      <a routerLink="/registerPatient">
-        <img
-          src="./assets/img/paciente.svg"
-          style="height: 450px; width: 480px; margin-top: 70px"
-          class="imagen-register"
-        />
-      </a>
-    </div>
-  </div>
+    <br />
+    <br />
+    <p class="d-flex justify-content-center text-muted mb-4">
+      Con KnockDoc podrás encontrar a profesionales en distintas áreas de la
+      medicina. Una experiencia única de servicio...
+    </p>
 </div>
+  <!-- Seccion Register -->
+  <div class="contenedor3 d-flex justify-content-center row">
+
+    <button class="doc">
+      <div class="doc-Con mr-2 rounded">
+        <div class="docButtom py-2">
+          <a routerLink="/registerDoctor">
+            <h2>Especialista</h2>
+          </a>
+        </div>
+        <a routerLink="/registerDoctor">
+          <img
+            src="./assets/img/doctor-woman.svg"
+            style="
+              height: 450px;
+              width: 400px;
+              margin-top: 70px;
+            "
+            class="imagen-register"
+          />
+        </a>
+      </div>
+    </button>
+    
+    <button class="pat">
+      <div class="pat-Con rounded">
+        <div class="patButtom py-2">
+          <a routerLink="/registerPatient">
+             <h2>Usuario</h2>
+          </a>
+        </div>
+        <div>
+          <a routerLink="/registerPatient">
+            <img
+              src="./assets/img/paciente.svg"
+              style="height: 450px; width: 480px; margin-top: 70px"
+              class="imagen-register"
+            />
+          </a>
+        </div>
+      </div>
+    </button>
+    </div>
+

@@ -20,6 +20,8 @@ import { ContainerComponent } from './components/container/container.component';
 import { ContainerNavbarComponent } from './components/container/container-navbar/container-navbar.component';
 import { ContainerSidebarComponent } from './components/container/container-sidebar/container-sidebar.component';
 import { FooterComponent } from './tools/footer/footer.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { FooterComponent } from './tools/footer/footer.component';
     ContainerNavbarComponent,
     ContainerSidebarComponent,
     FooterComponent,
+    AboutComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

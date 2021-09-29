@@ -1,0 +1,22 @@
+.container{
+    display: flex;
+    flex-flow: row wrap;
+    padding: 10px;
+    margin-top: 50px;
+    height: 900px;
+    justify-content: center;
+    align-content: center;
+}
+
+.contenido{
+    width:50%;
+
+}
+
+.imagen{
+    width: 50%;
+}
+
+img{
+    width: 100%;
+}
