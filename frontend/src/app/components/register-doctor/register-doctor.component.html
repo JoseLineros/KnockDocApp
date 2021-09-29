@@ -1,15 +1,15 @@
 <app-navbar></app-navbar>
 
-<div class="container">
-  <div class="row mt-5">
-    <div class="col-12 col-lg-6 d-flex justify-content-center">
+<div class="container justify-content-center align-items-center">
+  <div class="row mt-5 ">
+    <div class="col-12 col-lg-6">
       <div>
         <img
           src="/assets/img/docForm.svg"
           width="500"
           height="1200"
           alt=""
-          class="img-fluid mr-5 mt-5"
+          class="img-fluid  mt-5"
           style="margin-left: 0"
         />
       </div>
@@ -329,19 +329,21 @@
             
           </div>
         </form>
-
+        
         <div>{{ resultado }}</div>
+      </div>
+      <div class="registeredUser mt-3">
+        <a routerLink="/signin">
+          <span class="text-dark"> ¿Ya tienes una cuenta? </span>
+          <span class="text-primary">Inicia Sesión aquí </span>
+        </a>
       </div>
     </div>
   </div>
+ 
+  
 </div>
 
-<div class="registeredUser">
-  <a routerLink="/signin">
-    <span class="text-dark"> ¿Ya tienes una cuenta? </span>
-    <span class="text-primary">Inicia Sesión aquí </span>
-  </a>
-</div>
 
 
 <app-footer></app-footer>
