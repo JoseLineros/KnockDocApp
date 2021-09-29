@@ -27,8 +27,6 @@ doctorsControllers.signin = async (req, res) => {
 };
 
 
-
-
 doctorsControllers.createDoctor = async (req, res) => {
     try {
         const { identificacion, nombre, apellidos, fechaNacimiento, ciudad, direccion, celular, tp, ipsAsociado, email, password, role } = req.body;

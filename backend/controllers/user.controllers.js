@@ -1,6 +1,7 @@
 //Models
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
+const { use } = require('../routes/auth.routes');
 
 const usersControllers = {};
 
@@ -40,7 +41,7 @@ usersControllers.signin = async (req, res) => {
 
 usersControllers.createUser = async (req, res) => {
     try {
-        const { identificacion, nombre, apellidos, fechaNacimiento, ciudad, direccion, celular, email, password, role } = req.body;
+        const { identificacion, nombre, apellidos, fechaNacimiento, ciudad, direccion, celular, email, password, role, tp, especialidad, ipsAsociado } = req.body;
         //! Validadcion de email
         const userExists = await User.findOne({ email });
         if (userExists) {
@@ -53,11 +54,11 @@ usersControllers.createUser = async (req, res) => {
             return;
         }
 
-        const newUser = new User({ identificacion, nombre, apellidos, fechaNacimiento, ciudad, direccion, celular, email, password, role });
+        const newUser = new User({ identificacion, nombre, apellidos, fechaNacimiento, ciudad, direccion, celular, email, password, role, tp, especialidad, ipsAsociado });
         const user = await newUser.save();
         if (user) {
             //! JSON WEB TOKEN
-            const token = await jwt.sign({ _id: user._id, email: user.email, role: user.role }, 'pato');
+            const token = await jwt.sign({ _id: user._id, email: user.email, role: user.role, tp:user.tp, especialidad:user.especialidad, ipsAsociado:user.ipsAsociado }, 'pato');
             //! Fin
             res.status(201).json({ message: 'Usuario creado', user: newUser, token: token });
         } else {

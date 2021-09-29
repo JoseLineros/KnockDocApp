@@ -18,7 +18,7 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {}
 
   signin(userLogged: NgForm) {
-    this.authService.signin(userLogged.value).subscribe(
+    this.userService.signin(userLogged.value).subscribe(
       (res) => {
         console.log(res);
         //! LocalStorage

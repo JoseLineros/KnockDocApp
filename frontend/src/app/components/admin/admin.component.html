@@ -1,36 +1,7 @@
 <h2 class="text-center">Administrar Usuarios</h2>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-8">
-      <div class="card">
-        <h3 class="text-center text-primary">Listado</h3>
-        <div class="card-body">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellidos</th>
-                <th scope="col">F. Nacimiento</th>
-                <th scope="col">Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let user of this.userService.users">
-                <th scope="row">{{ user.identificacion }}</th>
-                <td>{{ user.nombre }}</td>
-                <td>{{ user.apellidos }}</td>
-                <td>{{ user.fechaNacimiento }}</td>
-                <td>
-                  <a class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                  <a class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+
     <div class="col-4">
       <div class="card">
         <h3 class="text-center text-primary">Registro</h3>
@@ -54,7 +25,7 @@
 
             <div
               id="collapseOne"
-              class="collapse show"
+              class="collapse"
               aria-labelledby="headingOne"
               data-parent="#accordionExample"
             >
@@ -64,7 +35,7 @@
               (ngSubmit)="registerForm.form.valid && signup(registerForm)"
             >
               <div class="form-group">
-                <label for="identificacion">Identificacion</label>
+                <label for="identificacion" class="text-muted"> <small> Identificacion</small></label>
                 <input
                   #name="ngModel"
                   [(ngModel)]="userService.selectedUser.identificacion"
@@ -76,7 +47,7 @@
               </div>
 
               <div class="form-group">
-                <label for="nombre">Nombre</label>
+                <label for="nombre" class="text-muted"><small>Nombre</small></label>
                 <input
                   #name="ngModel"
                   [(ngModel)]="userService.selectedUser.nombre"
@@ -88,7 +59,7 @@
               </div>
 
               <div class="form-group">
-                <label for="apellidos">Apellidos</label>
+                <label for="apellidos" class="text-muted"><small>Apellidos</small></label>
                 <input
                   #name="ngModel"
                   [(ngModel)]="userService.selectedUser.apellidos"
@@ -100,7 +71,7 @@
               </div>
 
               <div class="form-group">
-                <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                <label for="fechaNacimiento" class="text-muted"><small>Fecha de Nacimiento</small></label>
                 <input
                   #name="ngModel"
                   [(ngModel)]="userService.selectedUser.fechaNacimiento"
@@ -112,7 +83,7 @@
               </div>
 
               <div class="form-group">
-                <label for="ciudad">Ciudad</label>
+                <label for="ciudad" class="text-muted"><small>Ciudad</small></label>
                 <input
                   #name="ngModel"
                   [(ngModel)]="userService.selectedUser.ciudad"
@@ -124,7 +95,7 @@
               </div>
 
               <div class="form-group">
-                <label for="direccion">Direccion</label>
+                <label for="direccion" class="text-muted"><small>Direccion</small></label>
                 <input
                   #name="ngModel"
                   [(ngModel)]="userService.selectedUser.direccion"
@@ -136,7 +107,7 @@
               </div>
 
               <div class="form-group">
-                <label for="celular">Celular</label>
+                <label for="celular" class="text-muted"><small>Celular</small></label>
                 <input
                   #name="ngModel"
                   [(ngModel)]="userService.selectedUser.celular"
@@ -148,7 +119,7 @@
               </div>
 
               <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email" class="text-muted"><small>Email</small></label>
                 <input
                   #name="ngModel"
                   [(ngModel)]="userService.selectedUser.email"
@@ -159,7 +130,7 @@
                 />
               </div>
               <div class="form-group">
-                <label for="password">Contraseña</label>
+                <label for="password" class="text-muted"><small>Contraseña</small></label>
                 <input
                   #name="ngModel"
                   [(ngModel)]="userService.selectedUser.password"
@@ -170,7 +141,7 @@
                 />
               </div>
               <div class="form-group">
-                <label for="role">Rol del usuario</label>
+                <label for="role" class="text-muted"><small>Rol del usuario</small></label>
                 <input
                   #name="ngModel"
                   [(ngModel)]="userService.selectedUser.role"
@@ -182,7 +153,7 @@
                 />
               </div>
               <div class="form-group">
-                <label for="password">Repetir Contraseña</label>
+                <label for="password" class="text-muted"><small>Repetir Contraseña</small></label>
                 <input
                   type="text"
                   class="form-control bg-light"
@@ -240,5 +211,37 @@
         </div>
       </div>
     </div>
+
+    <div class="col-8">
+      <div class="card">
+        <h3 class="text-center text-primary">Listado</h3>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">F. Nacimiento</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of this.userService.users">
+                <th scope="row">{{ user.identificacion }}</th>
+                <td>{{ user.nombre }}</td>
+                <td>{{ user.apellidos }}</td>
+                <td>{{ user.fechaNacimiento }}</td>
+                <td>
+                  <a class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+                  <a class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
