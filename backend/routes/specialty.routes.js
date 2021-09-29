@@ -8,5 +8,9 @@ const specialtyControllers = require('../controllers/specialty.controllers')
 //const Validator = require('../middlewares/verifyToken');
 
 router.post('/createSpecialty', specialtyControllers.createSpecialty);
+router.get('/getAllSpecialtys', specialtyControllers.getAllSpecialtys);
+router.get('/getSpecialtyById/:id', specialtyControllers.getSpecialtyById)
+router.put('/updateSpecialty/:id', specialtyControllers.updateSpecialty)
+router.delete('/deleteSpecialty/:id', specialtyControllers.deleteSpecialty);
 
 module.exports = router;
