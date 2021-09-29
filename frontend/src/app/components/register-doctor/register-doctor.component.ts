@@ -11,6 +11,8 @@ import { DoctorService } from 'src/app/services/doctor/doctor.service';
 import { IpsService } from 'src/app/services/ips/ips.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/User';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-register-doctor',
@@ -26,7 +28,7 @@ export class RegisterDoctorComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     public ipsService: IpsService,
-    public doctorService: DoctorService,
+    public userService: UserService,
     private router: Router
   ) {}
 
@@ -65,18 +67,16 @@ export class RegisterDoctorComponent implements OnInit {
       this.resultado = 'Todos los datos son válidos';
       console.log(this.formulario.value);
 
-      this.doctorService
-        .createDoctor(this.formulario.value)
-        .subscribe((res) => {
-          console.log(res);
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Doctor Guardado',
-            showConfirmButton: false,
-            timer: 1500,
-          });
+      this.userService.createUser(this.formulario.value).subscribe((res) => {
+        console.log(res);
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Usuario Guardado',
+          showConfirmButton: false,
+          timer: 1500,
         });
+      });
       this.clean();
       this.router.navigate(['/signin']);
     } else {
@@ -95,26 +95,10 @@ export class RegisterDoctorComponent implements OnInit {
     });
   }
 
-  createDoctor(doctor: NgForm) {
-    this.doctorService.createDoctor(doctor.value).subscribe((res) => {
-      console.log(res);
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Doctor Guardado',
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      console.log(res);
-    });
-    this.clean();
-    this.router.navigate(['/signin']);
-  }
-
   clean(form?: NgForm) {
     if (form) {
       form.reset();
-      this.doctorService.selectedDoctor = new Doctor();
+      this.userService.selectedUser = new User();
     }
   }
 

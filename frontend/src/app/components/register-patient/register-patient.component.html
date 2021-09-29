@@ -2,37 +2,30 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-12 col-lg-6 d-flex  justify-content-center">
-      <div
-        
-      >
+    <div class="col-12 col-lg-6 d-flex justify-content-center">
+      <div>
         <img
           src="./assets/img/userForm.svg"
           alt=""
           class="img-fluid mr-5 mt-2"
-         
         />
       </div>
     </div>
 
     <div class="col-12 col-lg-6 mt-3">
       <h2>
-        Bienvenido <br>
+        Bienvenido <br />
         <small class="font-italic">Por favor ingrese todos los datos</small>
       </h2>
 
       <div id="scroll">
         <div class="card border-0 mt-1">
           <div class="card-body border-0 shadow">
-            <form
-              #registerForm="ngForm"
-              (ngSubmit)="registerForm.form.valid && signup(registerForm)"
-            >
+            <form novalidate [formGroup]="formulario" (ngSubmit)="onSubmit()">
               <div class="form-group">
                 <label for="identificacion">Numero de Identificacion</label>
                 <input
-                  #name="ngModel"
-                  [(ngModel)]="userService.selectedUser.identificacion"
+                  formControlName="identificacion"
                   type="text"
                   class="form-control"
                   id="identificacion"
@@ -42,13 +35,21 @@
                   required
                   autofocus
                 />
+                <span
+                  *ngIf="
+                    formulario.controls['identificacion'].errors?.required &&
+                    submitted
+                  "
+                  class="text-danger"
+                >
+                  (La identificación no puede quedar vacío)
+                </span>
               </div>
 
               <div class="form-group">
                 <label for="nombre">Nombre</label>
                 <input
-                  #name="ngModel"
-                  [(ngModel)]="userService.selectedUser.nombre"
+                  formControlName="nombre"
                   type="text"
                   class="form-control"
                   id="nombre"
@@ -57,13 +58,20 @@
                   placeholder="nombre"
                   required
                 />
+                <span
+                  *ngIf="
+                    formulario.controls['nombre'].errors?.required && submitted
+                  "
+                  class="text-danger"
+                >
+                  (El nombre no puede quedar vacío)
+                </span>
               </div>
 
               <div class="form-group">
                 <label for="apellidos">Apellidos</label>
                 <input
-                  #name="ngModel"
-                  [(ngModel)]="userService.selectedUser.apellidos"
+                  formControlName="apellidos"
                   type="text"
                   class="form-control"
                   id="apellidos"
@@ -72,13 +80,21 @@
                   placeholder="Ingrese sus apellidos"
                   required
                 />
+                <span
+                  *ngIf="
+                    formulario.controls['apellidos'].errors?.required &&
+                    submitted
+                  "
+                  class="text-danger"
+                >
+                  (Los apellidos no puede quedar vacío)
+                </span>
               </div>
 
               <div class="form-group">
                 <label for="fechaNacimiento">Fecha de Nacimiento</label>
                 <input
-                  #name="ngModel"
-                  [(ngModel)]="userService.selectedUser.fechaNacimiento"
+                  formControlName="fechaNacimiento"
                   type="date"
                   class="form-control"
                   id="fechaNacimiento"
@@ -87,13 +103,21 @@
                   placeholder="Seleccione Fecha de nacimiento"
                   required
                 />
+                <span
+                  *ngIf="
+                    formulario.controls['fechaNacimiento'].errors?.required &&
+                    submitted
+                  "
+                  class="text-danger"
+                >
+                  (La fecha no puede ir vacia)
+                </span>
               </div>
 
               <div class="form-group">
                 <label for="ciudad">Ciudad</label>
                 <input
-                  #name="ngModel"
-                  [(ngModel)]="userService.selectedUser.ciudad"
+                  formControlName="ciudad"
                   type="text"
                   class="form-control"
                   id="ciudad"
@@ -102,13 +126,20 @@
                   placeholder="Ciudad"
                   required
                 />
+                <span
+                  *ngIf="
+                    formulario.controls['ciudad'].errors?.required && submitted
+                  "
+                  class="text-danger"
+                >
+                  (La ciudad no puede ir vacia)
+                </span>
               </div>
 
               <div class="form-group">
                 <label for="direccion">Direccion</label>
                 <input
-                  #name="ngModel"
-                  [(ngModel)]="userService.selectedUser.direccion"
+                  formControlName="direccion"
                   type="text"
                   class="form-control"
                   id="direccion"
@@ -117,13 +148,21 @@
                   placeholder="Direccion"
                   required
                 />
+                <span
+                  *ngIf="
+                    formulario.controls['direccion'].errors?.required &&
+                    submitted
+                  "
+                  class="text-danger"
+                >
+                  (La direccion no puede quedar vacío)
+                </span>
               </div>
 
               <div class="form-group">
                 <label for="celular">Celular</label>
                 <input
-                  #name="ngModel"
-                  [(ngModel)]="userService.selectedUser.celular"
+                  formControlName="celular"
                   type="text"
                   class="form-control"
                   id="celular"
@@ -132,13 +171,20 @@
                   placeholder="Celular"
                   required
                 />
+                <span
+                  *ngIf="
+                    formulario.controls['celular'].errors?.required && submitted
+                  "
+                  class="text-danger"
+                >
+                  (El celular no puede quedar vacío)
+                </span>
               </div>
 
               <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email">Correo Electronico</label>
                 <input
-                  #name="ngModel"
-                  [(ngModel)]="userService.selectedUser.email"
+                  formControlName="email"
                   type="text"
                   class="form-control"
                   id="email"
@@ -147,12 +193,20 @@
                   placeholder="Escriba su email"
                   required
                 />
+                <span
+                  *ngIf="
+                    formulario.controls['email'].errors?.required && submitted
+                  "
+                  class="text-danger"
+                >
+                  (El email no puede quedar vacío)
+                </span>
               </div>
+
               <div class="form-group">
                 <label for="password">Contraseña</label>
                 <input
-                  #name="ngModel"
-                  [(ngModel)]="userService.selectedUser.password"
+                  formControlName="password"
                   type="password"
                   class="form-control"
                   id="password"
@@ -161,14 +215,25 @@
                   placeholder="Escriba su contraseña"
                   required
                 />
+                <span
+                  *ngIf="
+                    formulario.controls['password'].errors?.required &&
+                    submitted
+                  "
+                  class="text-danger"
+                >
+                  (La contraseña no puede quedar vacío)
+                </span>
               </div>
 
               <div class="form-group">
                 <label for="password">Repetir Contraseña</label>
                 <input
-                  type="text"
+                  formControlName="password2"
+                  type="password"
                   class="form-control bg-light"
                   id="password2"
+                  name="password2"
                   aria-describedby="password2"
                   placeholder="Ingrese su contraseña nuevamente"
                   required
@@ -176,16 +241,13 @@
               </div>
 
               <div class="form-group">
-                <label for="role">Rol del usuario</label>
                 <input
-                  #name="ngModel"
-                  [(ngModel)]="userService.selectedUser.role"
                   type="hidden"
                   class="form-control"
                   id="role"
                   name="role"
-                  min="1"
-                  value="2"
+                  aria-describedby="role"
+                  required
                 />
               </div>
 
@@ -193,21 +255,21 @@
                 <button
                   type="submit"
                   class="btn btn-primary w-100 mb-2 rounded-pill"
-                >Registrate
-              </button>
-              <a routerLink="/signin">
-                <span class="text-dark"> ¿Ya tienes una cuenta? </span>
-                <span class="text-primary">Inicia Sesión aquí </span>
-              </a>
+                >
+                  Registrate
+                </button>
+                <a routerLink="/signin">
+                  <span class="text-dark"> ¿Ya tienes una cuenta? </span>
+                  <span class="text-primary">Inicia Sesión aquí </span>
+                </a>
               </div>
             </form>
+            <div>{{ resultado }}</div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
 
 <app-footer></app-footer>
