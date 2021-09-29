@@ -1,8 +1,7 @@
 .contenedor1{
-    margin-top: 50px;
     display: flex;
     justify-content: center;
-    height: 950px;
+    height: 940px;
     align-items: center;
 }
 
