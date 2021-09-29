@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const specialtySchema = new Schema(
     {
-        identificacion: { type: String, required: true },
+        specialtyId: { type: String, required: true },
         specialtyName: { type: String, required: true },
     },
     {

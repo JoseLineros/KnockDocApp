@@ -5,8 +5,8 @@ const router = express.Router();
 const specialtyControllers = require('../controllers/specialty.controllers')
 
 // Verify Token
-const Validator = require('../middlewares/verifyToken');
+//const Validator = require('../middlewares/verifyToken');
 
-router.post('/createSpecialty', Validator.verifyToken, specialtyControllers.createSpecialty);
+router.post('/createSpecialty', specialtyControllers.createSpecialty);
 
 module.exports = router;
