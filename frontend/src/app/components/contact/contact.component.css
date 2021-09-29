@@ -1,10 +1,9 @@
 .contenedor1{
     display: flex;
     justify-content: center;
-    height: 940px;
-    align-items: center;
+    height: 800px;
 }
 
-.form{
-    border: 1px solid black;
+textarea{
+    resize: none;
 }

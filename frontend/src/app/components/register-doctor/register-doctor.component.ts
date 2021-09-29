@@ -32,7 +32,7 @@ export class RegisterDoctorComponent implements OnInit {
     private router: Router
   ) {}
 
-  formulario = new FormGroup({
+    formulario = new FormGroup({
     identificacion: new FormControl('', [Validators.required]),
     nombre: new FormControl('', [Validators.required]),
     apellidos: new FormControl('', [Validators.required]),

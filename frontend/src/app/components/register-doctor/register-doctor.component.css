@@ -5,21 +5,9 @@
 }
 
 
-.SignIn{
-    display: flex;
-    justify-content: center;
+.registeredUser{
     text-align: center;
-    margin-top: -140px;
-    margin-bottom: 105px;
+    margin-bottom: 10px;
 }
 
-a{
-    color: #458ff6;
-    transition: 0.3s;
-}
 
-a:hover{
-    color: #e869b8;
-    text-decoration: none;
-
-}

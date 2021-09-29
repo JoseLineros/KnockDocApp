@@ -1,0 +1,32 @@
+.container{
+    flex-direction: column;
+    height: 785px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:linear-gradient(rgba(0,0,0,0),rgba(255, 255, 255, 0.801)), url("../../../assets/img/404.jpg");
+    background-size: cover;
+}
+
+h1{
+    font-family: spartan;
+    font-size: 20em;
+    background: #458FF6;
+    background: -webkit-linear-gradient(to right, #458FF6 0%, #e869b8 100%);
+    background: -moz-linear-gradient(to right, #458FF6 0%, #e869b8 100%);
+    background: linear-gradient(to right, #458FF6 0%, #e869b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h5{
+    font-family: spartan;
+    font-size: 5em;
+    background: #458FF6;
+    background: -webkit-linear-gradient(to right, #458FF6 0%, #e869b8 100%);
+    background: -moz-linear-gradient(to right, #458FF6 0%, #e869b8 100%);
+    background: linear-gradient(to right, #458FF6 0%, #e869b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
