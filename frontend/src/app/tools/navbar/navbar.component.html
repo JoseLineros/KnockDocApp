@@ -60,9 +60,30 @@
         </div>
         <ng-template #loggedIn>
           <div class="navbar-nav ml-auto">
-            <a class="nav-link" routerLink="/admin" style="cursor: pointer"
-              >Administrar</a
-            >
+            <span *ngIf="this.authService.check() === 0">
+              <a
+                class="nav-link"
+                routerLink="/container"
+                style="cursor: pointer"
+                >Administrar</a
+              >
+            </span>
+            <span *ngIf="this.authService.check() === 1">
+              <a
+                class="nav-link"
+                routerLink="/container"
+                style="cursor: pointer"
+                >Dashboard</a
+              >
+            </span>
+            <span *ngIf="this.authService.check() === 2">
+              <a
+                class="nav-link"
+                routerLink="/container"
+                style="cursor: pointer"
+                >Dashboard</a
+              >
+            </span>
             <a
               class="nav-link"
               style="cursor: pointer"
@@ -72,3 +93,6 @@
           </div>
         </ng-template>
       </ul>
+    </div>
+  </div>
+</nav>

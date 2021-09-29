@@ -1,9 +1,21 @@
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-blue border-0 shadow sidebar collapse">
+<div *ngIf="permise === 0">
+  <nav
+    id="sidebarMenu"
+    class="
+      col-md-3 col-lg-2
+      d-md-block
+      bg-blue
+      border-0
+      shadow
+      sidebar
+      collapse
+    "
+  >
     <div class="sidebar-sticky pt-3">
       <ul class="nav flex-column main-font">
         <li class="nav-item mb-3 ml-2">
           <a class="nav-link font-13 text-light font-400 active" href="#">
-            Dashboard <span class="sr-only">(current)</span>
+            Dashboard <span class="sr-only">(current)</span><small>Admins</small>
           </a>
         </li>
         <li class="nav-item mb-3 ml-2">
@@ -48,8 +60,81 @@
           </a>
         </li>
       </ul>
-
-      
-      
     </div>
   </nav>
+</div>
+
+<!-- sidebar Doctores -->
+<div *ngIf="permise === 1">
+  <h2>Doctor</h2>
+  <nav
+    id="sidebarMenu"
+    class="
+      col-md-3 col-lg-2
+      d-md-block
+      bg-blue
+      border-0
+      shadow
+      sidebar
+      collapse
+    "
+  >
+    <div class="sidebar-sticky pt-3">
+      <ul class="nav flex-column main-font">
+        <li class="nav-item mb-3 ml-2">
+          <a class="nav-link font-13 text-light font-400 active" href="#">
+            Dashboard <span class="sr-only">(current)</span><small>Doctores</small>
+          </a>
+        </li>
+        <li class="nav-item mb-3 ml-2">
+          <a class="nav-link font-13 text-light font-400" href="#">
+            <i class="bi bi-plus-circle mr-2"></i> Nueva cita
+          </a>
+        </li>
+        <li class="nav-item mb-3 ml-2">
+          <a class="nav-link font-13 text-light font-400" href="#">
+            Work in progress...
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+
+
+<!-- sidebar Usuarios -->
+<div *ngIf="permise === 2">
+  <nav
+    id="sidebarMenu"
+    class="
+      col-md-3 col-lg-2
+      d-md-block
+      bg-blue
+      border-0
+      shadow
+      sidebar
+      collapse
+    "
+  >
+    <div class="sidebar-sticky pt-3">
+      <ul class="nav flex-column main-font">
+        <li class="nav-item mb-3 ml-2">
+          <a class="nav-link font-13 text-light font-400 active" href="#">
+            Dashboard <span class="sr-only">(current)</span><small>Usuarios</small>
+          </a>
+        </li>
+        <li class="nav-item mb-3 ml-2">
+          <a class="nav-link font-13 text-light font-400" href="#">
+            <i class="bi bi-plus-circle mr-2"></i> Nueva cita
+          </a>
+        </li>
+        <li class="nav-item mb-3 ml-2">
+          <a class="nav-link font-13 text-light font-400" href="#">
+            Work in progress...
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

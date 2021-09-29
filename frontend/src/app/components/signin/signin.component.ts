@@ -23,7 +23,7 @@ export class SigninComponent implements OnInit {
         console.log(res);
         //! LocalStorage
         localStorage.setItem('token', res.token);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/container']);
       },
       (err) => {
         Swal.fire({
@@ -36,4 +36,7 @@ export class SigninComponent implements OnInit {
       }
     );
   }
+
+
 }
+
