@@ -9,6 +9,7 @@ import {
 import { Doctor } from 'src/app/models/Doctor';
 import { DoctorService } from 'src/app/services/doctor/doctor.service';
 import { IpsService } from 'src/app/services/ips/ips.service';
+import { SpecialtyService } from 'src/app/services/specialty/specialty.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/User';
@@ -28,6 +29,7 @@ export class RegisterDoctorComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     public ipsService: IpsService,
+    public specialtyService: SpecialtyService,
     public userService: UserService,
     private router: Router
   ) {}
@@ -42,6 +44,7 @@ export class RegisterDoctorComponent implements OnInit {
     celular: new FormControl('', [Validators.required]),
     tp: new FormControl('', [Validators.required]),
     ipsAsociado: new FormControl('', [Validators.required]),
+    especialidad: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
     password2: new FormControl('', [Validators.required]),
@@ -86,11 +89,18 @@ export class RegisterDoctorComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllIps();
+    this.getAllSpecialtys();
   }
 
   getAllIps() {
     this.ipsService.getAllIps().subscribe((res: any) => {
       this.ipsService.ips = res;
+      console.log(res);
+    });
+  }
+  getAllSpecialtys() {
+    this.specialtyService.getAllSpecialtys().subscribe((res: any) => {
+      this.specialtyService.specialty = res;
       console.log(res);
     });
   }
