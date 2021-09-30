@@ -12,6 +12,7 @@ import { ContainerComponent } from './components/container/container.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ListDoctorsComponent } from './components/doctors/list-doctors/list-doctors.component';
+import { ListUsersComponent } from './components/users/list-users/list-users.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -27,6 +28,11 @@ const routes: Routes = [
     path: 'container',
     component: ContainerComponent,
     children: [{ path: 'listDoctors', component: ListDoctorsComponent }],
+  },
+  {
+    path: 'container',
+    component: ContainerComponent,
+    children: [{ path: 'listUsers', component: ListUsersComponent }],
   },
   { path: '**', component: Error404Component },
 ];
