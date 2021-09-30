@@ -10,6 +10,11 @@ export class User {
     public celular: string = '',
     public email: string = '',
     public password: string = '',
-    public role: number = 0
+    public role: number = 0,
+
+    //! Doctors
+    public ipsAsociado: string = '',
+    public tp: string = '',
+    public especialidad: string = ''
   ) {}
 }

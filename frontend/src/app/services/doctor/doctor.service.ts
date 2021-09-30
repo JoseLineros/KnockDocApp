@@ -30,4 +30,10 @@ export class DoctorService {
   getAllDoctors() {
 		return this.http.get<any>(`${this.URL_API}/doctors/getAllDoctors`);
 	}
+
+  // Actualizar
+	updateDoctor(doctor: Doctor) {
+		console.log(`${this.URL_API}/updateDoctor/${doctor._id}`, doctor);
+		return this.http.put(`${this.URL_API}/updateDoctor/${doctor._id}`, doctor);
+	}
 }

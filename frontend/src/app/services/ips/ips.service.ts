@@ -18,4 +18,9 @@ export class IpsService {
   getAllIps() {
     return this.http.get<any>(`${this.URL_API}/ips/getAllIps`);
   }
+
+  getIpsById(_id: string) {
+    console.log(`${this.URL_API}/ips/getIpsById/${_id}`);
+    return this.http.delete(`${this.URL_API}/ips/getIpsById/${_id}`);
+  }
 }
