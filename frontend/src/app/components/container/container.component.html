@@ -1,13 +1,24 @@
 <app-container-navbar></app-container-navbar>
 
-  <div class="container-fluid">
-    <div class="row">
-      <app-container-sidebar></app-container-sidebar>
+<div class="container-fluid">
+  <div class="row">
+    <app-container-sidebar></app-container-sidebar>
 
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 pt-4 main-font bg-lightgray vh-100">
-
-        <h4 class="color-titles mb-3">Nueva cita</h4>
-        <!-- <div class="card shadow-sm">
+    <main
+      role="main"
+      class="
+        col-md-9
+        ml-sm-auto
+        col-lg-10
+        px-md-4
+        pt-4
+        main-font
+        bg-lightgray
+        vh-100
+      "
+    >
+      <h4 class="color-titles mb-3">Nueva cita</h4>
+      <!-- <div class="card shadow-sm">
           <div class="card-header">
             <p class="font-13 mb-1">Ingresa los datos de la cita médica que deseas pedir</p>
           </div>
@@ -40,15 +51,18 @@
             <button type="button" class="btn bg-blue text-white px-4 ml-3 font-weight-bold">Solicitar cita</button>
           </div>
         </div> -->
-        <span *ngIf="this.authService.check()===0">
-          <app-admin></app-admin>
-        </span>
-        <span *ngIf="this.authService.check()===1">
-          <h2>Falta componente inicial de Doctores</h2>
-        </span>
-        <span *ngIf="this.authService.check()===2">
-          <h2>Falta componente inicial de Pacientes</h2>
-        </span>
-      </main>
-    </div>
+      <span *ngIf="this.authService.check() === 0">
+        <!-- <app-admin></app-admin> -->
+        <h2>Falta componente inicial de Admins</h2>
+        <router-outlet></router-outlet>
+      </span>
+      <span *ngIf="this.authService.check() === 1">
+        <h2>Falta componente inicial de Doctores</h2>
+        <!-- <router-outlet></router-outlet> -->
+      </span>
+      <span *ngIf="this.authService.check() === 2">
+        <h2>Falta componente inicial de Pacientes</h2>
+      </span>
+    </main>
   </div>
+</div>

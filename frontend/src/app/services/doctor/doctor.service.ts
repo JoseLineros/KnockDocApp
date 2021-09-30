@@ -26,4 +26,8 @@ export class DoctorService {
     console.log(`${this.URL_API}/doctors/createDoctor`);
     return this.http.post(`${this.URL_API}/doctors/createDoctor`, doctor);
   }
+
+  getAllDoctors() {
+		return this.http.get<any>(`${this.URL_API}/doctors/getAllDoctors`);
+	}
 }

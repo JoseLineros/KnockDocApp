@@ -22,6 +22,7 @@ import { ContainerSidebarComponent } from './components/container/container-side
 import { FooterComponent } from './tools/footer/footer.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { ListDoctorsComponent } from './components/list-doctors/list-doctors.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ContactComponent } from './components/contact/contact.component';
     FooterComponent,
     AboutComponent,
     ContactComponent,
+    ListDoctorsComponent,
   ],
   imports: [
     BrowserModule,

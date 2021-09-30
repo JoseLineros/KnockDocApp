@@ -50,7 +50,6 @@ export class AuthService {
 		if (localStorage.getItem('token')) {
 			let tokenActual: any = localStorage.getItem('token');
 			let decoded:any = jwt_decode(tokenActual);
-			console.log(decoded.role);
 			return decoded.role
 		}
 	}
