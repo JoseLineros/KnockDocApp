@@ -22,7 +22,9 @@ import { ContainerSidebarComponent } from './components/container/container-side
 import { FooterComponent } from './tools/footer/footer.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { ListDoctorsComponent } from './components/list-doctors/list-doctors.component';
+import { ListDoctorsComponent } from './components/doctors/list-doctors/list-doctors.component';
+import { DoctorsComponent } from './components/doctors/doctors.component';
+import { UsersComponent } from './components/users/users.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { ListDoctorsComponent } from './components/list-doctors/list-doctors.com
     AboutComponent,
     ContactComponent,
     ListDoctorsComponent,
+    DoctorsComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

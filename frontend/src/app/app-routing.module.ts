@@ -11,7 +11,7 @@ import { RegisterDoctorComponent } from './components/register-doctor/register-d
 import { ContainerComponent } from './components/container/container.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { ListDoctorsComponent } from './components/list-doctors/list-doctors.component';
+import { ListDoctorsComponent } from './components/doctors/list-doctors/list-doctors.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
