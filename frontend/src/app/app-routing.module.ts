@@ -27,12 +27,10 @@ const routes: Routes = [
   {
     path: 'container',
     component: ContainerComponent,
-    children: [{ path: 'listDoctors', component: ListDoctorsComponent }],
-  },
-  {
-    path: 'container',
-    component: ContainerComponent,
-    children: [{ path: 'listUsers', component: ListUsersComponent }],
+    children: [
+      { path: 'listDoctors', component: ListDoctorsComponent },
+      { path: 'listUsers', component: ListUsersComponent },
+    ],
   },
   { path: '**', component: Error404Component },
 ];
