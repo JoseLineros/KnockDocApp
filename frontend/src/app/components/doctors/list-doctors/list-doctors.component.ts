@@ -6,6 +6,8 @@ import { User } from 'src/app/models/User';
 import { UserService } from 'src/app/services/user/user.service';
 import { IpsService } from 'src/app/services/ips/ips.service';
 import Swal from 'sweetalert2';
+import jwt_decode from 'jwt-decode';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-list-doctors',
@@ -14,7 +16,11 @@ import Swal from 'sweetalert2';
 })
 export class ListDoctorsComponent implements OnInit {
   loading: boolean = true;
+  usersAdmin: [] = [];
+  usersDoctors: [] = [];
+  usersPatients: [] = [];
   constructor(
+    public authService: AuthService,
     public doctorService: DoctorService,
     public userService: UserService,
     public ipsService: IpsService
@@ -23,6 +29,24 @@ export class ListDoctorsComponent implements OnInit {
   ngOnInit(): void {
     this.getAllUsers();
     this.getAllIps();
+    this.getAllDoctors();
+  }
+
+
+  getAllAdmins() {
+    this.userService.getAllAdmins().subscribe((res) => {
+      this.userService.admins = res;
+      console.log(this.userService.admins);
+      this.loading = false;
+    });
+  }
+
+  getAllDoctors() {
+    this.userService.getAllDoctors().subscribe((res) => {
+      this.userService.doctors = res;
+      console.log(this.userService.doctors);
+      this.loading = false;
+    });
   }
 
   getAllUsers() {
@@ -33,11 +57,17 @@ export class ListDoctorsComponent implements OnInit {
     });
   }
 
+
+
   getAllIps() {
     this.ipsService.getAllIps().subscribe((res: any) => {
       this.ipsService.ips = res;
       console.log(res);
     });
+  }
+
+  getSpecialtyById(id: string) {
+    this.userService.getSpecialtyById(id).subscribe((res) => {});
   }
 
   save(doctor: NgForm) {
@@ -83,7 +113,6 @@ export class ListDoctorsComponent implements OnInit {
   fillFields(doctor: User) {
     this.userService.selectedUser = doctor;
   }
-
 
   deleteDoctor(_id: string) {}
 }

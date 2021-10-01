@@ -159,6 +159,22 @@
               </select>
             </div>
 
+            <div class="form-group">
+              <label for="especialidad">Especialidad</label>
+
+              <input
+                #name="ngModel"
+                [(ngModel)]="userService.selectedUser.especialidad"
+                type="text"
+                class="form-control bg-light"
+                id="especialidad"
+                name="especialidad"
+                aria-describedby="especialidad"
+                placeholder="Ingrese la especialidad"
+                required
+              />
+            </div>
+
             <!-- <div class="form-group">
               <label for="email">Correo Electrónico</label>
               <input
@@ -243,7 +259,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let doctor of userService.users">
+          <tr *ngFor="let doctor of userService.doctors">
             <td>{{ doctor.identificacion }}</td>
             <td>{{ doctor.nombre }}</td>
             <td>{{ doctor.apellidos }}</td>
