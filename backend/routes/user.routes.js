@@ -14,6 +14,8 @@ router.get('/message', Validator.verifyToken, usersControllers.message);
 router.post('/signin', usersControllers.signin);
 
 router.post('/createUser', usersControllers.createUser);
+router.get('/getAllAdmins', Validator.verifyToken,usersControllers.getAllAdmins);
+router.get('/getAllDoctors', Validator.verifyToken,usersControllers.getAllDoctors);
 router.get('/getAllUsers', Validator.verifyToken, usersControllers.getAllUsers);
 router.get('/getUserById/:id', Validator.verifyToken, usersControllers.getUserById);
 router.put('/updateUser/:id', Validator.verifyToken, usersControllers.updateUser);

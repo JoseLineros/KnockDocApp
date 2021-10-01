@@ -9,12 +9,20 @@ import { Router } from '@angular/router';
 })
 export class UserService {
   selectedUser: User;
+  admins: User[] = [];
+  doctors: User[] = [];
   users: User[] = [];
   // Conexion con el Back
   readonly URL_API = 'http://localhost:5000';
 
   constructor(private http: HttpClient, private router: Router) {
     this.selectedUser = new User();
+  }
+
+  getSpecialtyById(_id: any) {
+    return this.http.get<any>(
+      `${this.URL_API}/specialtys/getSpecialtyById/${_id}`
+    );
   }
 
   // Signup
@@ -31,9 +39,18 @@ export class UserService {
     return this.http.post(`${this.URL_API}/users/createUser`, user);
   }
   // Read User
+  getAllAdmins() {
+    return this.http.get<any>(`${this.URL_API}/users/getAllAdmins`);
+  }
+
+  getAllDoctors() {
+    return this.http.get<any>(`${this.URL_API}/users/getAllDoctors`);
+  }
+
   getAllUsers() {
     return this.http.get<any>(`${this.URL_API}/users/getAllUsers`);
   }
+
   getUserById(_id: any) {
     return this.http.get<any>(`${this.URL_API}/users/getUserById/${_id}`);
   }

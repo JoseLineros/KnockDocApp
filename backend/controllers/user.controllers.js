@@ -72,9 +72,29 @@ usersControllers.createUser = async (req, res) => {
 
 usersControllers.getAllUsers = async (req, res) => {
     try {
-        const users = await User.find();
+        const users = await User.find({role: 2});
         if (users) res.status(201).json(users);
         else res.status(202).json({ message: 'Usuarios no encontrados' });
+    } catch (error) {
+        res.status(400).json({ message: 'Error', error });
+    }
+};
+
+usersControllers.getAllDoctors = async (req, res) => {
+    try {
+        const users = await User.find({role: 1});
+        if (users) res.status(201).json(users);
+        else res.status(202).json({ message: 'Doctores no encontrados' });
+    } catch (error) {
+        res.status(400).json({ message: 'Error', error });
+    }
+};
+
+usersControllers.getAllAdmins = async (req, res) => {
+    try {
+        const users = await User.find({role: 0});
+        if (users) res.status(201).json(users);
+        else res.status(202).json({ message: 'Users no encontrados' });
     } catch (error) {
         res.status(400).json({ message: 'Error', error });
     }
