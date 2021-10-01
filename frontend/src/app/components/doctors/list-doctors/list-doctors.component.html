@@ -1,14 +1,14 @@
-<div class="container-fluid mt-5">
+<div class="container-fluid mt-4">
   <div class="row">
-    <div class="col-12 col-md-4 col-lg-3">
+    <div class="col-12 col-md-4 col-lg-4 px-0">
       <div class="card">
-        <div class="card-header bg-dark text-light">
-          <h5>Editar Doctor</h5>
+        <div class="card-header bg-blue text-light">
+          <h6 class="mb-0">Editar Doctor</h6>
         </div>
-        <div class="card-body">
+        <div class="card-body cardOverflow">
           <form #createForm="ngForm">
             <div class="form-group">
-              <label for="identificacion">Identificacion</label>
+              <label for="identificacion" class="text-muted"> <small> Identificacion </small></label>
               <input
                 #name="ngModel"
                 [(ngModel)]="userService.selectedUser.identificacion"
@@ -24,7 +24,7 @@
             </div>
 
             <div class="form-group">
-              <label for="nombre">Nombre</label>
+              <label for="nombre" class="text-muted"> <small> Nombre</small></label>
               <input
                 #name="ngModel"
                 [(ngModel)]="userService.selectedUser.nombre"
@@ -39,7 +39,7 @@
             </div>
 
             <div class="form-group">
-              <label for="apellidos">Apellidos</label>
+              <label for="apellidos" class="text-muted"> <small> Apellidos</small></label>
               <input
                 #name="ngModel"
                 [(ngModel)]="userService.selectedUser.apellidos"
@@ -53,7 +53,7 @@
             </div>
 
             <div class="form-group">
-              <label for="fechaNacimiento">FechaNacimiento</label>
+              <label for="fechaNacimiento" class="text-muted"> <small> FechaNacimiento</small></label>
               <input
                 #name="ngModel"
                 [(ngModel)]="userService.selectedUser.fechaNacimiento"
@@ -68,7 +68,7 @@
             </div>
 
             <div class="form-group">
-              <label for="ciudad">Ciudad</label>
+              <label for="ciudad" class="text-muted"> <small> Ciudad</small></label>
               <input
                 #name="ngModel"
                 [(ngModel)]="userService.selectedUser.ciudad"
@@ -83,7 +83,7 @@
             </div>
 
             <div class="form-group">
-              <label for="direccion">Dirección</label>
+              <label for="direccion" class="text-muted"> <small> Dirección</small></label>
               <input
                 #name="ngModel"
                 [(ngModel)]="userService.selectedUser.direccion"
@@ -98,7 +98,7 @@
             </div>
 
             <div class="form-group">
-              <label for="celular">Celular</label>
+              <label for="celular" class="text-muted"> <small> Celular </small></label>
               <input
                 #name="ngModel"
                 [(ngModel)]="userService.selectedUser.celular"
@@ -113,7 +113,7 @@
             </div>
 
             <div class="form-group">
-              <label for="tp">Tarjeta Profesional</label>
+              <label for="tp" class="text-muted"> <small> Tarjeta Profesional </small></label>
 
               <input
                 #name="ngModel"
@@ -129,7 +129,7 @@
             </div>
 
             <div class="form-group">
-              <label for="ipsAsociado">IPS Asociado</label>
+              <label for="ipsAsociado" class="text-muted"> <small> IPS Asociado </small></label>
               <input
                 #name="ngModel"
                 [(ngModel)]="userService.selectedUser.ipsAsociado"
@@ -160,7 +160,7 @@
             </div>
 
             <div class="form-group">
-              <label for="especialidad">Especialidad</label>
+              <label for="especialidad" class="text-muted"> <small> Especialidad</small> </label>
 
               <input
                 #name="ngModel"
@@ -229,11 +229,11 @@
               />
             </div>
 
-            <button class="btn btn-success me-2" (click)="save(createForm)">
+            <button class="btn btn-block btn-success mt-2" (click)="save(createForm)">
               Guardar
             </button>
 
-            <button class="btn btn-dark" (click)="clean(createForm)">
+            <button class="btn btn-block btn-dark" (click)="clean(createForm)">
               Limpiar
             </button>
           </form>
@@ -241,49 +241,46 @@
       </div>
     </div>
 
-    <div class="col-12 col-md-8 col-lg-9">
-      <!-- <div class="card">
-        <div class="card-header bg-dark text-white">
-          <h5>Listado de usuario</h5>
+    <div class="col-12 col-md-7 col-lg-8 pr-0">
+      
+      <div class="card">
+        <div class="card-header bg-dark text-light">
+          <h6 class="mb-0">Listado de doctores</h6>
         </div>
-        <div class="card-body"> -->
-      <table class="table">
-        <thead class="bg-dark text-white">
-          <tr>
-            <th scope="col">Identificacion</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellidos</th>
-            <th scope="col">fechaNacimiento</th>
-            <th scope="col">Ciudad</th>
-            <th scope="col">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let doctor of userService.doctors">
-            <td>{{ doctor.identificacion }}</td>
-            <td>{{ doctor.nombre }}</td>
-            <td>{{ doctor.apellidos }}</td>
-            <td>{{ doctor.fechaNacimiento }}</td>
-            <td>{{ doctor.ciudad }}</td>
-            <td>
-              <button
-                class="btn btn-warning m-1 btn-sm"
-                (click)="fillFields(doctor)"
-              >
-                Editar
-              </button>
-              <button
-                class="btn btn-danger m-1 btn-sm"
-                (click)="deleteDoctor(doctor._id)"
-              >
-                Eliminar
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <!-- </div>
-      </div> -->
+        <div class="card-body p-0">
+          <div class="table-responsive font-13">
+            <table class="table text-center mt-0">
+              <thead class="bg-light color-blue">
+                <tr>
+                  <th scope="col">Identificacion</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Apellidos</th>
+                  <th scope="col">fechaNacimiento</th>
+                  <th scope="col">Ciudad</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let doctor of userService.doctors">
+                  <td class="pt-3">{{ doctor.identificacion }}</td>
+                  <td class="pt-3">{{ doctor.nombre }}</td>
+                  <td class="pt-3">{{ doctor.apellidos }}</td>
+                  <td class="pt-3">{{ doctor.fechaNacimiento }}</td>
+                  <td class="pt-3">{{ doctor.ciudad }}</td>
+                  <td>
+                    <button class="btn btn-light mr-2 btn-sm rounded-circle pt-1" (click)="fillFields(doctor)">
+                      <i class="bi bi-pencil-fill color-blue"></i>
+                    </button>
+                    <button class="btn btn-light btn-sm rounded-circle pt-1" (click)="deleteDoctor(doctor._id)">
+                      <i class="bi bi-trash-fill text-danger"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

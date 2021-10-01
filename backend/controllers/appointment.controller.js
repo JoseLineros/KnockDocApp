@@ -10,10 +10,13 @@ appointmentControllers.create = async (req, res) => {
 
         //! Validar horario
         const appointmentExistDate = await Appointment.findOne({ date });
-        if (appointmentExistDate) {
+        const appointmentDoctorExist = await Appointment.findOne({ doctorID });
+        if (appointmentExistDate && appointmentDoctorExist) {
             res.status(400).json({ message: 'Horario no disponible' });
             return;
         }
+
+        //Validar doctor
 
         const newAppointment = new Appointment({ date, doctorId, doctorName, userId, userName, ips, specialty, location, status }); 
         const appointment = await newAppointment.save();

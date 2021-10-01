@@ -26,6 +26,7 @@ import { ListDoctorsComponent } from './components/doctors/list-doctors/list-doc
 import { DoctorsComponent } from './components/doctors/doctors.component';
 import { UsersComponent } from './components/users/users.component';
 import { ListUsersComponent } from './components/users/list-users/list-users.component';
+import { AppointmentsComponent } from './components/users/appointments/appointments.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { ListUsersComponent } from './components/users/list-users/list-users.com
     DoctorsComponent,
     UsersComponent,
     ListUsersComponent,
+    AppointmentsComponent,
     
   ],
   imports: [

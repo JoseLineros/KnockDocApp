@@ -17,51 +17,19 @@
         vh-100
       "
     >
-      <h4 class="color-titles mb-3">Nueva cita</h4>
-      <!-- <div class="card shadow-sm">
-          <div class="card-header">
-            <p class="font-13 mb-1">Ingresa los datos de la cita médica que deseas pedir</p>
-          </div>
-          <div class="card-body">
-            <form>
-              <div class="form-group">
-                <label for="exampleFormControlInput1" class="text-muted"> <small> Fecha de la cita </small></label>
-                <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-              </div>
-
-              <div class="form-group">
-                <label for="exampleFormControlSelect1" class="text-muted"> <small> Especialidad </small></label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                  <option class="text-muted">Selecciona una opción...</option>
-                  <option>Medicina general</option>
-                  <option>Pediatría</option>
-                  <option>Dermatología</option>
-                  <option>Oftalmología</option>
-                  <option>Odontología</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlTextarea1" class="text-muted"> <small> Observaciones </small></label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-              </div>
-            </form>
-          </div>
-          <div class="card-footer bg-white d-flex justify-content-end">
-            <button type="button" class="btn bg-magenta text-white px-4 font-weight-bold">Cancelar</button>
-            <button type="button" class="btn bg-blue text-white px-4 ml-3 font-weight-bold">Solicitar cita</button>
-          </div>
-        </div> -->
+      <!-- <h4 class="color-titles mb-3">Nueva cita</h4> -->
+      
       <span *ngIf="this.authService.check() === 0">
         <!-- <app-admin></app-admin> -->
-        <h2>Falta componente inicial de Admins</h2>
+        <h4 class="color-titles">Administración de usuarios</h4>
         <router-outlet></router-outlet>
       </span>
       <span *ngIf="this.authService.check() === 1">
-        <h2>Falta componente inicial de Doctores</h2>
+        <h4 class="color-titles">Falta componente inicial de Doctores</h4>
         <!-- <router-outlet></router-outlet> -->
       </span>
       <span *ngIf="this.authService.check() === 2">
-        <h2>Falta componente inicial de Pacientes</h2>
+        <h4 class="color-titles">Falta componente inicial de Pacientes</h4>
       </span>
     </main>
   </div>
