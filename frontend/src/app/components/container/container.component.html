@@ -21,7 +21,7 @@
       
       <span *ngIf="this.authService.check() === 0">
         <!-- <app-admin></app-admin> -->
-        <h4 class="color-titles">Administración de usuarios</h4>
+        <!-- <h4 class="color-titles">Administración de usuarios</h4> -->
         <router-outlet></router-outlet>
       </span>
       <span *ngIf="this.authService.check() === 1">

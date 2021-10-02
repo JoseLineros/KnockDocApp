@@ -13,6 +13,8 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ListDoctorsComponent } from './components/doctors/list-doctors/list-doctors.component';
 import { ListUsersComponent } from './components/users/list-users/list-users.component';
+import { AppointmentsListComponent } from './components/appointments/appointments-list/appointments-list.component';
+import { AppointmentsNewComponent } from './components/appointments/appointments-new/appointments-new.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -30,6 +32,8 @@ const routes: Routes = [
     children: [
       { path: 'listDoctors', component: ListDoctorsComponent },
       { path: 'listUsers', component: ListUsersComponent },
+      { path: 'appointmentsList', component: AppointmentsListComponent},
+      { path: 'appointmentsNew', component: AppointmentsNewComponent },
     ],
   },
   { path: '**', component: Error404Component },
