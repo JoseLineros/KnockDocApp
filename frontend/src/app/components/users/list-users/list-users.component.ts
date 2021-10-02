@@ -41,7 +41,15 @@ export class ListUsersComponent implements OnInit {
         this.clean(users);
       });
     } else {
-      this.userServices.createUser(users.value).subscribe(
+      if (users.value.identification || users.value.nombres || users.value.apellidos === ''){
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'complete los campos',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      } else{  this.userServices.createUser(users.value).subscribe(
         (res) => {
           alert('usuario Creado');
           this.getAllUsers();
@@ -58,7 +66,8 @@ export class ListUsersComponent implements OnInit {
             timer: 1500,
           });
         }
-      );
+      );}
+    
     }
   }
 
