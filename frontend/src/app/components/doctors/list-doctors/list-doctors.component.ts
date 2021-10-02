@@ -27,18 +27,8 @@ export class ListDoctorsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getAllUsers();
     this.getAllIps();
     this.getAllDoctors();
-  }
-
-
-  getAllAdmins() {
-    this.userService.getAllAdmins().subscribe((res) => {
-      this.userService.admins = res;
-      console.log(this.userService.admins);
-      this.loading = false;
-    });
   }
 
   getAllDoctors() {
@@ -48,16 +38,6 @@ export class ListDoctorsComponent implements OnInit {
       this.loading = false;
     });
   }
-
-  getAllUsers() {
-    this.userService.getAllUsers().subscribe((res) => {
-      this.userService.users = res;
-      console.log(this.userService.users);
-      this.loading = false;
-    });
-  }
-
-
 
   getAllIps() {
     this.ipsService.getAllIps().subscribe((res: any) => {
@@ -83,14 +63,14 @@ export class ListDoctorsComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500,
         });
-        this.getAllUsers();
+        this.getAllDoctors();
         this.clean(doctor);
       });
     } else {
       this.userService.createUser(doctor.value).subscribe(
         (res) => {
           alert('usuario Creado');
-          this.getAllUsers();
+          this.getAllDoctors();
           console.log(res);
           this.clean(doctor);
         },
@@ -114,5 +94,36 @@ export class ListDoctorsComponent implements OnInit {
     this.userService.selectedUser = doctor;
   }
 
-  deleteDoctor(_id: string) {}
+  deleteDoctor(_id: string) {
+    Swal.fire({
+      title: 'Esta seguro de eliminar este registro?',
+      text: 'Perdera toda la informacion registrada!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, borralo!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.userService.deleteUser(_id).subscribe((res) => {
+          this.getAllDoctors();
+        });
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'usuario eliminado',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      } else {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Accion cancelada',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
+  }
 }

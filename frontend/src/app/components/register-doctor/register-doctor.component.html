@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
 <div class="container justify-content-center align-items-center">
-  <div class="row mt-5 ">
+  <div class="row mt-5">
     <div class="col-12 col-lg-6">
       <div>
         <img
@@ -9,7 +9,7 @@
           width="500"
           height="1200"
           alt=""
-          class="img-fluid  mt-5"
+          class="img-fluid mt-5"
           style="margin-left: 0"
         />
       </div>
@@ -17,12 +17,16 @@
 
     <div class="col-12 col-lg-6">
       <h2>
-        Bienvenido <br>
+        Bienvenido <br />
         <small class="font-italic">Por favor ingrese todos los datos</small>
       </h2>
 
       <div id="scroll">
-        <form novalidate [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <form
+          novalidate
+          [formGroup]="formulario"
+          (ngSubmit)="onSubmit(formulario.value)"
+        >
           <!-- #createForm="ngForm"
           (ngSubmit)="createForm.form.valid && createDoctor(createForm)" -->
           <div class="form-group">
@@ -236,27 +240,28 @@
           <!-- Especialidad -->
           <div class="form-group">
             <label for="especialidad">Especialidad</label>
-              <select
-                formControlName="especialidad"
-                class="form-control"
-                id="especialidad"
-                name="especialidad"
-                aria-describedby="especialidad"
-                placeholder="Seleccione especialidad"
-                required
+            <select
+              formControlName="especialidad"
+              class="form-control"
+              id="especialidad"
+              name="especialidad"
+              aria-describedby="especialidad"
+              placeholder="Seleccione especialidad"
+              required
+            >
+              <option value="">Seleccione Opcion</option>
+              <option
+                *ngFor="let specialty of this.specialtyService.specialty"
+                value="{{ specialty.specialtyId }}"
               >
-                <option value="">Seleccione Opcion</option>
-                <option
-                  *ngFor="let specialty of this.specialtyService.specialty"
-                  value="{{ specialty.specialtyId }}"
-                >
-                  {{ specialty.specialtyName }}
-                </option>
-              </select>
+                {{ specialty.specialtyName }}
+              </option>
+            </select>
 
             <span
               *ngIf="
-                formulario.controls['especialidad'].errors?.required && submitted
+                formulario.controls['especialidad'].errors?.required &&
+                submitted
               "
               class="text-danger"
             >
@@ -298,7 +303,9 @@
               required
             />
             <span
-              *ngIf="formulario.controls['password'].errors?.required && submitted"
+              *ngIf="
+                formulario.controls['password'].errors?.required && submitted
+              "
               class="text-danger"
             >
               (La contraseña no puede quedar vacío)
@@ -338,10 +345,9 @@
             >
               Registrarse
             </button>
-            
           </div>
         </form>
-        
+
         <div>{{ resultado }}</div>
       </div>
       <div class="registeredUser mt-3">
@@ -352,10 +358,6 @@
       </div>
     </div>
   </div>
- 
-  
 </div>
-
-
 
 <app-footer></app-footer>

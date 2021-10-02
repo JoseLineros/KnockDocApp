@@ -38,7 +38,7 @@ export class RegisterPatientComponent implements OnInit {
     role: new FormControl('2', [Validators.required]),
   });
 
-  onSubmit() {
+  onSubmit(user: NgForm) {
     this.submitted = true;
     if (
       this.formulario.get(['password'])?.value !=
@@ -56,17 +56,30 @@ export class RegisterPatientComponent implements OnInit {
     if (this.formulario.valid) {
       this.resultado = 'Todos los datos son válidos';
       console.log(this.formulario.value);
-      this.userService.createUser(this.formulario.value).subscribe((res) => {
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Usuario Guardado',
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        console.log(res);
-      });
-      this.router.navigate(['/signin']);
+      this.userService.createUser(this.formulario.value).subscribe(
+        (res) => {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Usuario Guardado',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          this.clean();
+          this.router.navigate(['/signin']);
+          console.log(res);
+        },
+        (error) => {
+          // alert('usuario ya existe');
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Error',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      );
     } else {
       this.resultado = 'Hay datos inválidos en el formulario';
     }

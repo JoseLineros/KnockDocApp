@@ -21,7 +21,11 @@
       <div id="scroll">
         <div class="card border-0 mt-1">
           <div class="card-body border-0 shadow">
-            <form novalidate [formGroup]="formulario" (ngSubmit)="onSubmit()">
+            <form
+              novalidate
+              [formGroup]="formulario"
+              (ngSubmit)="onSubmit(formulario.value)"
+            >
               <div class="form-group">
                 <label for="identificacion">Numero de Identificacion</label>
                 <input

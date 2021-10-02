@@ -24,6 +24,7 @@ export class RegisterDoctorComponent implements OnInit {
   isDisabled = false;
   submitted = false;
   resultado: string = '';
+  created: boolean = false;
   // formulario: FormGroup;
 
   constructor(
@@ -34,7 +35,7 @@ export class RegisterDoctorComponent implements OnInit {
     private router: Router
   ) {}
 
-    formulario = new FormGroup({
+  formulario = new FormGroup({
     identificacion: new FormControl('', [Validators.required]),
     nombre: new FormControl('', [Validators.required]),
     apellidos: new FormControl('', [Validators.required]),
@@ -51,7 +52,7 @@ export class RegisterDoctorComponent implements OnInit {
     role: new FormControl('1', [Validators.required]),
   });
 
-  onSubmit() {
+  onSubmit(doctor: NgForm) {
     this.submitted = true;
     if (
       this.formulario.get(['password'])?.value !=
@@ -70,18 +71,30 @@ export class RegisterDoctorComponent implements OnInit {
       this.resultado = 'Todos los datos son válidos';
       console.log(this.formulario.value);
 
-      this.userService.createUser(this.formulario.value).subscribe((res) => {
-        console.log(res);
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Usuario Guardado',
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      });
-      this.clean();
-      this.router.navigate(['/signin']);
+      this.userService.createUser(this.formulario.value).subscribe(
+        (res) => {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Usuario Guardado',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          this.clean();
+          this.router.navigate(['/signin']);
+          console.log(res);
+        },
+        (error) => {
+          // alert('usuario ya existe');
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Error',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      );
     } else {
       this.resultado = 'Hay datos inválidos en el formulario';
     }
