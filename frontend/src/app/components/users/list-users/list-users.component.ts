@@ -41,7 +41,7 @@ export class ListUsersComponent implements OnInit {
         this.clean(users);
       });
     } else {
-      if (users.value.identification || users.value.nombres || users.value.apellidos === ''){
+      if (users.value.identification || users.value.nombre || users.value.apellidos === ''){
         Swal.fire({
           position: 'center',
           icon: 'error',
