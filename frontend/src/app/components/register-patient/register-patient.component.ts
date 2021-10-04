@@ -80,6 +80,7 @@ export class RegisterPatientComponent implements OnInit {
           });
         }
       );
+      this.router.navigate(['/signin']);
     } else {
       this.resultado = 'Hay datos inválidos en el formulario';
     }
