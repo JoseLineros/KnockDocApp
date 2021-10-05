@@ -34,7 +34,7 @@ usersControllers.signin = async (req, res) => {
         return res.status(401).json({ message: 'Clave incorrecta' }); // No es la contraseña
     }
     //! JSON WEB TOKEN
-    const token = await jwt.sign({ _id: user._id, email: user.email, role: user.role }, 'pato');
+    const token = await jwt.sign({ _id: user._id, email: user.email, role: user.role, userId:user.identificacion }, 'pato');
     //! Fin
     res.status(200).json({ message: 'Estas logeado', token });
 };

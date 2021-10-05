@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IpsService } from 'src/app/services/ips/ips.service';
 
 @Component({
   selector: 'app-appointments-new',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppointmentsNewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ipsService: IpsService) { }
 
   ngOnInit(): void {
+  }
+
+  getAllIps(){
+    this.ipsService.getAllIps
   }
 
 }

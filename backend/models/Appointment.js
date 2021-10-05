@@ -8,7 +8,7 @@ const userSchema = new Schema({
     userName: { type: String, required: true },
     ips: { type: String, required: true },
     specialty: { type: String, required: true },
-    location: { type: String, required: true },
+    location: { type: String, required: false },
     status: { type: String, required: true }
 },{
     timestamps: true,
