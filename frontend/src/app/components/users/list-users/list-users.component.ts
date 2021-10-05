@@ -41,15 +41,8 @@ export class ListUsersComponent implements OnInit {
         this.clean(users);
       });
     } else {
-      if (users.value.identification || users.value.nombre || users.value.apellidos === ''){
-        Swal.fire({
-          position: 'center',
-          icon: 'error',
-          title: 'complete los campos',
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      } else{  this.userServices.createUser(users.value).subscribe(
+      
+      this.userServices.createUser(users.value).subscribe(
         (res) => {
           alert('usuario Creado');
           this.getAllUsers();
@@ -66,8 +59,7 @@ export class ListUsersComponent implements OnInit {
             timer: 1500,
           });
         }
-      );}
-    
+      );
     }
   }
 
@@ -77,7 +69,37 @@ export class ListUsersComponent implements OnInit {
     this.userServices.selectedUser = users;
   }
 
-
-  deleteDoctor(_id: string) {}
+  deleteUser(_id: string) {
+    Swal.fire({
+      title: 'Esta seguro de eliminar este registro?',
+      text: 'Perdera toda la informacion registrada!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, borralo!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.userServices.deleteUser(_id).subscribe((res) => {
+          this.getAllUsers();
+        });
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'usuario eliminado',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      } else {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Accion cancelada',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
+  }
 
 }
