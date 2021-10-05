@@ -28,12 +28,12 @@ export class SigninComponent implements OnInit {
         //! LocalStorage
         localStorage.setItem('token', res.token);
 
-        console.log(this.authService.check() === 1);
-
         if (this.authService.check() === 0) {
           this.router.navigate(['/container']);
         } else if (this.authService.check() === 1) {
           this.router.navigate(['/doctors']);
+        } else if (this.authService.check() === 2) {
+          this.router.navigate(['/users']);
         }
       },
       (err) => {
