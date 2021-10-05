@@ -51,7 +51,11 @@ const routes: Routes = [
   {
     path: 'users',
     component: UsersComponent,
-    children: [{ path: 'calendar', component: CalendarComponent }],
+    children: [
+      { path: 'appointmentsList', component: AppointmentsListComponent },
+      { path: 'appointmentsNew', component: AppointmentsNewComponent },
+      { path: 'calendar', component: CalendarComponent },
+    ],
   },
   { path: '**', component: Error404Component },
 ];
