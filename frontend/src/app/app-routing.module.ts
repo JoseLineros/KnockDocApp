@@ -19,6 +19,7 @@ import { DoctorsComponent } from './components/doctors/doctors.component';
 import { CalendarComponent } from './components/doctors/calendar/calendar.component';
 import { MyPatientsComponent } from './components/doctors/my-patients/my-patients.component';
 import { UsersComponent } from './components/users/users.component';
+import { MyDoctorsComponent } from './components/users/my-doctors/my-doctors.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -38,6 +39,8 @@ const routes: Routes = [
       { path: 'listUsers', component: ListUsersComponent },
       { path: 'appointmentsList', component: AppointmentsListComponent },
       { path: 'appointmentsNew', component: AppointmentsNewComponent },
+      { path: 'misDoctores', component: MyDoctorsComponent},
+
     ],
   },
   {
