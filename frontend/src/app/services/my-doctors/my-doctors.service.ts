@@ -6,6 +6,8 @@ import { User } from 'src/app/models/User'
   providedIn: 'root'
 })
 export class MyDoctorsService {
+  
+  
 
   selectedDoctor: User = new User()
 
@@ -17,8 +19,8 @@ export class MyDoctorsService {
   }
 
   // Get Doctor by ID
-  getDoctor(){
-    console.log(`${this.URL_API}/users/getUserById`)
-    return this.http.get<User[]>(`${this.URL_API}/users/getUserById`)
+  getDoctor(_id:any){
+    console.log(`${this.URL_API}/users/getUserById/${_id}`)
+    return this.http.get<any>(`${this.URL_API}/users/getUserById/${_id}`)
   }
 }

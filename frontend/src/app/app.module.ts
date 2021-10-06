@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SigninComponent } from './components/signin/signin.component';
@@ -29,12 +30,8 @@ import { ListUsersComponent } from './components/users/list-users/list-users.com
 import { AppointmentsComponent } from './components/users/appointments/appointments.component';
 import { AppointmentsListComponent } from './components/appointments/appointments-list/appointments-list.component';
 import { AppointmentsNewComponent } from './components/appointments/appointments-new/appointments-new.component';
-<<<<<<< HEAD
-import { MyDoctorsComponent } from './components/users/my-doctors/my-doctors.component';
-=======
 import { CalendarComponent } from './components/doctors/calendar/calendar.component';
 import { MyPatientsComponent } from './components/doctors/my-patients/my-patients.component';
->>>>>>> c49b88ae321612d69c831cb94d86e7afb447e3fe
 
 
 @NgModule({
@@ -61,13 +58,8 @@ import { MyPatientsComponent } from './components/doctors/my-patients/my-patient
     AppointmentsComponent,
     AppointmentsListComponent,
     AppointmentsNewComponent,
-<<<<<<< HEAD
-    MyDoctorsComponent,
-    
-=======
     CalendarComponent,
     MyPatientsComponent,
->>>>>>> c49b88ae321612d69c831cb94d86e7afb447e3fe
     
   ],
   imports: [

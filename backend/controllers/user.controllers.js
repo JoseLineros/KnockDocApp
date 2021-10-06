@@ -106,7 +106,7 @@ usersControllers.getUserById = async (req, res) => {
         const user = await User.findById(id);
         console.log(user);
         if (user) {
-            res.status(200).json({ message: 'Usuario encontrado', user });
+            res.status(200).json(user);
         } else {
             res.status(202).json({ message: 'Usuario no encontrado' });
         }
