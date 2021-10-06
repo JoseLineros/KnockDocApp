@@ -32,7 +32,11 @@ import { AppointmentsListComponent } from './components/appointments/appointment
 import { AppointmentsNewComponent } from './components/appointments/appointments-new/appointments-new.component';
 import { CalendarComponent } from './components/doctors/calendar/calendar.component';
 import { MyPatientsComponent } from './components/doctors/my-patients/my-patients.component';
+<<<<<<< HEAD
 
+=======
+import { MyDoctorsComponent } from './components/users/my-doctors/my-doctors.component';
+>>>>>>> 2a090d3960c62fe76b447b00d1f5cd57559bb51f
 
 @NgModule({
   declarations: [
@@ -60,6 +64,10 @@ import { MyPatientsComponent } from './components/doctors/my-patients/my-patient
     AppointmentsNewComponent,
     CalendarComponent,
     MyPatientsComponent,
+<<<<<<< HEAD
+=======
+    MyDoctorsComponent,
+>>>>>>> 2a090d3960c62fe76b447b00d1f5cd57559bb51f
     
   ],
   imports: [

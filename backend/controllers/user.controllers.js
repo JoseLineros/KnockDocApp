@@ -90,6 +90,16 @@ usersControllers.getAllDoctors = async (req, res) => {
     }
 };
 
+usersControllers.getAllDoctorsNoRole = async (req, res) => {
+    try {
+        const users = await User.find({role: 1});
+        if (users) res.status(201).json(users);
+        else res.status(202).json({ message: 'Doctores no encontrados' });
+    } catch (error) {
+        res.status(400).json({ message: 'Error', error });
+    }
+};
+
 usersControllers.getAllAdmins = async (req, res) => {
     try {
         const users = await User.find({role: 0});
