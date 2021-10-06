@@ -29,13 +29,9 @@ import { ListUsersComponent } from './components/users/list-users/list-users.com
 import { AppointmentsComponent } from './components/users/appointments/appointments.component';
 import { AppointmentsListComponent } from './components/appointments/appointments-list/appointments-list.component';
 import { AppointmentsNewComponent } from './components/appointments/appointments-new/appointments-new.component';
-<<<<<<< HEAD
-import { MyDoctorsComponent } from './components/users/my-doctors/my-doctors.component';
-=======
 import { CalendarComponent } from './components/doctors/calendar/calendar.component';
 import { MyPatientsComponent } from './components/doctors/my-patients/my-patients.component';
->>>>>>> c49b88ae321612d69c831cb94d86e7afb447e3fe
-
+import { MyDoctorsComponent } from './components/users/my-doctors/my-doctors.component';
 
 @NgModule({
   declarations: [
@@ -61,13 +57,9 @@ import { MyPatientsComponent } from './components/doctors/my-patients/my-patient
     AppointmentsComponent,
     AppointmentsListComponent,
     AppointmentsNewComponent,
-<<<<<<< HEAD
-    MyDoctorsComponent,
-    
-=======
     CalendarComponent,
     MyPatientsComponent,
->>>>>>> c49b88ae321612d69c831cb94d86e7afb447e3fe
+    MyDoctorsComponent,
     
   ],
   imports: [
