@@ -18,4 +18,8 @@ export class AppoinmentService {
   getAllAppoinment() {
     return this.http.get<any>(`${this.URL_API}/appointment/getAppointmentByUser`);
   }
+
+  getAllAppoinmentByDoctor() {
+    return this.http.get<any>(`${this.URL_API}/appointment/getAppointmentByDoctor`);
+  }
 }
