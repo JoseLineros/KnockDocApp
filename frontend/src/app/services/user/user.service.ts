@@ -50,6 +50,10 @@ export class UserService {
   getAllUsers() {
     return this.http.get<any>(`${this.URL_API}/users/getAllUsers`);
   }
+  
+  getDoctorsById(_id: any){
+    return this.http.get<any>(`${this.URL_API}/users/getUserById/${_id}`);
+  }
 
   getUserById(_id: any) {
     return this.http.get<any>(`${this.URL_API}/users/getUserById/${_id}`);
