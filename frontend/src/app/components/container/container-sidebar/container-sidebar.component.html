@@ -1,4 +1,4 @@
-<div *ngIf="permise === 0">
+<div *ngIf="this.authService.checkToken().role === 0">
   <nav
     id="sidebarMenu"
     class="
@@ -80,7 +80,7 @@
 </div>
 
 <!-- sidebar Doctores -->
-<div *ngIf="permise === 1">
+<div *ngIf="this.authService.checkToken().role === 1">
   <h2>Doctor</h2>
   <nav
     id="sidebarMenu"
@@ -124,7 +124,7 @@
 
 
 <!-- sidebar Usuarios -->
-<div *ngIf="permise === 2">
+<div *ngIf="this.authService.checkToken().role === 2">
   <nav
     id="sidebarMenu"
     class="

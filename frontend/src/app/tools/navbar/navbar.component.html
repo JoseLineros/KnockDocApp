@@ -60,7 +60,7 @@
         </div>
         <ng-template #loggedIn>
           <div class="navbar-nav ml-auto">
-            <span *ngIf="this.authService.check() === 0">
+            <span *ngIf="this.authService.checkToken().role === 0 && this.authService.getToken()">
               <a
                 class="nav-link"
                 routerLink="/container"
@@ -68,7 +68,7 @@
                 >Administrar</a
               >
             </span>
-            <span *ngIf="this.authService.check() === 1">
+            <span *ngIf="this.authService.checkToken().role === 1">
               <a
                 class="nav-link"
                 routerLink="/container"
@@ -76,7 +76,7 @@
                 >Dashboard</a
               >
             </span>
-            <span *ngIf="this.authService.check() === 2">
+            <span *ngIf="this.authService.checkToken().role === 2">
               <a
                 class="nav-link"
                 routerLink="/container"
