@@ -46,6 +46,10 @@ export class UserService {
   getAllDoctors() {
     return this.http.get<any>(`${this.URL_API}/users/getAllDoctors`);
   }
+  
+  getAllDoctorsNoRole() {
+    return this.http.get<any>(`${this.URL_API}/users/getAllDoctorsNoRole`);
+  }
 
   getAllUsers() {
     return this.http.get<any>(`${this.URL_API}/users/getAllUsers`);
