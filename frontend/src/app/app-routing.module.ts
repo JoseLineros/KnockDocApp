@@ -15,7 +15,14 @@ import { ListDoctorsComponent } from './components/doctors/list-doctors/list-doc
 import { ListUsersComponent } from './components/users/list-users/list-users.component';
 import { AppointmentsListComponent } from './components/appointments/appointments-list/appointments-list.component';
 import { AppointmentsNewComponent } from './components/appointments/appointments-new/appointments-new.component';
+<<<<<<< HEAD
 import { MyDoctorsComponent } from './components/users/my-doctors/my-doctors.component';
+=======
+import { DoctorsComponent } from './components/doctors/doctors.component';
+import { CalendarComponent } from './components/doctors/calendar/calendar.component';
+import { MyPatientsComponent } from './components/doctors/my-patients/my-patients.component';
+import { UsersComponent } from './components/users/users.component';
+>>>>>>> c49b88ae321612d69c831cb94d86e7afb447e3fe
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -33,10 +40,27 @@ const routes: Routes = [
     children: [
       { path: 'listDoctors', component: ListDoctorsComponent },
       { path: 'listUsers', component: ListUsersComponent },
-      { path: 'appointmentsList', component: AppointmentsListComponent},
+      { path: 'appointmentsList', component: AppointmentsListComponent },
       { path: 'appointmentsNew', component: AppointmentsNewComponent },
       { path: 'misDoctores', component: MyDoctorsComponent},
 
+    ],
+  },
+  {
+    path: 'doctors',
+    component: DoctorsComponent,
+    children: [
+      { path: 'calendar', component: CalendarComponent },
+      { path: 'patients', component: MyPatientsComponent },
+    ],
+  },
+  {
+    path: 'users',
+    component: UsersComponent,
+    children: [
+      { path: 'appointmentsList', component: AppointmentsListComponent },
+      { path: 'appointmentsNew', component: AppointmentsNewComponent },
+      { path: 'calendar', component: CalendarComponent },
     ],
   },
   { path: '**', component: Error404Component },

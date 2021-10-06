@@ -13,7 +13,11 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent implements OnInit {
-  constructor(public userService: UserService, public authService:AuthService, public router: Router) {}
+  constructor(
+    public userService: UserService,
+    public authService: AuthService,
+    public router: Router
+  ) {}
 
   ngOnInit(): void {}
 
@@ -23,7 +27,14 @@ export class SigninComponent implements OnInit {
         console.log(res);
         //! LocalStorage
         localStorage.setItem('token', res.token);
-        this.router.navigate(['/container']);
+
+        if (this.authService.check() === 0) {
+          this.router.navigate(['/container']);
+        } else if (this.authService.check() === 1) {
+          this.router.navigate(['/doctors']);
+        } else if (this.authService.check() === 2) {
+          this.router.navigate(['/users']);
+        }
       },
       (err) => {
         Swal.fire({
@@ -36,7 +47,4 @@ export class SigninComponent implements OnInit {
       }
     );
   }
-
-
 }
-

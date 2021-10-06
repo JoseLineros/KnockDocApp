@@ -7,7 +7,7 @@ import { AppoinmentService } from 'src/app/services/appoinment/appoinment.servic
   styleUrls: ['./appointments-list.component.css'],
 })
 export class AppointmentsListComponent implements OnInit {
-  constructor(private appoinmentService: AppoinmentService) {}
+  constructor(public appoinmentService: AppoinmentService) {}
 
   ngOnInit(): void {
     this.getAllAppoinment();

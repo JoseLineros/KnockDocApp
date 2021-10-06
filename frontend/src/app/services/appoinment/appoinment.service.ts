@@ -16,6 +16,6 @@ export class AppoinmentService {
   }
 
   getAllAppoinment() {
-    return this.http.get<any>(`${this.URL_API}/appointment/getAll`);
+    return this.http.get<any>(`${this.URL_API}/appointment/getAppointmentByUser`);
   }
 }

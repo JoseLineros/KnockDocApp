@@ -18,18 +18,21 @@
       "
     >
       <!-- <h4 class="color-titles mb-3">Nueva cita</h4> -->
-      
+
       <span *ngIf="this.authService.check() === 0">
         <!-- <app-admin></app-admin> -->
         <!-- <h4 class="color-titles">Administración de usuarios</h4> -->
+
         <router-outlet></router-outlet>
       </span>
       <span *ngIf="this.authService.check() === 1">
         <h4 class="color-titles">Falta componente inicial de Doctores</h4>
+        <app-doctors></app-doctors>
         <!-- <router-outlet></router-outlet> -->
       </span>
       <span *ngIf="this.authService.check() === 2">
         <h4 class="color-titles">Falta componente inicial de Pacientes</h4>
+        <router-outlet></router-outlet>
       </span>
     </main>
   </div>

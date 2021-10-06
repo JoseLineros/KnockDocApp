@@ -9,7 +9,19 @@
         <div class="card-body cardOverflow">
           <form #createForm="ngForm">
             <div class="form-group">
-              <label for="identificacion" class="text-muted"> <small> Identificacion </small></label>
+              <input
+                #name="ngModel"
+                [(ngModel)]="userService.selectedUser._id"
+                type="hidden"
+                id="_id"
+                name="_id"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="identificacion" class="text-muted">
+                <small> Identificacion </small></label
+              >
               <input
                 #name="ngModel"
                 [(ngModel)]="userService.selectedUser.identificacion"
@@ -25,7 +37,9 @@
             </div>
 
             <div class="form-group">
-              <label for="nombre" class="text-muted"> <small> Nombre</small></label>
+              <label for="nombre" class="text-muted">
+                <small> Nombre</small></label
+              >
               <input
                 #name="ngModel"
                 [(ngModel)]="userService.selectedUser.nombre"
@@ -40,7 +54,9 @@
             </div>
 
             <div class="form-group">
-              <label for="apellidos" class="text-muted"> <small> Apellidos</small></label>
+              <label for="apellidos" class="text-muted">
+                <small> Apellidos</small></label
+              >
               <input
                 #name="ngModel"
                 [(ngModel)]="userService.selectedUser.apellidos"
@@ -54,7 +70,9 @@
             </div>
 
             <div class="form-group">
-              <label for="fechaNacimiento" class="text-muted"> <small> FechaNacimiento</small></label>
+              <label for="fechaNacimiento" class="text-muted">
+                <small> FechaNacimiento</small></label
+              >
               <input
                 #name="ngModel"
                 [(ngModel)]="userService.selectedUser.fechaNacimiento"
@@ -69,7 +87,9 @@
             </div>
 
             <div class="form-group">
-              <label for="ciudad" class="text-muted"> <small> Ciudad</small></label>
+              <label for="ciudad" class="text-muted">
+                <small> Ciudad</small></label
+              >
               <input
                 #name="ngModel"
                 [(ngModel)]="userService.selectedUser.ciudad"
@@ -84,7 +104,9 @@
             </div>
 
             <div class="form-group">
-              <label for="direccion" class="text-muted"> <small> Dirección</small></label>
+              <label for="direccion" class="text-muted">
+                <small> Dirección</small></label
+              >
               <input
                 #name="ngModel"
                 [(ngModel)]="userService.selectedUser.direccion"
@@ -99,7 +121,9 @@
             </div>
 
             <div class="form-group">
-              <label for="celular" class="text-muted"> <small> Celular </small></label>
+              <label for="celular" class="text-muted">
+                <small> Celular </small></label
+              >
               <input
                 #name="ngModel"
                 [(ngModel)]="userService.selectedUser.celular"
@@ -114,7 +138,9 @@
             </div>
 
             <div class="form-group">
-              <label for="tp" class="text-muted"> <small> Tarjeta Profesional </small></label>
+              <label for="tp" class="text-muted">
+                <small> Tarjeta Profesional </small></label
+              >
 
               <input
                 #name="ngModel"
@@ -130,11 +156,13 @@
             </div>
 
             <div class="form-group">
-              <label for="ipsAsociado" class="text-muted"> <small> IPS Asociado </small></label>
+              <label for="ipsAsociado" class="text-muted">
+                <small> IPS Asociado </small></label
+              >
               <input
                 #name="ngModel"
                 [(ngModel)]="userService.selectedUser.ipsAsociado"
-                type="text"
+                type="hidden"
                 class="form-control bg-light"
                 id="ipsAsociado"
                 name="ipsAsociado"
@@ -143,6 +171,8 @@
                 readonly
               />
               <select
+                #name="ngModel"
+                [(ngModel)]="userService.selectedUser.ipsAsociado"
                 class="form-control"
                 id="ipsAsociado"
                 name="ipsAsociado"
@@ -161,7 +191,9 @@
             </div>
 
             <div class="form-group">
-              <label for="especialidad" class="text-muted"> <small> Especialidad</small> </label>
+              <label for="especialidad" class="text-muted">
+                <small> Especialidad</small>
+              </label>
 
               <input
                 #name="ngModel"
@@ -187,7 +219,10 @@
               />
             </div>
 
-            <button class="btn btn-block btn-success mt-2" (click)="save(createForm)">
+            <button
+              class="btn btn-block btn-success mt-2"
+              (click)="save(createForm)"
+            >
               Guardar
             </button>
 
@@ -200,7 +235,6 @@
     </div>
 
     <div class="col-12 col-md-7 col-lg-8 pr-0">
-      
       <div class="card">
         <div class="card-header bg-dark text-light">
           <h6 class="mb-0">Listado de doctores</h6>
@@ -226,10 +260,16 @@
                   <td class="pt-3">{{ doctor.fechaNacimiento }}</td>
                   <td class="pt-3">{{ doctor.ciudad }}</td>
                   <td>
-                    <button class="btn btn-light mr-2 btn-sm rounded-circle pt-1" (click)="fillFields(doctor)">
+                    <button
+                      class="btn btn-light mr-2 btn-sm rounded-circle pt-1"
+                      (click)="fillFields(doctor)"
+                    >
                       <i class="bi bi-pencil-fill color-blue"></i>
                     </button>
-                    <button class="btn btn-light btn-sm rounded-circle pt-1" (click)="deleteDoctor(doctor._id)">
+                    <button
+                      class="btn btn-light btn-sm rounded-circle pt-1"
+                      (click)="deleteDoctor(doctor._id)"
+                    >
                       <i class="bi bi-trash-fill text-danger"></i>
                     </button>
                   </td>
