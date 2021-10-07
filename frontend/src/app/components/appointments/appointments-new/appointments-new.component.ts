@@ -4,6 +4,7 @@ import { UserService } from 'src/app/services/user/user.service';
 import { SpecialtyService } from 'src/app/services/specialty/specialty.service';
 import { DoctorService } from 'src/app/services/doctor/doctor.service';
 import { AppoinmentService } from 'src/app/services/appoinment/appoinment.service';
+import { StatusService } from 'src/app/services/status/status.service';
 import Swal from 'sweetalert2';
 import { NgForm } from '@angular/forms';
 
@@ -17,7 +18,8 @@ export class AppointmentsNewComponent implements OnInit {
    public userService:UserService,
    public doctorService: DoctorService,
    public specialtyService: SpecialtyService,
-   public appoinmentService: AppoinmentService
+   public appoinmentService: AppoinmentService,
+   public statusService: StatusService,
    ) {}
 
   ngOnInit(): void {
@@ -27,6 +29,7 @@ export class AppointmentsNewComponent implements OnInit {
     this.getAllDoctorsNoRole();
     this.getAllSpecialtys();
     this.getAllAppoinment();
+    this.getAllStatus();
   }
 
   //Traigo las citas por id, para saber si el usuario ya la tiene
@@ -53,7 +56,7 @@ export class AppointmentsNewComponent implements OnInit {
 
   getAllDoctors() {
     this.userService.getAllDoctors().subscribe((res) => {
-      this.userService.users = res;
+      this.userService.doctors = res;
       console.log(res);
     });
   }
@@ -68,6 +71,13 @@ export class AppointmentsNewComponent implements OnInit {
   getAllSpecialtys(){
     this.specialtyService.getAllSpecialtys().subscribe((res) => {
       this.specialtyService.specialty = res
+      console.log(res)
+    });
+  }
+  
+  getAllStatus(){
+    this.statusService.getAllStatus().subscribe((res) => {
+      this.statusService.status = res
       console.log(res)
     });
   }

@@ -9,7 +9,7 @@ const userSchema = new Schema({
     ips: { type: String, required: true },
     specialty: { type: String, required: true },
     location: { type: String, required: false },
-    status: { type: String, required: true }
+    status: { type: String, required: false }
 },{
     timestamps: true,
     versionKey: false

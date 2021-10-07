@@ -37,7 +37,7 @@
                                   *ngFor="let user of this.userService.users"
                                   value="{{ user.identificacion }}"
                                 >
-                                  {{ user.nombre }}
+                                  {{ user.nombre }} {{ user.apellidos }}
                                 </option>
                               </select>
                           </div>
@@ -132,7 +132,7 @@
                               <label for="doctorName" class="text-muted"><small>Doctor</small></label>
                               <input
                                 #name="ngModel"
-                                [(ngModel)]="userService.selectedUser.nombre"
+                                [(ngModel)]="userService.selectedDoctor.nombre"
                                 type="hidden"
                                 class="form-control bg-light"
                                 id="doctorName"
@@ -143,7 +143,7 @@
                               />
                               <select
                                 #name="ngModel"
-                                [(ngModel)]="userService.selectedUser.nombre"
+                                [(ngModel)]="userService.selectedDoctor.nombre"
                                 class="form-control"
                                 id="doctorName"
                                 name="doctorName"
@@ -156,7 +156,40 @@
                                   *ngFor="let doctor of this.userService.doctors"
                                   value="{{ doctor.identificacion }}"
                                 >
-                                  {{ doctor.nombre }}
+                                  {{ doctor.nombre }} {{ doctor.apellidos }}
+                                </option>
+                              </select>
+                          </div>
+                          
+                          <div class="form-group col-md-6">
+                              <label for="status" class="text-muted"><small>Estado</small></label>
+                              <input
+                                #name="ngModel"
+                                [(ngModel)]="statusService.selectedStatus.statusName"
+                                type="hidden"
+                                class="form-control bg-light"
+                                id="status"
+                                name="status"
+                                aria-describedby="status"
+                                placeholder="Seleccione un estado"
+                                readonly
+                              />
+                              <select
+                                #name="ngModel"
+                                [(ngModel)]="statusService.selectedStatus.statusName"
+                                class="form-control"
+                                id="status"
+                                name="status"
+                                aria-describedby="status"
+                                placeholder="Seleccione un estado"
+                                required
+                              >
+                                <option value="">Seleccione Opcion</option>
+                                <option
+                                  *ngFor="let status of this.statusService.status"
+                                  value="{{ status.statusId }}"
+                                >
+                                  {{ status.statusName }}
                                 </option>
                               </select>
                           </div>
