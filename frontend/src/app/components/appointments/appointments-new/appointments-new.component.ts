@@ -85,26 +85,12 @@ export class AppointmentsNewComponent implements OnInit {
   clean(form?: NgForm) {} //Función para limpiar el form cuando guardo
 
   save(appointment:NgForm){
-    if (appointment.value._id){
-
-      // Actualizar la cita
-      this.appoinmentService.updateAppoinment(appointment.value).subscribe((res) => { // el .value es un objeto y puede traducirse a una clase
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Cita Actualizada',
-          showConfirmButton: false,
-          timer: 1500
-        })
-        this.getAllAppoinment()
-        this.clean(appointment) //El parametro del clean dice que form hay que limpiar
-      })
-    } else {
+    
       this.appoinmentService.createAppoinment(appointment.value).subscribe((res) => { //Debo suscribirme al método
         Swal.fire({
           position: 'center',
           icon: 'success',
-          title: 'Producto creado',
+          title: 'Cita creada',
           showConfirmButton: false,
           timer: 1500
         })
@@ -122,9 +108,10 @@ export class AppointmentsNewComponent implements OnInit {
         })
       }
       );
-    }
   }
 
-
+  /* save(user: NgForm){
+    console.log(user.value)
+  } */
   
 }
