@@ -103,14 +103,6 @@ export class RegisterDoctorComponent implements OnInit {
   ngOnInit(): void {
     this.getAllIps();
     this.getAllSpecialtys();
-    this.getAllDoctors();
-  }
-
-  getAllDoctors() {
-    this.userService.getAllUsers().subscribe((res) => {
-      this.userService.doctors = res;
-      console.log(this.userService.doctors);
-    });
   }
 
   getAllIps() {
@@ -144,9 +136,6 @@ export class RegisterDoctorComponent implements OnInit {
       confirmButtonText: 'Si, borralo!',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.userService.deleteUser(_id).subscribe((res) => {
-          this.getAllDoctors();
-        });
         Swal.fire({
           position: 'center',
           icon: 'success',
@@ -164,7 +153,5 @@ export class RegisterDoctorComponent implements OnInit {
         });
       }
     });
-    // });
-    // }
   }
 }

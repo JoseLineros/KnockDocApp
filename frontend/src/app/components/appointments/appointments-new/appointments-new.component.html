@@ -1,47 +1,204 @@
 <div class="container-fluid mt-1">
     <h5 class="color-titles mb-3">Nueva cita médica</h5>
     <div class="row">
-        <div class="col-12 col-sm-10 mx-auto">
+        <div class="col-12">
             <div class="card">
                 <h6 class="card-header text-muted">Ingresa los datos de la cita que deseas solicitar</h6>
                 <div class="card-body">
                     
-                    <form>
-                    <h6 class="card-title mb-1 text-muted"> ¿Cuando necesitas la cita?</h6>
-                    <div class="form-row">
-                      <div class="form-group col-md-6">
-                        <label for="inputEmail4" class="text-muted"><small>Fecha</small></label>
-                        <input type="date" class="form-control" id="inputEmail4">
+                    <form #createForm="ngForm">
+                      <h6 class="card-title mb-1 text-muted">Tus datos</h6>
+                      <div class="form-row">
+                          <div class="form-group col-md-6">
+                              <label for="userName" class="text-muted"><small>Paciente</small></label>
+                              <input
+                                #name="ngModel"
+                                [(ngModel)]="userService.selectedUser.nombre"
+                                type="hidden"
+                                class="form-control bg-light"
+                                id="userName"
+                                name="userName"
+                                aria-describedby="userName"
+                                placeholder="Seleccione un paciente"
+                                readonly
+                              />
+                              <select
+                                #name="ngModel"
+                                [(ngModel)]="userService.selectedUser.nombre"
+                                class="form-control"
+                                id="userName"
+                                name="userName"
+                                aria-describedby="userName"
+                                placeholder="Seleccione un paciente"
+                                required
+                              >
+                                <option value="">Seleccione Opcion</option>
+                                <option
+                                  *ngFor="let user of this.userService.users"
+                                  value="{{ user.identificacion }}"
+                                >
+                                  {{ user.nombre }} {{ user.apellidos }}
+                                </option>
+                              </select>
+                          </div>
+                          
+                          <div class="form-group col-md-6">
+                              <label for="ipsAsociado" class="text-muted"><small>IPS</small></label>
+                              <input
+                                #name="ngModel"
+                                [(ngModel)]="userService.selectedUser.ipsAsociado"
+                                type="hidden"
+                                class="form-control bg-light"
+                                id="ipsAsociado"
+                                name="ipsAsociado"
+                                aria-describedby="ipsAsociado"
+                                placeholder="Ingrese ips asociado"
+                                readonly
+                              />
+                              <select
+                                #name="ngModel"
+                                [(ngModel)]="userService.selectedUser.ipsAsociado"
+                                class="form-control"
+                                id="ipsAsociado"
+                                name="ipsAsociado"
+                                aria-describedby="ipsAsociado"
+                                placeholder="Ingrese IPS Asociado"
+                                required
+                              >
+                                <option value="">Seleccione Opcion</option>
+                                <option
+                                  *ngFor="let ips of this.ipsService.ips"
+                                  value="{{ ips.identificacion }}"
+                                >
+                                  {{ ips.razonSocial }}
+                                </option>
+                              </select>
+                          </div>
                       </div>
 
-                      <div class="form-group col-md-6">
-                        <label for="inputPassword4" class="text-muted"><small>Hora</small></label>
-                        <input type="time" class="form-control" id="inputPassword4">
+                      <div class="dropdown-divider mt-3"></div>
+
+                      <h6 class="card-title mt-4 text-muted"> ¿Cuando necesitas la cita?</h6>
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="inputEmail4" class="text-muted"><small>Fecha</small></label>
+                          <input type="date" class="form-control" id="inputEmail4">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                          <label for="inputPassword4" class="text-muted"><small>Hora</small></label>
+                          <input type="time" class="form-control" id="inputPassword4">
+                        </div>
                       </div>
-                    </div>
 
-                    <div class="dropdown-divider mt-3"></div>
+                      <div class="dropdown-divider mt-3"></div>
 
-                    <h6 class="card-title mt-4 mb-1 text-muted">¿Qué especialidad necesitas?</h6>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputState" class="text-muted"><small>Especialidad</small></label>
-                            <select id="inputState" class="form-control">
-                              <option selected>Choose...</option>
-                              <option>...</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group col-md-6">
-                            <label for="inputState" class="text-muted"><small>Doctor</small></label>
-                            <select id="inputState" class="form-control">
-                              <option selected>Choose...</option>
-                              <option>...</option>
-                            </select>
-                        </div>
-                    </div>
+                      <h6 class="card-title mt-4 mb-1 text-muted">¿Qué especialidad necesitas?</h6>
+                      <div class="form-row">
+                          <div class="form-group col-md-6">
+                              <label for="specialty" class="text-muted"><small>Especialidad</small></label>
+                              <input
+                                #name="ngModel"
+                                [(ngModel)]="specialtyService.selectedSpecialty.specialtyName"
+                                type="hidden"
+                                class="form-control bg-light"
+                                id="specialty"
+                                name="specialty"
+                                aria-describedby="specialty"
+                                placeholder="Seleccione especialidad"
+                                readonly
+                              />
+                              <select
+                                #name="ngModel"
+                                [(ngModel)]="specialtyService.selectedSpecialty.specialtyName"
+                                class="form-control"
+                                id="specialty"
+                                name="specialty"
+                                aria-describedby="specialty"
+                                placeholder="Seleccione especialidad"
+                                required
+                              >
+                                <option value="">Seleccione Opcion</option>
+                                <option
+                                  *ngFor="let specialty of this.specialtyService.specialty"
+                                  value="{{ specialty.specialtyId }}"
+                                >
+                                  {{ specialty.specialtyName }}
+                                </option>
+                              </select>
+                          </div>
+                          
+                          <div class="form-group col-md-6">
+                              <label for="doctorName" class="text-muted"><small>Doctor</small></label>
+                              <input
+                                #name="ngModel"
+                                [(ngModel)]="userService.selectedDoctor.nombre"
+                                type="hidden"
+                                class="form-control bg-light"
+                                id="doctorName"
+                                name="doctorName"
+                                aria-describedby="doctorName"
+                                placeholder="Seleccione un doctor"
+                                readonly
+                              />
+                              <select
+                                #name="ngModel"
+                                [(ngModel)]="userService.selectedDoctor.nombre"
+                                class="form-control"
+                                id="doctorName"
+                                name="doctorName"
+                                aria-describedby="doctorName"
+                                placeholder="Seleccione un doctor"
+                                required
+                              >
+                                <option value="">Seleccione Opcion</option>
+                                <option
+                                  *ngFor="let doctor of this.userService.doctors"
+                                  value="{{ doctor.identificacion }}"
+                                >
+                                  {{ doctor.nombre }} {{ doctor.apellidos }}
+                                </option>
+                              </select>
+                          </div>
+                          
+                          <div class="form-group col-md-6">
+                              <label for="status" class="text-muted"><small>Estado</small></label>
+                              <input
+                                #name="ngModel"
+                                [(ngModel)]="statusService.selectedStatus.statusName"
+                                type="hidden"
+                                class="form-control bg-light"
+                                id="status"
+                                name="status"
+                                aria-describedby="status"
+                                placeholder="Seleccione un estado"
+                                readonly
+                              />
+                              <select
+                                #name="ngModel"
+                                [(ngModel)]="statusService.selectedStatus.statusName"
+                                class="form-control"
+                                id="status"
+                                name="status"
+                                aria-describedby="status"
+                                placeholder="Seleccione un estado"
+                                required
+                              >
+                                <option value="">Seleccione Opcion</option>
+                                <option
+                                  *ngFor="let status of this.statusService.status"
+                                  value="{{ status.statusId }}"
+                                >
+                                  {{ status.statusName }}
+                                </option>
+                              </select>
+                          </div>
+                      </div>
+
+                      <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary mt-4 px-4" (click)="save(createForm)">Registrar cita</button>
+                      </div>
                     
-                    <button type="submit" class="btn btn-primary">Sign in</button>
                     </form>
                 </div>
               </div>

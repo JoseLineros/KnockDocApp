@@ -2,14 +2,14 @@ const { Schema, model } = require('mongoose')
 
 const userSchema = new Schema({
     date: { type: String, required: true },
-    doctorId: { type: String, required: true },
+    doctorId: { type: String, required: false },
     doctorName: { type: String, required: true },
-    userId: { type: String, required: true },
+    userId: { type: String, required: false },
     userName: { type: String, required: true },
     ips: { type: String, required: true },
     specialty: { type: String, required: true },
     location: { type: String, required: false },
-    status: { type: String, required: true }
+    status: { type: String, required: false }
 },{
     timestamps: true,
     versionKey: false

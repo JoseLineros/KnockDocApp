@@ -1,4 +1,5 @@
 const Appointment = require('../models/Appointment');
+const User = require('../models/User');
 
 const jwt = require('jsonwebtoken');
 const appointmentControllers = {};
@@ -48,10 +49,49 @@ appointmentControllers.getAppointmentByUser = async (req, res) => {
     try {
         // console.log(req.decoded)
         const userId = req.decoded.userId;
-        const appointmentAll = await Appointment.find({ userId }); //🔸 appointment Viene del export del modelo
+        const appointmentAll = await Appointment.find({ userId });
 
         if (appointmentAll) res.status(201).json(appointmentAll);
         else res.status(202).json({ message: 'Citas no encontradas' });
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({ message: 'error', error });
+    }
+};
+
+//Citas por doctor
+appointmentControllers.getAppointmentByDoctor = async (req, res) => {
+    try {
+        // console.log(req.decoded)
+        const doctorId = req.decoded.userId;
+        const appointmentAll = await Appointment.find({ doctorId });
+
+        const dataDoctor = await User.findOne({ identificacion: doctorId });
+        console.log(dataDoctor);
+        const { identificacion, nombre, apellidos } = dataDoctor;
+        console.log(identificacion, nombre, apellidos);
+
+        if (appointmentAll) res.status(201).json(appointmentAll);
+        else res.status(202).json({ message: 'Citas no encontradas' });
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({ message: 'error', error });
+    }
+};
+
+//Paciente en listado de doctor
+appointmentControllers.getAppointmentNameUserForDoctor = async (req, res) => {
+    try {
+        // console.log(req.decoded)
+        const userIdDoctor = req.decoded.userId;
+        console.log(userIdDoctor);
+        const dataDoctor = await User.findOne({ identificacion: userIdDoctor });
+        console.log(dataDoctor);
+        const { identificacion, nombre, apellidos } = dataDoctor;
+        console.log(identificacion, nombre, apellidos);
+
+        // const doctorDataAllAppointments = await Appointment.find({ doctorId: userIdDoctor });
+        // console.log(doctorDataAllAppointments);
     } catch (error) {
         console.log(error);
         res.status(400).json({ message: 'error', error });

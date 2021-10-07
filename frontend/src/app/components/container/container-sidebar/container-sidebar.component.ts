@@ -11,10 +11,10 @@ export class ContainerSidebarComponent implements OnInit {
   constructor(public authService: AuthService) {}
 
   ngOnInit(): void {
-    this.check();
+    // this.check();
   }
 
-  check() {
-    this.permise = this.authService.check();
-  }
+  // check() {
+  //   this.permise = this.authService.check();
+  // }
 }
