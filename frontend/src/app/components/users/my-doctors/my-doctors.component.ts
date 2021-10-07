@@ -13,11 +13,13 @@ import { MyDoctorsService } from 'src/app/services/my-doctors/my-doctors.service
 
 export class MyDoctorsComponent implements OnInit {
 
-  doc=""
-  doctor:[]=[]
+  
+  doctor:any
  
 
-  constructor(public mydoctorsService: MyDoctorsService) { }
+  constructor(public mydoctorsService: MyDoctorsService) { 
+    this.doctor = ""
+  }
   
   ngOnInit(): void {
   
@@ -27,8 +29,7 @@ export class MyDoctorsComponent implements OnInit {
   
   getUserbyID(){
     this.mydoctorsService.getDoctor('615cf00721f4eccabefd1bdf').subscribe((res)=>{
-      this.mydoctorsService.doctores = res
-      this.doc=res
+      this.doctor = res
       console.log(res)
     })
   }

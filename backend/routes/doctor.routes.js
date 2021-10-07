@@ -18,4 +18,6 @@ router.get('/getDoctorById/:id', Validator.verifyToken, doctorsControllers.getDo
 router.put('/updateDoctor/:id', Validator.verifyToken, doctorsControllers.updateDoctor);
 router.delete('/deleteDoctor/:id', Validator.verifyToken, doctorsControllers.deleteDoctor);
 
+
+
 module.exports = router;
