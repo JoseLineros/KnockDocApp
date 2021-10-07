@@ -33,7 +33,7 @@ const routes: Routes = [
   { path: 'registerDoctor', component: RegisterDoctorComponent },
   {
     path: 'container',
-    component: ContainerComponent,
+    component: ContainerComponent, canActivate: [AuthGuard],
     children: [
       { path: 'listDoctors', component: ListDoctorsComponent, canActivate: [AuthGuard] },
       { path: 'listUsers', component: ListUsersComponent, canActivate: [AuthGuard] },
