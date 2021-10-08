@@ -10,15 +10,15 @@
                       <h6 class="card-title mb-1 text-muted">Tus datos</h6>
                       <div class="form-row">
                           <div class="form-group col-md-6">
-                              <label for="userName" class="text-muted"><small>Paciente</small></label>
+                              <label for="identificacion" class="text-muted"><small>Paciente</small></label>
                               <input
                                 #name="ngModel"
-                                [(ngModel)]="userService.selectedUser.nombre"
+                                [(ngModel)]="userService.selectedUser.identificacion"
                                 type="hidden"
                                 class="form-control bg-light"
-                                id="userName"
-                                name="userName"
-                                aria-describedby="userName"
+                                id="identificacion"
+                                name="identificacion"
+                                aria-describedby="identificacion"
                                 placeholder="Seleccione un paciente"
                                 readonly
                               />
@@ -26,9 +26,9 @@
                                 #name="ngModel"
                                 [(ngModel)]="userService.selectedUser.nombre"
                                 class="form-control"
-                                id="userName"
-                                name="userName"
-                                aria-describedby="userName"
+                                id="userId"
+                                name="userId"
+                                aria-describedby="userId"
                                 placeholder="Seleccione un paciente"
                                 required
                               >
@@ -81,8 +81,11 @@
                       <h6 class="card-title mt-4 text-muted"> ¿Cuando necesitas la cita?</h6>
                       <div class="form-row">
                         <div class="form-group col-md-6">
-                          <label for="inputEmail4" class="text-muted"><small>Fecha</small></label>
-                          <input type="date" class="form-control" id="inputEmail4">
+                          <label for="date" class="text-muted"><small>Fecha</small></label>
+                          <input
+                          #name="ngModel"
+                          [(ngModel)]="appoinmentService.selectedAppoinment.date"
+                          type="date" class="form-control" id="date" name="date">
                         </div>
 
                         <div class="form-group col-md-6">
@@ -129,15 +132,15 @@
                           </div>
 
                           <div class="form-group col-md-6">
-                              <label for="doctorName" class="text-muted"><small>Doctor</small></label>
+                              <label for="identificacion" class="text-muted"><small>Doctor</small></label>
                               <input
                                 #name="ngModel"
-                                [(ngModel)]="userService.selectedDoctor.nombre"
+                                [(ngModel)]="userService.selectedDoctor.identificacion"
                                 type="hidden"
                                 class="form-control bg-light"
-                                id="doctorName"
-                                name="doctorName"
-                                aria-describedby="doctorName"
+                                id="identificacion"
+                                name="identificacion"
+                                aria-describedby="identificacion"
                                 placeholder="Seleccione un doctor"
                                 readonly
                               />
@@ -145,9 +148,9 @@
                                 #name="ngModel"
                                 [(ngModel)]="userService.selectedDoctor.nombre"
                                 class="form-control"
-                                id="doctorName"
-                                name="doctorName"
-                                aria-describedby="doctorName"
+                                id="doctorId"
+                                name="doctorId"
+                                aria-describedby="doctorId"
                                 placeholder="Seleccione un doctor"
                                 required
                               >
@@ -187,11 +190,23 @@
                                 <option value="">Seleccione Opcion</option>
                                 <option
                                   *ngFor="let status of this.statusService.status"
-                                  value="{{ status.statusId }}"
+                                  value="{{ status.statusName }}"
                                 >
                                   {{ status.statusName }}
                                 </option>
                               </select>
+                          </div>
+                          <div class="form-group col-6">
+                            <input
+                                #name="ngModel"
+                                [(ngModel)]="userService.selectedDoctor.direccion"
+                                type="text"
+                                class="form-control bg-light"
+                                id="direccion"
+                                name="direccion"
+                                aria-describedby="direccion"
+                                placeholder="Seleccione un estado"
+                              />
                           </div>
                       </div>
 

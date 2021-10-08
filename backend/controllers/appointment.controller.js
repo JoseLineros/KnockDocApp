@@ -8,6 +8,7 @@ const appointmentControllers = {};
 
 //Crear cita
 appointmentControllers.create = async (req, res) => {
+    console.log(req.body)
     try {
         const { date, doctorId, doctorName, userId, userName, ips, specialty, location, status } = req.body;
 
