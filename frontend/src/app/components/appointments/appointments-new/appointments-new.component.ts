@@ -14,13 +14,14 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./appointments-new.component.css'],
 })
 export class AppointmentsNewComponent implements OnInit {
-  constructor(public ipsService: IpsService,
-   public userService:UserService,
-   public doctorService: DoctorService,
-   public specialtyService: SpecialtyService,
-   public appoinmentService: AppoinmentService,
-   public statusService: StatusService,
-   ) {}
+  constructor(
+    public ipsService: IpsService,
+    public userService: UserService,
+    public doctorService: DoctorService,
+    public specialtyService: SpecialtyService,
+    public appoinmentService: AppoinmentService,
+    public statusService: StatusService
+  ) {}
 
   ngOnInit(): void {
     this.getAllIps();
@@ -36,15 +37,15 @@ export class AppointmentsNewComponent implements OnInit {
   getAllAppoinment() {
     this.appoinmentService.getAllAppoinment().subscribe((res) => {
       this.appoinmentService.appoinments = res;
-      console.log(res)
-    })
+      console.log(res);
+    });
   }
 
   getAllUsers() {
     this.userService.getAllUsers().subscribe((res) => {
       this.userService.users = res;
-      console.log(res)
-    })
+      console.log(res);
+    });
   }
 
   getAllIps() {
@@ -60,7 +61,7 @@ export class AppointmentsNewComponent implements OnInit {
       console.log(res);
     });
   }
-  
+
   getAllDoctorsNoRole() {
     this.userService.getAllDoctorsNoRole().subscribe((res) => {
       this.userService.doctors = res;
@@ -68,24 +69,24 @@ export class AppointmentsNewComponent implements OnInit {
     });
   }
 
-  getAllSpecialtys(){
+  getAllSpecialtys() {
     this.specialtyService.getAllSpecialtys().subscribe((res) => {
-      this.specialtyService.specialty = res
-      console.log(res)
+      this.specialtyService.specialty = res;
+      console.log(res);
     });
   }
-  
-  getAllStatus(){
+
+  getAllStatus() {
     this.statusService.getAllStatus().subscribe((res) => {
-      this.statusService.status = res
-      console.log(res)
+      this.statusService.status = res;
+      console.log(res);
     });
   }
 
   clean(form?: NgForm) {} //Función para limpiar el form cuando guardo
 
   save(appointment:NgForm){
-    
+
       this.appoinmentService.createAppoinment(appointment.value).subscribe((res) => { //Debo suscribirme al método
         Swal.fire({
           position: 'center',
@@ -109,9 +110,4 @@ export class AppointmentsNewComponent implements OnInit {
       }
       );
   }
-
-  /* save(user: NgForm){
-    console.log(user.value)
-  } */
-  
 }

@@ -1,12 +1,13 @@
 const Appointment = require('../models/Appointment');
 const User = require('../models/User');
+const Ips = require('../models/Ips');
+const Specialty = require('../models/Specialty');
 
 const jwt = require('jsonwebtoken');
 const appointmentControllers = {};
 
 //Crear cita
 appointmentControllers.create = async (req, res) => {
-    console.log(req.body)
     try {
         const { date, doctorId, doctorName, userId, userName, ips, specialty, location, status } = req.body;
 
@@ -17,8 +18,6 @@ appointmentControllers.create = async (req, res) => {
             res.status(400).json({ message: 'Horario no disponible' });
             return;
         }
-
-        //Validar doctor
 
         const newAppointment = new Appointment({ date, doctorId, doctorName, userId, userName, ips, specialty, location, status });
         const appointment = await newAppointment.save();
@@ -50,7 +49,17 @@ appointmentControllers.getAppointmentByUser = async (req, res) => {
     try {
         // console.log(req.decoded)
         const userId = req.decoded.userId;
-        const appointmentAll = await Appointment.find({ userId });
+        let appointmentAll = await Appointment.find({ userId });
+        let result;
+
+        for (let i in appointmentAll) {
+            console.log(`aqui`);
+            const ipsInfo = await Ips.findOne({ ips: appointmentAll[i].ips });
+            const especialidadInfo = await Specialty.findOne({ specialty: appointmentAll[i].specialty });
+            appointmentAll[i].ips = ipsInfo.razonSocial;
+            appointmentAll[i].specialty = especialidadInfo.specialtyName;
+            console.log(ipsInfo);
+        }
 
         if (appointmentAll) res.status(201).json(appointmentAll);
         else res.status(202).json({ message: 'Citas no encontradas' });
@@ -72,27 +81,22 @@ appointmentControllers.getAppointmentByDoctor = async (req, res) => {
         const { identificacion, nombre, apellidos } = dataDoctor;
         console.log(identificacion, nombre, apellidos);
 
+        let result;
+        for (let i in appointmentAll) {
+            // const ipsInfo = await Ips.findOne({ identificacion: appointmentAll[i].ips });
+            // const especialidadInfo = await Specialty.findOne({ specialtyId: appointmentAll[i].specialty });
+            // console.log(ipsInfo, especialidadInfo);
+            // appointmentAll[i].ips = ipsInfo.razonSocial;
+            // appointmentAll[i].specialty = especialidadInfo.specialtyName;
+            const ipsInfo = await Ips.findOne({ ips: appointmentAll[i].ips });
+            const especialidadInfo = await Specialty.findOne({ specialty: appointmentAll[i].specialty });
+            appointmentAll[i].ips = ipsInfo.razonSocial;
+            appointmentAll[i].specialty = especialidadInfo.specialtyName;
+            console.log(ipsInfo);
+        }
+
         if (appointmentAll) res.status(201).json(appointmentAll);
         else res.status(202).json({ message: 'Citas no encontradas' });
-    } catch (error) {
-        console.log(error);
-        res.status(400).json({ message: 'error', error });
-    }
-};
-
-//Paciente en listado de doctor
-appointmentControllers.getAppointmentNameUserForDoctor = async (req, res) => {
-    try {
-        // console.log(req.decoded)
-        const userIdDoctor = req.decoded.userId;
-        console.log(userIdDoctor);
-        const dataDoctor = await User.findOne({ identificacion: userIdDoctor });
-        console.log(dataDoctor);
-        const { identificacion, nombre, apellidos } = dataDoctor;
-        console.log(identificacion, nombre, apellidos);
-
-        // const doctorDataAllAppointments = await Appointment.find({ doctorId: userIdDoctor });
-        // console.log(doctorDataAllAppointments);
     } catch (error) {
         console.log(error);
         res.status(400).json({ message: 'error', error });
