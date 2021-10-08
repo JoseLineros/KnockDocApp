@@ -8,7 +8,6 @@ const appointmentControllers = {};
 
 //Crear cita
 appointmentControllers.create = async (req, res) => {
-    console.log(req.body)
     try {
         const { date, doctorId, doctorName, userId, userName, ips, specialty, location, status } = req.body;
 
@@ -84,11 +83,16 @@ appointmentControllers.getAppointmentByDoctor = async (req, res) => {
 
         let result;
         for (let i in appointmentAll) {
-            const ipsInfo = await Ips.findOne({ identificacion: appointmentAll[i].ips });
-            const especialidadInfo = await Specialty.findOne({ specialtyId: appointmentAll[i].specialty });
-            console.log(ipsInfo, especialidadInfo);
+            // const ipsInfo = await Ips.findOne({ identificacion: appointmentAll[i].ips });
+            // const especialidadInfo = await Specialty.findOne({ specialtyId: appointmentAll[i].specialty });
+            // console.log(ipsInfo, especialidadInfo);
+            // appointmentAll[i].ips = ipsInfo.razonSocial;
+            // appointmentAll[i].specialty = especialidadInfo.specialtyName;
+            const ipsInfo = await Ips.findOne({ ips: appointmentAll[i].ips });
+            const especialidadInfo = await Specialty.findOne({ specialty: appointmentAll[i].specialty });
             appointmentAll[i].ips = ipsInfo.razonSocial;
             appointmentAll[i].specialty = especialidadInfo.specialtyName;
+            console.log(ipsInfo);
         }
 
         if (appointmentAll) res.status(201).json(appointmentAll);
