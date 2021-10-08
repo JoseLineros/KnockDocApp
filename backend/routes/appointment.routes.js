@@ -16,6 +16,5 @@ router.delete('/delete/:idAppo', Validator.verifyToken, appointmentControllers.d
 
 router.get('/getAppointmentByUser', Validator.verifyToken, appointmentControllers.getAppointmentByUser)
 router.get('/getAppointmentByDoctor', Validator.verifyToken, appointmentControllers.getAppointmentByDoctor);
-router.get('/getAppointmentNameUserForDoctor', Validator.verifyToken, appointmentControllers.getAppointmentNameUserForDoctor);
 
 module.exports = router
