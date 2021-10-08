@@ -39,7 +39,6 @@ const routes: Routes = [
       { path: 'listUsers', component: ListUsersComponent, canActivate: [AuthGuard] },
       { path: 'appointmentsList', component: AppointmentsListComponent, canActivate: [AuthGuard] },
       { path: 'appointmentsNew', component: AppointmentsNewComponent,canActivate: [AuthGuard] },
-      { path: 'misDoctores', component: MyDoctorsComponent, canActivate: [AuthGuard]},
 
     ],
   },
@@ -58,6 +57,8 @@ const routes: Routes = [
       { path: 'appointmentsList', component: AppointmentsListComponent, canActivate: [AuthGuard] },
       { path: 'appointmentsNew', component: AppointmentsNewComponent, canActivate: [AuthGuard] },
       { path: 'calendar', component: CalendarComponent },
+      { path: 'misDoctores', component: MyDoctorsComponent, canActivate: [AuthGuard]},
+  
     ],
   },
   { path: '**', component: Error404Component },

@@ -171,7 +171,8 @@ usersControllers.doctorhistory = async (req, res) =>{
         
         const result = [...new Map(doctorsInfo.map(doc => [doc.identificacion, doc])).values()]
 
-        res.status(200).json({message: "conectado",result,users:req.decoded})
+        res.status(200).json(result)
+        //res.status(200).json({message: "conectado",result,users:req.decoded})
         
     } catch (error) {
         console.log(error)
