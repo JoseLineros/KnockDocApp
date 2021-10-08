@@ -21,6 +21,7 @@ app.use('/doctors', require('./routes/doctor.routes'));
 app.use('/users', require('./routes/user.routes'));
 app.use('/auth', require('./routes/auth.routes'));
 app.use('/appointment', require('./routes/appointment.routes'))
+app.use('/status', require('./routes/status.routes'))
 
 app.listen(port, () => {
     console.log(`App listening on port ${port}`);

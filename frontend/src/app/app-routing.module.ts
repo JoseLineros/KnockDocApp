@@ -33,30 +33,30 @@ const routes: Routes = [
   { path: 'registerDoctor', component: RegisterDoctorComponent },
   {
     path: 'container',
-    component: ContainerComponent,
+    component: ContainerComponent, canActivate: [AuthGuard],
     children: [
-      { path: 'listDoctors', component: ListDoctorsComponent },
-      { path: 'listUsers', component: ListUsersComponent },
-      { path: 'appointmentsList', component: AppointmentsListComponent },
-      { path: 'appointmentsNew', component: AppointmentsNewComponent },
-      { path: 'misDoctores', component: MyDoctorsComponent},
+      { path: 'listDoctors', component: ListDoctorsComponent, canActivate: [AuthGuard] },
+      { path: 'listUsers', component: ListUsersComponent, canActivate: [AuthGuard] },
+      { path: 'appointmentsList', component: AppointmentsListComponent, canActivate: [AuthGuard] },
+      { path: 'appointmentsNew', component: AppointmentsNewComponent,canActivate: [AuthGuard] },
+      { path: 'misDoctores', component: MyDoctorsComponent, canActivate: [AuthGuard]},
 
     ],
   },
   {
     path: 'doctors',
-    component: DoctorsComponent,
+    component: DoctorsComponent, canActivate: [AuthGuard],
     children: [
-      { path: 'calendar', component: CalendarComponent },
-      { path: 'patients', component: MyPatientsComponent },
+      { path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard] },
+      { path: 'patients', component: MyPatientsComponent, canActivate: [AuthGuard] },
     ],
   },
   {
     path: 'users',
-    component: UsersComponent,
+    component: UsersComponent, canActivate: [AuthGuard],
     children: [
-      { path: 'appointmentsList', component: AppointmentsListComponent },
-      { path: 'appointmentsNew', component: AppointmentsNewComponent },
+      { path: 'appointmentsList', component: AppointmentsListComponent, canActivate: [AuthGuard] },
+      { path: 'appointmentsNew', component: AppointmentsNewComponent, canActivate: [AuthGuard] },
       { path: 'calendar', component: CalendarComponent },
     ],
   },

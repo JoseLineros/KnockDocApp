@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class UserService {
   selectedUser: User;
+  selectedDoctor: User;
   admins: User[] = [];
   doctors: User[] = [];
   users: User[] = [];
@@ -17,6 +18,7 @@ export class UserService {
 
   constructor(private http: HttpClient, private router: Router) {
     this.selectedUser = new User();
+    this.selectedDoctor = new User();
   }
 
   getSpecialtyById(_id: any) {

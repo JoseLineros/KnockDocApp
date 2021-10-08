@@ -24,11 +24,11 @@ export class MyDoctorsComponent implements OnInit {
   ngOnInit(): void {
   
 
-    this.getUserbyID()
+    this.doctorhistory()
   }
   
-  getUserbyID(){
-    this.mydoctorsService.getDoctor('615cf00721f4eccabefd1bdf').subscribe((res)=>{
+  doctorhistory(){
+    this.mydoctorsService.getDoctors('').subscribe((res)=>{
       this.doctor = res
       console.log(res)
     })
