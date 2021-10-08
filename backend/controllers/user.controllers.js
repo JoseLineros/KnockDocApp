@@ -1,7 +1,10 @@
+const Appointment = require("../models/Appointment")
+
 //Models
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const { use } = require('../routes/auth.routes');
+
 
 const usersControllers = {};
 
@@ -153,5 +156,28 @@ usersControllers.deleteUser = async (req, res) => {
         res.status(400).json({ message: 'Error', error });
     }
 };
+
+usersControllers.doctorhistory = async (req, res) =>{
+    try {
+        const user = req.decoded.userId
+        const userAppointments = await Appointment.find({userId: user})
+        let doctorsInfo = []
+        for (let i in userAppointments){
+            console.log(userAppointments[i])
+            let {doctorId} = userAppointments[i]
+            let doctorInfo = await User.findOne({identificacion: doctorId})
+            doctorInfo !== null? doctorsInfo.push(doctorInfo): false
+        }
+        
+        const result = [...new Map(doctorsInfo.map(doc => [doc.identificacion, doc])).values()]
+
+        res.status(200).json({message: "conectado",result,users:req.decoded})
+        
+    } catch (error) {
+        console.log(error)
+        
+    }
+}
+
 
 module.exports = usersControllers;

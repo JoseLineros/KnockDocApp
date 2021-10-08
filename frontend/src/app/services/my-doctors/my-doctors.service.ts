@@ -18,9 +18,9 @@ export class MyDoctorsService {
     this.selectedDoctor = new User();
   }
 
-  // Get Doctor by ID
-  getDoctor(_id:any){
-    console.log(`${this.URL_API}/users/getUserById/${_id}`)
-    return this.http.get<any>(`${this.URL_API}/users/getUserById/${_id}`)
+  // Get Doctors
+  getDoctors(_id:any){
+    console.log(`${this.URL_API}/users/mydoctors/${_id}`)
+    return this.http.get<any>(`${this.URL_API}/users/mydoctors/${_id}`)
   }
 }
