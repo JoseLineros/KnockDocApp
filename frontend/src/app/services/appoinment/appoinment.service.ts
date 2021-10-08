@@ -40,4 +40,10 @@ export class AppoinmentService {
       appoinment
     );
   }
+
+  getAll() {
+    return this.http.get<any>(`${this.URL_API}/appointment/getAll`);
+  }
+
+
 }

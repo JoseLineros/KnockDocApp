@@ -14,7 +14,7 @@ export class CalendarComponent implements OnInit {
   }
 
   getAllAppoinment() {
-    this.appoinmentService.getAllAppoinment().subscribe((res: any) => {
+    this.appoinmentService.getAll().subscribe((res: any) => {
       this.appoinmentService.appoinments = res;
       console.log(res);
     });
