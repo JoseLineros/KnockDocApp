@@ -22,4 +22,8 @@ router.get('/getUserById/:id', Validator.verifyToken, usersControllers.getUserBy
 router.put('/updateUser/:id', Validator.verifyToken, usersControllers.updateUser);
 router.delete('/deleteUser/:id', Validator.verifyToken, usersControllers.deleteUser);
 
+
+router.get('/mydoctors', Validator.verifyToken, usersControllers.doctorhistory)
+
+
 module.exports = router;
