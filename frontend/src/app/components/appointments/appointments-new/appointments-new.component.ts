@@ -85,7 +85,7 @@ export class AppointmentsNewComponent implements OnInit {
 
   clean(form?: NgForm) {} //Función para limpiar el form cuando guardo
 
-  save(appointment:NgForm){
+  /* save(appointment:NgForm){
 
       this.appoinmentService.createAppoinment(appointment.value).subscribe((res) => { //Debo suscribirme al método
         Swal.fire({
@@ -109,5 +109,9 @@ export class AppointmentsNewComponent implements OnInit {
         })
       }
       );
+  } */
+
+  save(user: NgForm){
+    console.log(user.value)
   }
 }
