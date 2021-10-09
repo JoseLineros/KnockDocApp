@@ -85,33 +85,33 @@ export class AppointmentsNewComponent implements OnInit {
 
   clean(form?: NgForm) {} //Función para limpiar el form cuando guardo
 
-  // save(appointment:NgForm){
+  /* save(appointment:NgForm){
 
-  //     this.appoinmentService.createAppoinment(appointment.value).subscribe((res) => { //Debo suscribirme al método
-  //       Swal.fire({
-  //         position: 'center',
-  //         icon: 'success',
-  //         title: 'Cita creada',
-  //         showConfirmButton: false,
-  //         timer: 1500
-  //       })
-  //       this.getAllAppoinment()
-  //       console.log(res)
-  //       this.clean(appointment)
-  //     },
-  //     (err) => {
-  //       Swal.fire({
-  //         position: 'center',
-  //         icon: 'error',
-  //         title: 'Cita ya existe',
-  //         showConfirmButton: false,
-  //         timer: 1500
-  //       })
-  //     }
-  //     );
-  // }
+      this.appoinmentService.createAppoinment(appointment.value).subscribe((res) => { //Debo suscribirme al método
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Cita creada',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        this.getAllAppoinment()
+        console.log(res)
+        this.clean(appointment)
+      },
+      (err) => {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Cita ya existe',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+      );
+  } */
 
-  save(appointment: NgForm) {
-    console.log(appointment);
+  save(user: NgForm){
+    console.log(user.value)
   }
 }
