@@ -207,6 +207,37 @@
                 </span>
               </div>
 
+              <!-- IPS -->
+              <div class="form-group">
+            <label for="ipsAsociado">IPS Asociado</label>
+            <select
+              formControlName="ipsAsociado"
+              class="form-control"
+              id="ipsAsociado"
+              name="ipsAsociado"
+              aria-describedby="ipsAsociado"
+              placeholder="Ingrese IPS Asociado"
+              required
+            >
+              <option value="">Seleccione Opcion</option>
+              <option
+                *ngFor="let ips of this.ipsService.ips"
+                value="{{ ips.identificacion }}"
+              >
+                {{ ips.razonSocial }}
+              </option>
+            </select>
+
+            <span
+              *ngIf="
+                formulario.controls['ipsAsociado'].errors?.required && submitted
+              "
+              class="text-danger"
+            >
+              (La IPS asociado no puede quedar vacío)
+            </span>
+          </div>
+
               <div class="form-group">
                 <label for="password">Contraseña</label>
                 <input

@@ -22,7 +22,8 @@ Validator.verifyToken = async (req, res, next) => {
         }
 
         //! Save info payload
-        req.decoded = { _id: payload._id, email: payload.email, role: payload.role, userId: payload.userId };
+        console.log(payload)
+        req.decoded = { _id: payload._id, email: payload.email, role: payload.role, userId: payload.userId, fullName: payload.fullName, ips: payload.ips };
 
         next();
     } catch (error) {

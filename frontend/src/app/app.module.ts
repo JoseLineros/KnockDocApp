@@ -33,6 +33,7 @@ import { AppointmentsNewComponent } from './components/appointments/appointments
 import { CalendarComponent } from './components/doctors/calendar/calendar.component';
 import { MyPatientsComponent } from './components/doctors/my-patients/my-patients.component';
 import { MyDoctorsComponent } from './components/users/my-doctors/my-doctors.component';
+import { DashboardComponent } from './components/doctors/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { MyDoctorsComponent } from './components/users/my-doctors/my-doctors.com
     CalendarComponent,
     MyPatientsComponent,
     MyDoctorsComponent,
+    DashboardComponent,
     
   ],
   imports: [

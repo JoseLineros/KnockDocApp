@@ -5,7 +5,7 @@ const userSchema = new Schema({
     doctorId: { type: String, required: true },
     doctorName: { type: String, required: true },
     userId: { type: String, required: true },
-    userName: { type: String, required: true },
+    //userName: { type: String, required: true },
     ips: { type: String, required: true },
     specialty: { type: String, required: true },
     location: { type: String, required: true },
