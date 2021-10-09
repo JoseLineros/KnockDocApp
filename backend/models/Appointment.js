@@ -1,7 +1,9 @@
-const { Schema, model } = require('mongoose')
+const { Schema, model } = require('mongoose');
 
 const userSchema = new Schema({
     date: { type: String, required: true },
+    //hourStart: { type: String, required: true },
+    //hourEnd: { type: String, required: true },
     doctorId: { type: String, required: true },
     doctorName: { type: String, required: true },
     userId: { type: String, required: true },
@@ -15,4 +17,4 @@ const userSchema = new Schema({
     versionKey: false
 })
 
-module.exports = model('appointment', userSchema) //🔸
+module.exports = model('appointment', userSchema); //🔸

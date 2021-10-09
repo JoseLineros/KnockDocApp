@@ -12,7 +12,6 @@ import Swal from 'sweetalert2';
 import { User } from 'src/app/models/User';
 import { IpsService } from 'src/app/services/ips/ips.service';
 
-
 @Component({
   selector: 'app-register-patient',
   templateUrl: './register-patient.component.html',
@@ -22,11 +21,11 @@ export class RegisterPatientComponent implements OnInit {
   isDisabled = false;
   submitted = false;
   resultado: string = '';
-  constructor(public userService: UserService, 
-    private router: Router,
-    public ipsService: IpsService,) {}
+  constructor(public userService: UserService, public ipsService:IpsService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAllIps();
+  }
 
   formulario = new FormGroup({
     identificacion: new FormControl('', [Validators.required]),

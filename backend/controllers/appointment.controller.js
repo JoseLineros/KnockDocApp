@@ -11,10 +11,12 @@ appointmentControllers.create = async (req, res) => {
     try {
         const { date, doctorId, specialty } = req.body;
         const ips = req.decoded.ips //traida desde el verifyToken.js
+        console.log(ips)
         const doctorinfo = await User.findOne({ identificacion: doctorId }) //localizo al doctor
         const location = doctorinfo.direccion //Apunto a su llave direccion
         const userId = req.decoded.userId
         const doctorName = `${doctorinfo.nombre} ${doctorinfo.apellidos}`
+        
 
         //! Validar horario
         const appointmentExistDate = await Appointment.findOne({ date });
