@@ -1,18 +1,21 @@
-const { Schema, model } = require('mongoose')
+const { Schema, model } = require('mongoose');
 
-const userSchema = new Schema({
-    date: { type: String, required: true },
-    doctorId: { type: String, required: true },
-    doctorName: { type: String, required: false },
-    userId: { type: String, required: true },
-    userName: { type: String, required: false },
-    ips: { type: String, required: false },
-    specialty: { type: String, required: true },
-    location: { type: String, required: false },
-    status: { type: String, required: false }
-},{
-    timestamps: true,
-    versionKey: false
-})
+const userSchema = new Schema(
+    {
+        date: { type: String, required: true },
+        doctorId: { type: String, required: true },
+        doctorName: { type: String, required: true },
+        userId: { type: String, required: true },
+        userName: { type: String, required: true },
+        ips: { type: String, required: true },
+        specialty: { type: String, required: true },
+        location: { type: String, required: true },
+        status: { type: String, required: true },
+    },
+    {
+        timestamps: true,
+        versionKey: false,
+    }
+);
 
-module.exports = model('appointment', userSchema) //🔸
+module.exports = model('appointment', userSchema); //🔸
