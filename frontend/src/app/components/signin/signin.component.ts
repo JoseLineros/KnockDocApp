@@ -29,11 +29,13 @@ export class SigninComponent implements OnInit {
         localStorage.setItem('token', res.token);
 
         if (this.authService.checkToken().role === 0) {
-          this.router.navigate(['/container']);
+          this.router.navigate(['/container/dashboardAdmin']);
         } else if (this.authService.checkToken().role === 1) {
-          this.router.navigate(['/doctors']);
+          this.router.navigate(['/doctors/dashboard']);
         } else if (this.authService.checkToken().role === 2) {
-          this.router.navigate(['/users']);
+          this.router.navigate(['/users/dashboardUsers']);
+        } else {
+          this.router.navigate(['/signin']);
         }
       },
       (err) => {

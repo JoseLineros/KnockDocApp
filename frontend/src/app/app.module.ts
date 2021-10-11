@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SigninComponent } from './components/signin/signin.component';
@@ -34,6 +33,14 @@ import { CalendarComponent } from './components/doctors/calendar/calendar.compon
 import { MyPatientsComponent } from './components/doctors/my-patients/my-patients.component';
 import { MyDoctorsComponent } from './components/users/my-doctors/my-doctors.component';
 import { DashboardComponent } from './components/doctors/dashboard/dashboard.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { DashboardUsersComponent } from './components/users/dashboard-users/dashboard-users.component';
+import { DashboardAdminsComponent } from './components/container/dashboard-admins/dashboard-admins.component';
+
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+
 
 @NgModule({
   declarations: [
@@ -63,7 +70,9 @@ import { DashboardComponent } from './components/doctors/dashboard/dashboard.com
     MyPatientsComponent,
     MyDoctorsComponent,
     DashboardComponent,
-    
+    ProfileComponent,
+    DashboardUsersComponent,
+    DashboardAdminsComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +80,9 @@ import { DashboardComponent } from './components/doctors/dashboard/dashboard.com
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgxChartsModule,
+    BrowserAnimationsModule,
+    NgxMaterialTimepickerModule
   ],
   providers: [
     AuthGuard,
