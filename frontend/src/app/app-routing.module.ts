@@ -20,11 +20,13 @@ import { CalendarComponent } from './components/doctors/calendar/calendar.compon
 import { MyPatientsComponent } from './components/doctors/my-patients/my-patients.component';
 import { UsersComponent } from './components/users/users.component';
 import { MyDoctorsComponent } from './components/users/my-doctors/my-doctors.component';
-import { DashboardComponent } from './components/doctors/dashboard/dashboard.component';
 import { Auth } from './models/Auth';
+import { DashboardComponent } from './components/doctors/dashboard/dashboard.component';
 import { DashboardAdminsComponent } from './components/container/dashboard-admins/dashboard-admins.component';
 import { DashboardUsersComponent } from './components/users/dashboard-users/dashboard-users.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileUserComponent } from './components/users/profile-user/profile-user.component';
+import { ProfileDoctorComponent } from './components/doctors/profile-doctor/profile-doctor.component';
+import { ProfileAdminComponent } from './components/admin/profile-admin/profile-admin.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -42,7 +44,7 @@ const routes: Routes = [
     component: ContainerComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: 'profile', component: ProfileComponent },
+      { path: 'profileAdmin', component: ProfileAdminComponent },
       {
         path: 'dashboardAdmin',
         component: DashboardAdminsComponent,
@@ -80,7 +82,7 @@ const routes: Routes = [
     component: DoctorsComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: 'profile', component: ProfileComponent },
+      { path: 'profileDoctor', component: ProfileDoctorComponent },
       {
         path: 'dashboard',
         component: DashboardComponent,
@@ -103,7 +105,7 @@ const routes: Routes = [
     component: UsersComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: 'profile', component: ProfileComponent },
+      { path: 'profileUser', component: ProfileUserComponent },
       {
         path: 'dashboardUsers',
         component: DashboardUsersComponent,

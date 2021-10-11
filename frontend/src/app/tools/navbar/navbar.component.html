@@ -67,9 +67,9 @@
               "
             >
               <a
-                class="nav-link"
+                class="nav-link btn btn-danger"
                 routerLink="/container/dashboardAdmin"
-                style="cursor: pointer"
+                style="cursor: pointer; color: white;"
                 >Administrar</a
               >
             </span>
@@ -80,9 +80,9 @@
               "
             >
               <a
-                class="nav-link"
+                class="nav-link btn"
                 routerLink="/doctors/dashboard"
-                style="cursor: pointer"
+                style="cursor: pointer; background-color: var(--primary); color: white;"
                 >Dashboard</a
               >
             </span>
@@ -93,16 +93,16 @@
               "
             >
               <a
-                class="nav-link"
+                class="nav-link btn"
                 routerLink="/users/dashboardUsers"
-                style="cursor: pointer"
+                style="cursor: pointer; background-color: var(--secondary); color: white;"
                 >Dashboard</a
               >
             </span>
             <span *ngIf="this.authService.checkToken()">
               <a
                 class="nav-link"
-                style="cursor: pointer"
+                style="cursor: pointer; color: red; font-weight: bold;"
                 (click)="authService.logout()"
                 >Cerrar Sesion</a
               >
