@@ -10,6 +10,7 @@ import { UserService } from 'src/app/services/user/user.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { User } from 'src/app/models/User';
+import { IpsService } from 'src/app/services/ips/ips.service';
 
 @Component({
   selector: 'app-register-patient',
@@ -20,9 +21,11 @@ export class RegisterPatientComponent implements OnInit {
   isDisabled = false;
   submitted = false;
   resultado: string = '';
-  constructor(public userService: UserService, private router: Router) {}
+  constructor(public userService: UserService, public ipsService:IpsService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAllIps();
+  }
 
   formulario = new FormGroup({
     identificacion: new FormControl('', [Validators.required]),
@@ -33,6 +36,7 @@ export class RegisterPatientComponent implements OnInit {
     direccion: new FormControl('', [Validators.required]),
     celular: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required]),
+    ipsAsociado: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
     password2: new FormControl('', [Validators.required]),
     role: new FormControl('2', [Validators.required]),
@@ -91,6 +95,13 @@ export class RegisterPatientComponent implements OnInit {
       form.reset();
       this.userService.selectedUser = new User();
     }
+  }
+
+  getAllIps() {
+    this.ipsService.getAllIps().subscribe((res: any) => {
+      this.ipsService.ips = res;
+      console.log(res);
+    });
   }
 
   // signup(user: NgForm) {}

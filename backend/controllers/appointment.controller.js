@@ -9,17 +9,24 @@ const appointmentControllers = {};
 //Crear cita
 appointmentControllers.create = async (req, res) => {
     try {
-        const { date, doctorId, doctorName, userId, userName, ips, specialty, location, status } = req.body;
+        const { date, doctorId, specialty } = req.body;
+        const ips = req.decoded.ips //traida desde el verifyToken.js
+        console.log(ips)
+        const doctorinfo = await User.findOne({ identificacion: doctorId }) //localizo al doctor
+        const location = doctorinfo.direccion //Apunto a su llave direccion
+        const userId = req.decoded.userId
+        const doctorName = `${doctorinfo.nombre} ${doctorinfo.apellidos}`
+        
 
         //! Validar horario
         const appointmentExistDate = await Appointment.findOne({ date });
         // const appointmentDoctorExist = await Appointment.findOne({ doctorID });
-        if (appointmentExistDate) {
+        /* if (appointmentExistDate) {
             res.status(400).json({ message: 'Horario no disponible' });
             return;
-        }
+        } */
 
-        const newAppointment = new Appointment({ date, doctorId, doctorName, userId, userName, ips, specialty, location, status });
+        const newAppointment = new Appointment({ date, doctorId, doctorName, userId, ips, specialty, location, status: 'pendiente' });
         const appointment = await newAppointment.save();
 
         if (appointment) {
@@ -55,7 +62,8 @@ appointmentControllers.getAppointmentByUser = async (req, res) => {
         for (let i in appointmentAll) {
             console.log(`aqui`);
             const ipsInfo = await Ips.findOne({ ips: appointmentAll[i].ips });
-            const especialidadInfo = await Specialty.findOne({ specialty: appointmentAll[i].specialty });
+            console.log(ipsInfo)
+            const especialidadInfo = await Specialty.findOne({ specialtyId: appointmentAll[i].specialty });
             appointmentAll[i].ips = ipsInfo.razonSocial;
             appointmentAll[i].specialty = especialidadInfo.specialtyName;
             console.log(ipsInfo);
