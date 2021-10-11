@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -20,6 +20,8 @@ import { CalendarComponent } from './components/doctors/calendar/calendar.compon
 import { MyPatientsComponent } from './components/doctors/my-patients/my-patients.component';
 import { UsersComponent } from './components/users/users.component';
 import { MyDoctorsComponent } from './components/users/my-doctors/my-doctors.component';
+import { DashboardComponent } from './components/doctors/dashboard/dashboard.component';
+import { Auth } from './models/Auth';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -47,6 +49,7 @@ const routes: Routes = [
     path: 'doctors',
     component: DoctorsComponent, canActivate: [AuthGuard],
     children: [
+      { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
       { path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard] },
       { path: 'patients', component: MyPatientsComponent, canActivate: [AuthGuard] },
     ],
