@@ -90,6 +90,7 @@ appointmentControllers.getAppointmentByDoctor = async (req, res) => {
             // appointmentAll[i].specialty = especialidadInfo.specialtyName;
             const ipsInfo = await Ips.findOne({ ips: appointmentAll[i].ips });
             const especialidadInfo = await Specialty.findOne({ specialty: appointmentAll[i].specialty });
+            appointmentAll[i]["userinfo"]= await User.findOne({identificacion: appointmentAll[i].userId})
             appointmentAll[i].ips = ipsInfo.razonSocial;
             appointmentAll[i].specialty = especialidadInfo.specialtyName;
             console.log(ipsInfo);
