@@ -34,6 +34,7 @@ import { MyPatientsComponent } from './components/doctors/my-patients/my-patient
 import { MyDoctorsComponent } from './components/users/my-doctors/my-doctors.component';
 import { DashboardComponent } from './components/doctors/dashboard/dashboard.component';
 import { PaymentComponent } from './components/payment/payment.component';
+
 import { ProfileUserComponent } from './components/users/profile-user/profile-user.component';
 import { DashboardUsersComponent } from './components/users/dashboard-users/dashboard-users.component';
 import { DashboardAdminsComponent } from './components/container/dashboard-admins/dashboard-admins.component';
@@ -43,6 +44,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { ProfileDoctorComponent } from './components/doctors/profile-doctor/profile-doctor.component';
 import { ProfileAdminComponent } from './components/admin/profile-admin/profile-admin.component';
+<<<<<<< HEAD
+=======
+
+import { PaymentComponent } from './components/payment/payment.component';
+>>>>>>> 772edac6448633c69152af639d65569aecf13688
 
 @NgModule({
   declarations: [
@@ -72,13 +78,20 @@ import { ProfileAdminComponent } from './components/admin/profile-admin/profile-
     MyPatientsComponent,
     MyDoctorsComponent,
     DashboardComponent,
+<<<<<<< HEAD
     PaymentComponent,
     
+=======
+>>>>>>> 772edac6448633c69152af639d65569aecf13688
     ProfileUserComponent,
     DashboardUsersComponent,
     DashboardAdminsComponent,
     ProfileDoctorComponent,
     ProfileAdminComponent,
+<<<<<<< HEAD
+=======
+    PaymentComponent,
+>>>>>>> 772edac6448633c69152af639d65569aecf13688
   ],
   imports: [
     BrowserModule,

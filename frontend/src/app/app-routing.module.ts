@@ -130,7 +130,7 @@ const routes: Routes = [
       { path: 'calendar', component: CalendarComponent },
       { path: 'misDoctores', component: MyDoctorsComponent, canActivate: [AuthGuard]},
       { path: 'pago', component: PaymentComponent, canActivate: [AuthGuard]},
-  
+
     ],
   },
   { path: '**', component: Error404Component },
