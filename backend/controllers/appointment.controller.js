@@ -10,13 +10,14 @@ const appointmentControllers = {};
 appointmentControllers.create = async (req, res) => {
     try {
         const { date, hour, doctorId, specialty } = req.body;
-        const ips = req.decoded.ips //traida desde el verifyToken.js
-        console.log(ips)
-        const doctorinfo = await User.findOne({ identificacion: doctorId }) //localizo al doctor
-        const location = doctorinfo.direccion //Apunto a su llave direccion
-        const userId = req.decoded.userId
-        const doctorName = `${doctorinfo.nombre} ${doctorinfo.apellidos}`
-        
+        const ips = req.decoded.ips; //traida desde el verifyToken.js
+        console.log(ips);
+        const doctorinfo = await User.findOne({ identificacion: doctorId }); //localizo al doctor
+        const location = doctorinfo.direccion; //Apunto a su llave direccion
+        const userId = req.decoded.userId;
+        const userInfo = await User.findOne({ identificacion: userId });
+        const doctorName = `${doctorinfo.nombre} ${doctorinfo.apellidos}`;
+        const userName = `${userInfo.nombre} ${userInfo.apellidos}`;
 
         //! Validar horario
         const appointmentExistDate = await Appointment.findOne({ date });
@@ -26,7 +27,18 @@ appointmentControllers.create = async (req, res) => {
             return;
         } */
 
-        const newAppointment = new Appointment({ date, hour, doctorId, doctorName, userId, ips, specialty, location, status: 'pendiente' });
+        const newAppointment = new Appointment({
+            date,
+            hour,
+            doctorId,
+            doctorName,
+            userId,
+            userName,
+            ips,
+            specialty,
+            location,
+            status: 'pendiente',
+        });
         const appointment = await newAppointment.save();
 
         if (appointment) {
@@ -82,18 +94,8 @@ appointmentControllers.getAppointmentByDoctor = async (req, res) => {
         const doctorId = req.decoded.userId;
         const appointmentAll = await Appointment.find({ doctorId });
 
-        // const dataDoctor = await User.findOne({ identificacion: doctorId });
-        // console.log(dataDoctor);
-        // const { identificacion, nombre, apellidos } = dataDoctor;
-        // console.log(identificacion, nombre, apellidos);
-
         let result;
         for (let i in appointmentAll) {
-            // const ipsInfo = await Ips.findOne({ identificacion: appointmentAll[i].ips });
-            // const especialidadInfo = await Specialty.findOne({ specialtyId: appointmentAll[i].specialty });
-            // console.log(ipsInfo, especialidadInfo);
-            // appointmentAll[i].ips = ipsInfo.razonSocial;
-            // appointmentAll[i].specialty = especialidadInfo.specialtyName;
             const ipsInfo = await Ips.findOne({ ips: appointmentAll[i].ips });
             const especialidadInfo = await Specialty.findOne({ specialty: appointmentAll[i].specialty });
             appointmentAll[i].ips = ipsInfo.razonSocial;
