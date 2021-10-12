@@ -73,10 +73,9 @@ appointmentControllers.getAppointmentByUser = async (req, res) => {
 
         for (let i in appointmentAll) {
             const ipsInfo = await Ips.findOne({ ips: appointmentAll[i].ips });
-            const especialidadInfo = await Specialty.findOne({ specialty: appointmentAll[i].specialty });
+            const especialidadInfo = await Specialty.findOne({ specialtyId: appointmentAll[i].specialty });
             appointmentAll[i].ips = ipsInfo.razonSocial;
             appointmentAll[i].specialty = especialidadInfo.specialtyName;
-            console.log(ipsInfo);
         }
 
         if (appointmentAll) res.status(201).json(appointmentAll);
@@ -97,7 +96,7 @@ appointmentControllers.getAppointmentByDoctor = async (req, res) => {
         let result;
         for (let i in appointmentAll) {
             const ipsInfo = await Ips.findOne({ ips: appointmentAll[i].ips });
-            const especialidadInfo = await Specialty.findOne({ specialty: appointmentAll[i].specialty });
+            const especialidadInfo = await Specialty.findOne({ specialtyId: appointmentAll[i].specialty });
             appointmentAll[i]["userinfo"]= await User.findOne({identificacion: appointmentAll[i].userId})
             appointmentAll[i].ips = ipsInfo.razonSocial;
             appointmentAll[i].specialty = especialidadInfo.specialtyName;
