@@ -9,7 +9,7 @@ const appointmentControllers = {};
 //Crear cita
 appointmentControllers.create = async (req, res) => {
     try {
-        const { date, doctorId, specialty } = req.body;
+        const { date, hour, doctorId, specialty } = req.body;
         const ips = req.decoded.ips //traida desde el verifyToken.js
         console.log(ips)
         const doctorinfo = await User.findOne({ identificacion: doctorId }) //localizo al doctor
@@ -26,7 +26,7 @@ appointmentControllers.create = async (req, res) => {
             return;
         } */
 
-        const newAppointment = new Appointment({ date, doctorId, doctorName, userId, ips, specialty, location, status: 'pendiente' });
+        const newAppointment = new Appointment({ date, hour, doctorId, doctorName, userId, ips, specialty, location, status: 'pendiente' });
         const appointment = await newAppointment.save();
 
         if (appointment) {
@@ -60,9 +60,7 @@ appointmentControllers.getAppointmentByUser = async (req, res) => {
         let result;
 
         for (let i in appointmentAll) {
-            console.log(`aqui`);
             const ipsInfo = await Ips.findOne({ ips: appointmentAll[i].ips });
-            console.log(ipsInfo)
             const especialidadInfo = await Specialty.findOne({ specialtyId: appointmentAll[i].specialty });
             appointmentAll[i].ips = ipsInfo.razonSocial;
             appointmentAll[i].specialty = especialidadInfo.specialtyName;
@@ -84,10 +82,10 @@ appointmentControllers.getAppointmentByDoctor = async (req, res) => {
         const doctorId = req.decoded.userId;
         const appointmentAll = await Appointment.find({ doctorId });
 
-        const dataDoctor = await User.findOne({ identificacion: doctorId });
-        console.log(dataDoctor);
-        const { identificacion, nombre, apellidos } = dataDoctor;
-        console.log(identificacion, nombre, apellidos);
+        // const dataDoctor = await User.findOne({ identificacion: doctorId });
+        // console.log(dataDoctor);
+        // const { identificacion, nombre, apellidos } = dataDoctor;
+        // console.log(identificacion, nombre, apellidos);
 
         let result;
         for (let i in appointmentAll) {
