@@ -113,5 +113,12 @@ export class AppointmentsNewComponent implements OnInit {
 
   /* save(user: NgForm){
     console.log(user.value)
+    Swal.fire({
+      title: 'Cita creada!',
+      text: `Su cita es ${user.value.date} \n
+      Con ${user.value.doctorId}`,
+      position: 'center',
+      icon: 'success',
+    })
   } */
 }
