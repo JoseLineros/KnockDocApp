@@ -4,7 +4,7 @@ import { AppoinmentService } from 'src/app/services/appoinment/appoinment.servic
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
-  styleUrls: ['./usuarios.component.css']
+  styleUrls: ['./usuarios.component.css'],
 })
 export class UsuariosComponent implements OnInit {
   loading: boolean = true;
@@ -12,11 +12,14 @@ export class UsuariosComponent implements OnInit {
   usersDoctors: [] = [];
   usersPatients: [] = [];
 
-  constructor(public userService : UserService,
-    public appoinmentService: AppoinmentService,) {}
+  constructor(
+    public userService: UserService,
+    public appoinmentService: AppoinmentService
+  ) {}
 
   ngOnInit(): void {
     this.getAllDoctors();
+    this.getAllAppoinment();
   }
   getAllDoctors() {
     this.userService.getAllDoctors().subscribe((res) => {
@@ -27,7 +30,7 @@ export class UsuariosComponent implements OnInit {
   }
 
   getAllAppoinment() {
-    this.appoinmentService.getAllAppoinment().subscribe((res) => {
+    this.appoinmentService.getAll().subscribe((res) => {
       this.appoinmentService.appoinments = res;
       console.log(res);
     });
