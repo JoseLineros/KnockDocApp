@@ -45,13 +45,11 @@ const routes: Routes = [
     component: ContainerComponent,
     canActivate: [AuthGuard],
     children: [
-<<<<<<< HEAD
       { path: 'listDoctors', component: ListDoctorsComponent, canActivate: [AuthGuard] },
       { path: 'listUsers', component: ListUsersComponent, canActivate: [AuthGuard] },
       { path: 'appointmentsList', component: AppointmentsListComponent, canActivate: [AuthGuard] },
       { path: 'appointmentsNew', component: AppointmentsNewComponent,canActivate: [AuthGuard] },
 
-=======
       { path: 'profileAdmin', component: ProfileAdminComponent },
       {
         path: 'dashboardAdmin',
@@ -83,7 +81,6 @@ const routes: Routes = [
         component: MyDoctorsComponent,
         canActivate: [AuthGuard],
       },
->>>>>>> 065c1fafcd004577a4a5bd242883d738bface2fe
     ],
   },
   {
