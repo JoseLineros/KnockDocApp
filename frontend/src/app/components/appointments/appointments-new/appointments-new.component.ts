@@ -93,9 +93,6 @@ export class AppointmentsNewComponent implements OnInit {
           html:
           `Tu cita es el día: <b> ${appointment.value.date} </b> <br>
           Hora: <b> ${appointment.value.hour} </b> <br>
-          Especialidad: <b> ${appointment.value.specialty} </b> <br>
-          Doctor: <b> ${appointment.value.doctorId} </b> <br>
-          Dirección: <b> ${appointment.value.location} </b> <br>
           <small>Recuerda que la cita tiene una duración de 30 minutos</small>`,
           position: 'center',
           icon: 'success',

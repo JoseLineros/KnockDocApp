@@ -13,13 +13,20 @@
                   </div>
                   <p></p>
                   <div class="col-md-8">
-                    <div class="card-body p-3 pl-4 d-block d-lg-flex justify-content-between">
-                        <div>
-                            <div class="d-block d-sm-flex">
-                                <h2 class="card-title mr-1mb-1">{{this.doctor.nombre}}</h2>
+                    <div class="card-body p-3 pl-4 d-flex d-lg-flex justify-content-between">
+                        <!--<div *ngFor="let doctores in mydoctorsService.doctores[0]">-->
+                          <div class="col-md-8">
+                            <div class="card-body p-3 pl-4 d-block d-lg-flex justify-content-between">
+                                <div>
+                                    <div class="d-block d-sm-flex">
+                                        <h5 class="card-title color-blue mr-2 mb-1">{{ doctor[2].nombre }}</h5>
+                                        <h5 class="card-title text-muted mb-1"> <strong>{{ doctor[2].apellidos }}</strong></h5>
+                                    </div>
+                                    <p class="card-text mb-0">Especialidad: <strong> {{ doctor[2].especialidad }} </strong></p>
+                                    <p class="card-text"> Direccion: <strong> {{doctor[2].direccion}}, {{doctor[2].ciudad}} </strong></p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                          </div>
                   </div>
                 </div>
               </div>
