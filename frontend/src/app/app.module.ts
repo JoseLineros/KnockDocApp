@@ -44,11 +44,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { ProfileDoctorComponent } from './components/doctors/profile-doctor/profile-doctor.component';
 import { ProfileAdminComponent } from './components/admin/profile-admin/profile-admin.component';
-<<<<<<< HEAD
-=======
 
-import { PaymentComponent } from './components/payment/payment.component';
->>>>>>> 772edac6448633c69152af639d65569aecf13688
 
 @NgModule({
   declarations: [
@@ -78,20 +74,14 @@ import { PaymentComponent } from './components/payment/payment.component';
     MyPatientsComponent,
     MyDoctorsComponent,
     DashboardComponent,
-<<<<<<< HEAD
     PaymentComponent,
     
-=======
->>>>>>> 772edac6448633c69152af639d65569aecf13688
     ProfileUserComponent,
     DashboardUsersComponent,
     DashboardAdminsComponent,
     ProfileDoctorComponent,
     ProfileAdminComponent,
-<<<<<<< HEAD
-=======
     PaymentComponent,
->>>>>>> 772edac6448633c69152af639d65569aecf13688
   ],
   imports: [
     BrowserModule,
