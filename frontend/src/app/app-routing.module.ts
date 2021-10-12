@@ -19,6 +19,7 @@ import { DoctorsComponent } from './components/doctors/doctors.component';
 import { CalendarComponent } from './components/doctors/calendar/calendar.component';
 import { MyPatientsComponent } from './components/doctors/my-patients/my-patients.component';
 import { UsersComponent } from './components/users/users.component';
+import { PaymentComponent } from './components/payment/payment.component';
 import { MyDoctorsComponent } from './components/users/my-doctors/my-doctors.component';
 import { DashboardComponent } from './components/doctors/dashboard/dashboard.component';
 import { Auth } from './models/Auth';
@@ -61,6 +62,7 @@ const routes: Routes = [
       { path: 'appointmentsNew', component: AppointmentsNewComponent, canActivate: [AuthGuard] },
       { path: 'calendar', component: CalendarComponent },
       { path: 'misDoctores', component: MyDoctorsComponent, canActivate: [AuthGuard]},
+      { path: 'pago', component: PaymentComponent, canActivate: [AuthGuard]},
   
     ],
   },
