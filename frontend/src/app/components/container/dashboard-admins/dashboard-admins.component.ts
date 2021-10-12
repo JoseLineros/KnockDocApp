@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { IpsService } from 'src/app/services/ips/ips.service';
+import { SpecialtyService } from 'src/app/services/specialty/specialty.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-dashboard-admins',
@@ -7,6 +10,11 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
   styleUrls: ['./dashboard-admins.component.css'],
 })
 export class DashboardAdminsComponent {
+  usuarios = 0;
+  doctores = 0;
+  lasIPS = 0;
+  especialidades = 0;
+
   // single = [];
   view: [number, number] = [900, 400];
 
@@ -22,36 +30,64 @@ export class DashboardAdminsComponent {
 
   single = [
     {
-      name: 'Germany',
-      value: 8940000,
+      name: 'Usuarios',
+      value: 10,
     },
     {
-      name: 'USA',
-      value: 5000000,
+      name: 'Doctores',
+      value: 5,
     },
     {
-      name: 'France',
-      value: 7200000,
+      name: 'IPS',
+      value: 4,
     },
     {
-      name: 'UK',
-      value: 6200000,
+      name: 'Especialidades',
+      value: 3,
     },
   ];
 
-  constructor() {
+  constructor(
+    public userService: UserService,
+    public ipsService: IpsService,
+    public specialtyService: SpecialtyService
+  ) {
     // Object.assign(this, { single });
   }
 
   onSelect(data: any): void {
-    console.log('Item clicked', JSON.parse(JSON.stringify(data)));
+    // console.log('Item clicked', JSON.parse(JSON.stringify(data)));
   }
 
   onActivate(data: any): void {
-    console.log('Activate', JSON.parse(JSON.stringify(data)));
+    // console.log('Activate', JSON.parse(JSON.stringify(data)));
   }
 
   onDeactivate(data: any): void {
-    console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+    // console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+  }
+
+  getAllUsers() {
+    this.userService.getAllUsers().subscribe((res) => {
+      this.usuarios = res;
+    });
+  }
+
+  getAllDoctors() {
+    this.userService.getAllDoctors().subscribe((res) => {
+      this.doctores = res;
+    });
+  }
+
+  getAllIps() {
+    this.ipsService.getAllIps().subscribe((res: any) => {
+      this.lasIPS = res;
+    });
+  }
+
+  getAllSpecialtys() {
+    this.specialtyService.getAllSpecialtys().subscribe((res: any) => {
+      this.especialidades = res;
+    });
   }
 }

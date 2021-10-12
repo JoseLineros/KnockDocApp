@@ -13,7 +13,7 @@
             <div class="form-group">
 							<input
 								#name="ngModel"
-								[(ngModel)]="userServices.selectedUser._id"
+								[(ngModel)]="userService.selectedUser._id"
 								type="hidden"
 								id="_id"
 								name="_id"
@@ -23,7 +23,7 @@
               <label for="identificacion" class="text-muted"> <small> Identificacion </small></label>
               <input
                 #name="ngModel"
-                [(ngModel)]="userServices.selectedUser.identificacion"
+                [(ngModel)]="userService.selectedUser.identificacion"
                 type="text"
                 class="form-control bg-light"
                 id="identificacion"
@@ -39,7 +39,7 @@
               <label for="nombre" class="text-muted"> <small>Nombre</small></label>
               <input
                 #name="ngModel"
-                [(ngModel)]="userServices.selectedUser.nombre"
+                [(ngModel)]="userService.selectedUser.nombre"
                 type="text"
                 class="form-control bg-light"
                 id="nombre"
@@ -54,7 +54,7 @@
               <label for="apellidos" class="text-muted"> <small>Apellidos</small></label>
               <input
                 #name="ngModel"
-                [(ngModel)]="userServices.selectedUser.apellidos"
+                [(ngModel)]="userService.selectedUser.apellidos"
                 class="form-control bg-light"
                 id="apellidos"
                 name="apellidos"
@@ -68,7 +68,7 @@
               <label for="fechaNacimiento" class="text-muted"> <small> FechaNacimiento</small></label>
               <input
                 #name="ngModel"
-                [(ngModel)]="userServices.selectedUser.fechaNacimiento"
+                [(ngModel)]="userService.selectedUser.fechaNacimiento"
                 type="date"
                 class="form-control bg-light"
                 id="fechaNacimiento"
@@ -83,7 +83,7 @@
               <label for="ciudad" class="text-muted"> <small> Ciudad</small></label>
               <input
                 #name="ngModel"
-                [(ngModel)]="userServices.selectedUser.ciudad"
+                [(ngModel)]="userService.selectedUser.ciudad"
                 type="text"
                 class="form-control bg-light"
                 id="ciudad"
@@ -98,7 +98,7 @@
               <label for="direccion" class="text-muted"> <small> Dirección </small></label>
               <input
                 #name="ngModel"
-                [(ngModel)]="userServices.selectedUser.direccion"
+                [(ngModel)]="userService.selectedUser.direccion"
                 type="text"
                 class="form-control bg-light"
                 id="direccion"
@@ -113,7 +113,7 @@
               <label for="celular" class="text-muted"> <small> Celular </small></label>
               <input
                 #name="ngModel"
-                [(ngModel)]="userServices.selectedUser.celular"
+                [(ngModel)]="userService.selectedUser.celular"
                 type="text"
                 class="form-control bg-light"
                 id="celular"
@@ -123,8 +123,84 @@
                 required
               />
             </div>
+
+            <div class="form-group">
+              <label for="ipsAsociado" class="text-muted">
+                <small> IPS Asociado </small></label
+              >
+              <input
+                #name="ngModel"
+                [(ngModel)]="userService.selectedUser.ipsAsociado"
+                type="hidden"
+                class="form-control bg-light"
+                id="ipsAsociado"
+                name="ipsAsociado"
+                aria-describedby="ipsAsociado"
+                placeholder="Ingrese ips asociado"
+                readonly
+              />
+              <select
+                #name="ngModel"
+                [(ngModel)]="userService.selectedUser.ipsAsociado"
+                class="form-control"
+                id="ipsAsociado"
+                name="ipsAsociado"
+                aria-describedby="ipsAsociado"
+                placeholder="Ingrese IPS Asociado"
+                required
+              >
+                <option value="">Seleccione Opcion</option>
+                <option
+                  *ngFor="let ips of this.ipsService.ips"
+                  value="{{ ips.identificacion }}"
+                >
+                  {{ ips.razonSocial }}
+                </option>
+              </select>
+            </div>
+
+
+
+            <div class="form-group">
+              <label for="email" class="text-muted">
+                <small>Email</small></label
+              >
+
+              <input
+                #name="ngModel"
+                [(ngModel)]="userService.selectedUser.email"
+                type="text"
+                class="form-control bg-light"
+                id="email"
+                name="email"
+                aria-describedby="email"
+                placeholder="Email"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="password" class="text-muted">
+                <small>Password</small></label
+              >
+
+              <input
+                #name="ngModel"
+                [(ngModel)]="userService.selectedUser.password"
+                type="password"
+                class="form-control bg-light"
+                id="password"
+                name="password"
+                aria-describedby="password"
+                placeholder="Password"
+                required
+              />
+            </div>
+
             <div class="form-group">
               <input
+                #name="ngModel"
+                [(ngModel)]="role"
                 type="hidden"
                 class="form-control bg-light"
                 id="role"
@@ -169,7 +245,7 @@
                     <span class="visually-hidden"></span>
                   </div>
                 </div>
-                <tr *ngFor="let user of userServices.users">
+                <tr *ngFor="let user of userService.users">
                   <td class="pt-3">{{ user.identificacion }}</td>
                   <td class="pt-3">{{ user.nombre }}</td>
                   <td class="pt-3">{{ user.apellidos }}</td>

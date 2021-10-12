@@ -21,7 +21,11 @@ export class RegisterPatientComponent implements OnInit {
   isDisabled = false;
   submitted = false;
   resultado: string = '';
-  constructor(public userService: UserService, public ipsService:IpsService, private router: Router) {}
+  constructor(
+    public userService: UserService,
+    public ipsService: IpsService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getAllIps();
@@ -44,6 +48,41 @@ export class RegisterPatientComponent implements OnInit {
 
   onSubmit(user: NgForm) {
     this.submitted = true;
+
+    let expReg =
+      /[a-z0-9]+(\.[_0-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9]+)*(\.[a-z]{2,15})/i.test(
+        this.formulario.get(['email'])?.value
+      );
+    if (!expReg) {
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Ingresa un email valido',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      return;
+    }
+
+    let fechaDeNacimiento = new Date(
+      this.formulario.get(['fechaNacimiento'])?.value
+    ).getTime();
+    let hoy: any = new Date().getTime();
+    let diff = Math.round(
+      (hoy - fechaDeNacimiento) / (1000 * 60 * 60 * 24 * 365)
+    );
+
+    if (diff < 18) {
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Es menor de edad, fecha no aceptada',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      return;
+    }
+
     if (
       this.formulario.get(['password'])?.value !=
       this.formulario.get(['password2'])?.value
