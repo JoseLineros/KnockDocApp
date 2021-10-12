@@ -9,7 +9,7 @@ import { AppoinmentService } from 'src/app/services/appoinment/appoinment.servic
 export class MyPatientsComponent implements OnInit {
 
   constructor(public appoinmentService: AppoinmentService) { }
-
+  
   ngOnInit(): void {
     this.getAllAppoinment();
   }

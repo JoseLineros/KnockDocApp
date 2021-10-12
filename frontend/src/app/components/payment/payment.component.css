@@ -1,0 +1,29 @@
+.tarjetas{
+    padding: 2px;
+    margin-bottom: 10px ;
+    border-bottom: 1px solid rgb(216, 216, 216);
+}
+
+h3{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.btn {
+	background-color: var(--primary);
+	color: white;
+	font-weight: 600;
+	border-radius: 50px;
+	border: 1px solid var(--primary);
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	-ms-border-radius: 50px;
+	-o-border-radius: 50px;
+	font-size: 15px;
+}
+.btn:hover {
+	background-color: white;
+	border: 1px solid var(--primary);
+	color: var(--primary);
+	font-weight: 700;
+}

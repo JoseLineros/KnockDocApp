@@ -19,6 +19,7 @@ import { DoctorsComponent } from './components/doctors/doctors.component';
 import { CalendarComponent } from './components/doctors/calendar/calendar.component';
 import { MyPatientsComponent } from './components/doctors/my-patients/my-patients.component';
 import { UsersComponent } from './components/users/users.component';
+import { PaymentComponent } from './components/payment/payment.component';
 import { MyDoctorsComponent } from './components/users/my-doctors/my-doctors.component';
 import { Auth } from './models/Auth';
 import { DashboardComponent } from './components/doctors/dashboard/dashboard.component';
@@ -45,6 +46,11 @@ const routes: Routes = [
     component: ContainerComponent,
     canActivate: [AuthGuard],
     children: [
+      { path: 'listDoctors', component: ListDoctorsComponent, canActivate: [AuthGuard] },
+      { path: 'listUsers', component: ListUsersComponent, canActivate: [AuthGuard] },
+      { path: 'appointmentsList', component: AppointmentsListComponent, canActivate: [AuthGuard] },
+      { path: 'appointmentsNew', component: AppointmentsNewComponent,canActivate: [AuthGuard] },
+
       { path: 'profileAdmin', component: ProfileAdminComponent },
       {
         path: 'dashboardAdmin',
@@ -128,6 +134,9 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       { path: 'calendar', component: CalendarComponent },
+      { path: 'misDoctores', component: MyDoctorsComponent, canActivate: [AuthGuard]},
+      { path: 'pago', component: PaymentComponent, canActivate: [AuthGuard]},
+
     ],
   },
   { path: '**', component: Error404Component },

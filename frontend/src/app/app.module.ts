@@ -33,6 +33,8 @@ import { CalendarComponent } from './components/doctors/calendar/calendar.compon
 import { MyPatientsComponent } from './components/doctors/my-patients/my-patients.component';
 import { MyDoctorsComponent } from './components/users/my-doctors/my-doctors.component';
 import { DashboardComponent } from './components/doctors/dashboard/dashboard.component';
+import { PaymentComponent } from './components/payment/payment.component';
+
 import { ProfileUserComponent } from './components/users/profile-user/profile-user.component';
 import { DashboardUsersComponent } from './components/users/dashboard-users/dashboard-users.component';
 import { DashboardAdminsComponent } from './components/container/dashboard-admins/dashboard-admins.component';
@@ -43,6 +45,7 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { ProfileDoctorComponent } from './components/doctors/profile-doctor/profile-doctor.component';
 import { ProfileAdminComponent } from './components/admin/profile-admin/profile-admin.component';
 import { UsuariosComponent } from './components/admin/usuarios/usuarios.component';
+
 
 @NgModule({
   declarations: [
@@ -72,12 +75,15 @@ import { UsuariosComponent } from './components/admin/usuarios/usuarios.componen
     MyPatientsComponent,
     MyDoctorsComponent,
     DashboardComponent,
+    PaymentComponent,
+    
     ProfileUserComponent,
     DashboardUsersComponent,
     DashboardAdminsComponent,
     UsuariosComponent,
     ProfileDoctorComponent,
     ProfileAdminComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,

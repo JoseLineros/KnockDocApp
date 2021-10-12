@@ -89,11 +89,13 @@ export class AppointmentsNewComponent implements OnInit {
 
       this.appoinmentService.createAppoinment(appointment.value).subscribe((res) => { //Debo suscribirme al método
         Swal.fire({
+          title: 'Cita creada!',
+          html:
+          `Tu cita es el día: <b> ${appointment.value.date} </b> <br>
+          Hora: <b> ${appointment.value.hour} </b> <br>
+          <small>Recuerda que la cita tiene una duración de 30 minutos</small>`,
           position: 'center',
           icon: 'success',
-          title: 'Cita creada',
-          showConfirmButton: false,
-          timer: 1500
         })
         this.getAllAppoinment()
         console.log(res)
@@ -111,7 +113,19 @@ export class AppointmentsNewComponent implements OnInit {
       );
   }
 
-  /* save(user: NgForm){
-    console.log(user.value)
+  /* save(appointment: NgForm){
+    console.log(appointment.value)
+    Swal.fire({
+      title: 'Cita creada!',
+      html:
+      `Tu cita es el día: <b> ${appointment.value.date} </b> <br>
+      Hora: <b> ${appointment.value.hour} </b> <br>
+      Especialidad: <b> ${appointment.value.specialty} </b> <br>
+      Doctor: <b> ${appointment.value.doctorId} </b> <br>
+      Dirección: <b> ${appointment.value.location} </b> <br>
+      <small>Recuerda que la cita tiene una duración de 30 minutos</small>`,
+      position: 'center',
+      icon: 'success',
+    })
   } */
 }
