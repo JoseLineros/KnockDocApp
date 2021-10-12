@@ -1,0 +1,12 @@
+.dash-btn{
+    font-family: var(--spartan);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.logout-link{
+    color: #424242;
+    font-family: var(--spartan);
+    font-size: 13px;
+    font-weight: 600;
+}
