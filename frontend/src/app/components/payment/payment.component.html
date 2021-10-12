@@ -1,165 +1,170 @@
-<section class="credit-card">
-     <div class="container">
-             
-               <div class="card-holder">
-                 <div class="tarjetas tarjeta1 bg-news">
-                  <div class="row">
-                   <div class="col-lg-3">
-                   </div>   
-                   <div class="col-lg-6">
-                   
-                   <form>
-                     <div class="card-details">
-                       <h3 class="title">Tarjeta Debito - Credito</h3>
-                       <div class="row">
-                         <div class="form-group col-sm-7">
-                          <div class="inner-addon right-addon">
-                           <label for="card-holder">Titular de la tarjeta </label>
-                           <i class="far fa-user" style="margin-left: 10px;"></i>
-                           <input id="card-holder" type="text" class="form-control" placeholder="Nombre del titular" aria-label="Card Holder" aria-describedby="basic-addon1">
-                          </div>	
-                         </div>
-                         <div class="form-group col-sm-5">
-                           <label for="">Fecha de expiracion</label>
-                           <div class="input-group expiration-date">
-                             <input type="month" class="form-control" aria-describedby="basic-addon1">
-                           </div>
-                         </div>
-                         <div class="form-group col-sm-8">
-                          <div class="inner-addon right-addon">
-                           <label for="card-number ccn">Numero de la tarjeta</label>
-                           <i class="far fa-credit-card" style="margin-left: 10px;"></i>
-                           <input id="card-number" type="tel" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" class="form-control" aria-label="Card Holder" aria-describedby="basic-addon1">
-                          </div>	
-                         </div>
-                         <div class="form-group col-sm-4">
-                           <label for="cvc">CVC</label>
-                           <input id="CVC" type="password" maxlength="4" class="form-control" placeholder="CVC" aria-label="Card Holder" aria-describedby="basic-addon1">
-                         </div>
-                         <div class="form-group col-sm-12">
-                            <label for="referencia">Referencia</label>
-                            <i class="bi bi-chat-square-text" style="margin-left: 10px;"></i>
-                            <input id="referencia" type="text" class="form-control" placeholder="Epecificar referencia y numero de cita" aria-label="Referencia" aria-describedby="basic-addon1">
-                           </div>	
-                         <div class="form-group col-sm-12">
-                           <button type="button" class="btn btn-block">Procesar</button>
-                         </div>
-                       </div>
-                     </div>
-                   </form>				
-                   
-                   </div>
-             
-                  </div>
-                 </div>
-               </div>	 
-               
+<ul class="nav nav-pills mb-3 d-flex justify-content-center" id="pills-tab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"> Opción de pago 1 </a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"> Opción de pago 2</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Opción de pago 3</a>
+  </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+  <!-- Tarjeta de credto -->
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+    <div class="card-holder">
+      <div class="tarjetas tarjeta1 bg-news">
+       <div class="row">
+        <div class="col-lg-3">
+        </div>   
+        <div class="col-lg-6">
+        
+        <form>
+          <div class="card-details">
+            <h4 class="text-center color-blue mb-3">Tarjeta Debito - Credito</h4>
+            <div class="row">
+              <div class="form-group col-sm-7">
+               <div class="inner-addon right-addon">
+                <label for="card-holder">Titular de la tarjeta </label>
+                <i class="far fa-user" style="margin-left: 10px;"></i>
+                <input id="card-holder" type="text" class="form-control" placeholder="Nombre del titular" aria-label="Card Holder" aria-describedby="basic-addon1">
+               </div>	
+              </div>
+              <div class="form-group col-sm-5">
+                <label for="">Fecha de expiracion</label>
+                <div class="input-group expiration-date">
+                  <input type="month" class="form-control" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="form-group col-sm-8">
+               <div class="inner-addon right-addon">
+                <label for="card-number ccn">Numero de la tarjeta</label>
+                <i class="far fa-credit-card" style="margin-left: 10px;"></i>
+                <input id="card-number" type="tel" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" class="form-control" aria-label="Card Holder" aria-describedby="basic-addon1">
+               </div>	
+              </div>
+              <div class="form-group col-sm-4">
+                <label for="cvc">CVC</label>
+                <input id="CVC" type="password" maxlength="4" class="form-control" placeholder="CVC" aria-label="Card Holder" aria-describedby="basic-addon1">
+              </div>
+              <div class="form-group col-sm-12">
+                 <label for="referencia">Referencia</label>
+                 <i class="bi bi-chat-square-text" style="margin-left: 10px;"></i>
+                 <input id="referencia" type="text" class="form-control" placeholder="Epecificar referencia y numero de cita" aria-label="Referencia" aria-describedby="basic-addon1">
+                </div>	
+              <div class="form-group col-sm-12">
+                <button type="button" class="btn btn-block mt-3">Procesar</button>
+              </div>
+            </div>
+          </div>
+        </form>				
+        
+        </div>
+  
+       </div>
+      </div>
+    </div>	
+  </div>
+
+  <!-- Nequi -->
+  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+    <div class="card-holder">
+      <div class="tarjetas bg-news">
+       <div class="row">
+        <div class="col-lg-3">
+        </div>   
+        <div class="col-lg-6">
+        
+        <form>
+          <div class="card-details">
+            <h4 class="text-center color-blue mb-3">Nequi - Daviplata</h4>
+            <div class="row">
+              <div class="form-group col-sm-6">
+               <div class="inner-addon right-addon">
+                <label for="nombre1">Persona que envia </label>
+                <input id="nombre1" type="text" class="form-control" placeholder="Persona que envia" aria-label="Card Holder" aria-describedby="basic-addon1">
+               </div>	
+              </div>
+              <div class="form-group col-sm-6">
+                  <label for="nombre2">Persona que recibe </label>
+                  <input id="nombre2" type="text" class="form-control" placeholder="Persona que recibe" aria-label="nombre2" aria-describedby="basic-addon1">
+              </div>
+              <div class="form-group col-sm-8">
+               <div class="inner-addon right-addon">
+                <label for="Telefono">Numero de telefono</label>
+                <i class="bi bi-telephone" style="margin-left: 10px;"></i>
+                <input id="Telefono" type="text" class="form-control" placeholder="Numero de telefono" aria-label="Telefono" aria-describedby="basic-addon1">
+               </div>	
+              </div>
+              <div class="form-group col-sm-4">
+                <label for="Monto">Monto</label>
+                <input id="Monto" type="number" class="form-control" placeholder="Monto" aria-label="Monto" aria-describedby="basic-addon1">
+              </div>
+              <div class="form-group col-sm-12">
+                  <label for="referencia">Referencia</label>
+                  <i class="bi bi-chat-square-text" style="margin-left: 10px;"></i>
+                  <input id="referencia" type="text" class="form-control" placeholder="Epecificar referencia y numero de cita" aria-label="Referencia" aria-describedby="basic-addon1">
+                 </div>	
+              <div class="form-group col-sm-12">
+                <button type="button" class="btn btn-block mt-3">Procesar</button>
+              </div>
+            </div>
+          </div>
+        </form>				
+        
+        </div>
+  
+       </div>
+      </div>
+    </div>	
+  </div>
+
+  <!-- Efectivo -->
+  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+    <div class="card-holder">
+      <div class="tarjetas bg-news">
+       <div class="row">
+        <div class="col-lg-3">
+        </div>   
+        <div class="col-lg-6">
+        
+        <form>
+          <div class="card-details">
+            <h4 class="text-center color-blue mb-3">Efectivo</h4>
+            <div class="row">
+              <div class="form-group col-sm-6">
+               <div class="inner-addon right-addon">
+                <label for="Especialistar">Especialista </label>
+                <input id="Especialista" type="text" class="form-control" placeholder="Especialista" aria-label="Card Holder" aria-describedby="basic-addon1">
+               </div>	
+              </div>
+              <div class="form-group col-sm-6">
+                  <label for="Usuario">Usuario </label>
+                  <input id="Usuario" type="text" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1">
+              </div>
+              <div class="form-group col-sm-8">
+               <div class="inner-addon right-addon">
+                <label for="referencia">Referencia</label>
+                <i class="bi bi-chat-square-text" style="margin-left: 10px;"></i>
+                <input id="referencia" type="text" class="form-control" placeholder="Epecificar referencia y numero de cita" aria-label="Referencia" aria-describedby="basic-addon1">
+               </div>	
+              </div>
+              <div class="form-group col-sm-4">
+                <label for="monto">Monto</label>
+                <input id="monto" type="number" class="form-control" placeholder="Monto" aria-label="Monto" aria-describedby="basic-addon1">
+              </div>
+              <div class="form-group col-sm-12">
+                <button type="button" class="btn btn-block mt-3">Procesar</button>
+              </div>
+            </div>
+          </div>
+        </form>				
+        
+        </div>
+  
+       </div>
+      </div>
     </div>
-</section>
+  </div>
+</div>
 
-<section class="credit-card">
-    <div class="container">
-            
-              <div class="card-holder">
-                <div class="tarjetas bg-news">
-                 <div class="row">
-                  <div class="col-lg-3">
-                  </div>   
-                  <div class="col-lg-6">
-                  
-                  <form>
-                    <div class="card-details">
-                      <h3 class="title">Nequi - Daviplata</h3>
-                      <div class="row">
-                        <div class="form-group col-sm-6">
-                         <div class="inner-addon right-addon">
-                          <label for="nombre1">Persona que envia </label>
-                          <input id="nombre1" type="text" class="form-control" placeholder="Persona que envia" aria-label="Card Holder" aria-describedby="basic-addon1">
-                         </div>	
-                        </div>
-                        <div class="form-group col-sm-6">
-                            <label for="nombre2">Persona que recibe </label>
-                            <input id="nombre2" type="text" class="form-control" placeholder="Persona que recibe" aria-label="nombre2" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="form-group col-sm-8">
-                         <div class="inner-addon right-addon">
-                          <label for="Telefono">Numero de telefono</label>
-                          <i class="bi bi-telephone" style="margin-left: 10px;"></i>
-                          <input id="Telefono" type="text" class="form-control" placeholder="Numero de telefono" aria-label="Telefono" aria-describedby="basic-addon1">
-                         </div>	
-                        </div>
-                        <div class="form-group col-sm-4">
-                          <label for="Monto">Monto</label>
-                          <input id="Monto" type="number" class="form-control" placeholder="Monto" aria-label="Monto" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="form-group col-sm-12">
-                            <label for="referencia">Referencia</label>
-                            <i class="bi bi-chat-square-text" style="margin-left: 10px;"></i>
-                            <input id="referencia" type="text" class="form-control" placeholder="Epecificar referencia y numero de cita" aria-label="Referencia" aria-describedby="basic-addon1">
-                           </div>	
-                        <div class="form-group col-sm-12">
-                          <button type="button" class="btn btn-block">Procesar</button>
-                        </div>
-                      </div>
-                    </div>
-                  </form>				
-                  
-                  </div>
-            
-                 </div>
-                </div>
-              </div>	 
-              
-   </div>
-</section>
-
-<section class="credit-card">
-    <div class="container">
-            
-              <div class="card-holder">
-                <div class="tarjetas bg-news">
-                 <div class="row">
-                  <div class="col-lg-3">
-                  </div>   
-                  <div class="col-lg-6">
-                  
-                  <form>
-                    <div class="card-details">
-                      <h3 class="title">Efectivo</h3>
-                      <div class="row">
-                        <div class="form-group col-sm-6">
-                         <div class="inner-addon right-addon">
-                          <label for="Especialistar">Especialista </label>
-                          <input id="Especialista" type="text" class="form-control" placeholder="Especialista" aria-label="Card Holder" aria-describedby="basic-addon1">
-                         </div>	
-                        </div>
-                        <div class="form-group col-sm-6">
-                            <label for="Usuario">Usuario </label>
-                            <input id="Usuario" type="text" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="form-group col-sm-8">
-                         <div class="inner-addon right-addon">
-                          <label for="referencia">Referencia</label>
-                          <i class="bi bi-chat-square-text" style="margin-left: 10px;"></i>
-                          <input id="referencia" type="text" class="form-control" placeholder="Epecificar referencia y numero de cita" aria-label="Referencia" aria-describedby="basic-addon1">
-                         </div>	
-                        </div>
-                        <div class="form-group col-sm-4">
-                          <label for="monto">Monto</label>
-                          <input id="monto" type="number" class="form-control" placeholder="Monto" aria-label="Monto" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="form-group col-sm-12">
-                          <button type="button" class="btn btn-block">Procesar</button>
-                        </div>
-                      </div>
-                    </div>
-                  </form>				
-                  
-                  </div>
-            
-                 </div>
-                </div>
-              </div>	 
-              
-   </div>
-</section>
