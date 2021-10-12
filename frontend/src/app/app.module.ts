@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SigninComponent } from './components/signin/signin.component';
@@ -34,7 +33,19 @@ import { CalendarComponent } from './components/doctors/calendar/calendar.compon
 import { MyPatientsComponent } from './components/doctors/my-patients/my-patients.component';
 import { MyDoctorsComponent } from './components/users/my-doctors/my-doctors.component';
 import { DashboardComponent } from './components/doctors/dashboard/dashboard.component';
+<<<<<<< HEAD
 import { PaymentComponent } from './components/payment/payment.component';
+=======
+import { ProfileUserComponent } from './components/users/profile-user/profile-user.component';
+import { DashboardUsersComponent } from './components/users/dashboard-users/dashboard-users.component';
+import { DashboardAdminsComponent } from './components/container/dashboard-admins/dashboard-admins.component';
+
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { ProfileDoctorComponent } from './components/doctors/profile-doctor/profile-doctor.component';
+import { ProfileAdminComponent } from './components/admin/profile-admin/profile-admin.component';
+>>>>>>> 065c1fafcd004577a4a5bd242883d738bface2fe
 
 @NgModule({
   declarations: [
@@ -64,8 +75,16 @@ import { PaymentComponent } from './components/payment/payment.component';
     MyPatientsComponent,
     MyDoctorsComponent,
     DashboardComponent,
+<<<<<<< HEAD
     PaymentComponent,
     
+=======
+    ProfileUserComponent,
+    DashboardUsersComponent,
+    DashboardAdminsComponent,
+    ProfileDoctorComponent,
+    ProfileAdminComponent,
+>>>>>>> 065c1fafcd004577a4a5bd242883d738bface2fe
   ],
   imports: [
     BrowserModule,
@@ -73,6 +92,9 @@ import { PaymentComponent } from './components/payment/payment.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgxChartsModule,
+    BrowserAnimationsModule,
+    NgxMaterialTimepickerModule,
   ],
   providers: [
     AuthGuard,

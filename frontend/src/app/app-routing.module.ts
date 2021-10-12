@@ -21,8 +21,13 @@ import { MyPatientsComponent } from './components/doctors/my-patients/my-patient
 import { UsersComponent } from './components/users/users.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { MyDoctorsComponent } from './components/users/my-doctors/my-doctors.component';
-import { DashboardComponent } from './components/doctors/dashboard/dashboard.component';
 import { Auth } from './models/Auth';
+import { DashboardComponent } from './components/doctors/dashboard/dashboard.component';
+import { DashboardAdminsComponent } from './components/container/dashboard-admins/dashboard-admins.component';
+import { DashboardUsersComponent } from './components/users/dashboard-users/dashboard-users.component';
+import { ProfileUserComponent } from './components/users/profile-user/profile-user.component';
+import { ProfileDoctorComponent } from './components/doctors/profile-doctor/profile-doctor.component';
+import { ProfileAdminComponent } from './components/admin/profile-admin/profile-admin.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -34,32 +39,97 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'registerPatient', component: RegisterPatientComponent },
   { path: 'registerDoctor', component: RegisterDoctorComponent },
+
   {
     path: 'container',
-    component: ContainerComponent, canActivate: [AuthGuard],
+    component: ContainerComponent,
+    canActivate: [AuthGuard],
     children: [
+<<<<<<< HEAD
       { path: 'listDoctors', component: ListDoctorsComponent, canActivate: [AuthGuard] },
       { path: 'listUsers', component: ListUsersComponent, canActivate: [AuthGuard] },
       { path: 'appointmentsList', component: AppointmentsListComponent, canActivate: [AuthGuard] },
       { path: 'appointmentsNew', component: AppointmentsNewComponent,canActivate: [AuthGuard] },
 
+=======
+      { path: 'profileAdmin', component: ProfileAdminComponent },
+      {
+        path: 'dashboardAdmin',
+        component: DashboardAdminsComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'listDoctors',
+        component: ListDoctorsComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'listUsers',
+        component: ListUsersComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'appointmentsList',
+        component: AppointmentsListComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'appointmentsNew',
+        component: AppointmentsNewComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'misDoctores',
+        component: MyDoctorsComponent,
+        canActivate: [AuthGuard],
+      },
+>>>>>>> 065c1fafcd004577a4a5bd242883d738bface2fe
     ],
   },
   {
     path: 'doctors',
-    component: DoctorsComponent, canActivate: [AuthGuard],
+    component: DoctorsComponent,
+    canActivate: [AuthGuard],
     children: [
-      { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-      { path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard] },
-      { path: 'patients', component: MyPatientsComponent, canActivate: [AuthGuard] },
+      { path: 'profileDoctor', component: ProfileDoctorComponent },
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'calendar',
+        component: CalendarComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'patients',
+        component: MyPatientsComponent,
+        canActivate: [AuthGuard],
+      },
     ],
   },
   {
     path: 'users',
-    component: UsersComponent, canActivate: [AuthGuard],
+    component: UsersComponent,
+    canActivate: [AuthGuard],
     children: [
-      { path: 'appointmentsList', component: AppointmentsListComponent, canActivate: [AuthGuard] },
-      { path: 'appointmentsNew', component: AppointmentsNewComponent, canActivate: [AuthGuard] },
+      { path: 'profileUser', component: ProfileUserComponent },
+      {
+        path: 'dashboardUsers',
+        component: DashboardUsersComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'appointmentsList',
+        component: AppointmentsListComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'appointmentsNew',
+        component: AppointmentsNewComponent,
+        canActivate: [AuthGuard],
+      },
       { path: 'calendar', component: CalendarComponent },
       { path: 'misDoctores', component: MyDoctorsComponent, canActivate: [AuthGuard]},
       { path: 'pago', component: PaymentComponent, canActivate: [AuthGuard]},
