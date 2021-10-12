@@ -1,0 +1,23 @@
+<table class="table">
+    <caption>List of users</caption>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tipo de Usario</th>
+        <th scope="col">nombre/th>
+        <th scope="col">Apellidos</th>
+      </tr>
+    </thead>
+    <tbody>
+        <div *ngFor="let user of userService.users">
+            <tr>
+            <th scope="row">1</th>
+            <td>{{user.nombre}}</td>
+            <td>{{user.apellidos}}</td>
+            <td>{{user.role}}</td>
+          </tr>
+          
+        </div>
+      
+    </tbody>
+  </table>

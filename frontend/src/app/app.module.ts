@@ -40,6 +40,7 @@ import { DashboardAdminsComponent } from './components/container/dashboard-admin
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { UsuariosComponent } from './components/admin/usuarios/usuarios.component';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
     ProfileComponent,
     DashboardUsersComponent,
     DashboardAdminsComponent,
+    UsuariosComponent,
   ],
   imports: [
     BrowserModule,
