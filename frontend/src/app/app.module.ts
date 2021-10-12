@@ -33,15 +33,16 @@ import { CalendarComponent } from './components/doctors/calendar/calendar.compon
 import { MyPatientsComponent } from './components/doctors/my-patients/my-patients.component';
 import { MyDoctorsComponent } from './components/users/my-doctors/my-doctors.component';
 import { DashboardComponent } from './components/doctors/dashboard/dashboard.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileUserComponent } from './components/users/profile-user/profile-user.component';
 import { DashboardUsersComponent } from './components/users/dashboard-users/dashboard-users.component';
 import { DashboardAdminsComponent } from './components/container/dashboard-admins/dashboard-admins.component';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { ProfileDoctorComponent } from './components/doctors/profile-doctor/profile-doctor.component';
+import { ProfileAdminComponent } from './components/admin/profile-admin/profile-admin.component';
 import { UsuariosComponent } from './components/admin/usuarios/usuarios.component';
-
 
 @NgModule({
   declarations: [
@@ -71,10 +72,12 @@ import { UsuariosComponent } from './components/admin/usuarios/usuarios.componen
     MyPatientsComponent,
     MyDoctorsComponent,
     DashboardComponent,
-    ProfileComponent,
+    ProfileUserComponent,
     DashboardUsersComponent,
     DashboardAdminsComponent,
     UsuariosComponent,
+    ProfileDoctorComponent,
+    ProfileAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,7 +87,7 @@ import { UsuariosComponent } from './components/admin/usuarios/usuarios.componen
     ReactiveFormsModule,
     NgxChartsModule,
     BrowserAnimationsModule,
-    NgxMaterialTimepickerModule
+    NgxMaterialTimepickerModule,
   ],
   providers: [
     AuthGuard,

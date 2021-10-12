@@ -2,6 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const userSchema = new Schema({
     date: { type: String, required: true },
+    hour: { type: String, required: true },
     //hourStart: { type: String, required: true },
     //hourEnd: { type: String, required: true },
     doctorId: { type: String, required: true },
