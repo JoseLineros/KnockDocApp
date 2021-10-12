@@ -2,6 +2,7 @@ export class Appoinment {
   constructor(
     public _id: string = '',
     public date: string = '',
+    public hour: string = '',
     public doctorId: string = '',
     public doctorName: string = '',
     public userId: string = '',
